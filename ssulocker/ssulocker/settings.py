@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from .db import DATABASES as dbset
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'ssulocker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': dbset['default']['ENGINE'],
+        'NAME': dbset['default']['NAME'],
+        'USER':dbset['default']['USER'],
+        'PASSWORD':dbset['default']['PASSWORD'],
+        'HOST':dbset['default']['HOST'],
+        'PORT':'3306'
     }
 }
 
