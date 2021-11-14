@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.enums import Choices
+from django.db.models.fields import NullBooleanField
 from django.db.models.fields.related import ForeignKey
 class personalinfo(models.Model):
     name=models.CharField(max_length=10,help_text='이름',null=False)
@@ -13,4 +14,6 @@ class personalinfo(models.Model):
 class locker(models.Model):
     lockernum=models.IntegerField(primary_key=True)
     floor=models.IntegerField()
+    reserved=models.ForeignKey("personalinfo",related_name="reservedstudent",on_delete=models.SET_NULL,db_column="reserved",null=True)
+    sector=models.CharField(max_length=2,help_text='층별 구역',null=True)
 # Create your models here.
