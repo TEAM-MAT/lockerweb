@@ -3,6 +3,6 @@ from .models import personalinfo
 from .models import locker
 admin.site.register(locker)
 class userAdmin(admin.ModelAdmin):
-    search_fields=['user']
+    search_fields=['id']
 admin.site.register(personalinfo,userAdmin)
 # Register your models here.

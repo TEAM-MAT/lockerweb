@@ -1,0 +1,9 @@
+{% if locker_list %}
+<ul>
+    {% for l in locker_list %}
+    <li>{{l.lockernum}}</li>
+    {% endfor %}
+</ul>
+{%else%}
+<p>no lockers available</p>
+{%endif%}
