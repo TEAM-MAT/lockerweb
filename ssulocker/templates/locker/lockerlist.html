@@ -1,10 +1,27 @@
-<h1>사물함목록</h1>
-{% if locker_list %}
-<ul>
-    {% for l in locker_list %}
-    <li>{{l.lockernum}}</li>
-    {% endfor %}
-</ul>
-{%else%}
-<p>no lockers available</p>
-{%endif%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숭실대학교 IT대학 사물함 예약 웹사이트</title>
+</head>
+
+<body>
+    <h1>사물함목록</h1>
+    <main>
+        {% if locker_list %}
+        <ul>
+            {% for l in locker_list %}
+            <li>{{l.lockernum}}</li>
+            {% endfor %}
+        </ul>
+        {%else%}
+        <p>no lockers available</p>
+        {%endif%}
+    </main>
+
+</body>
+
+</html>
