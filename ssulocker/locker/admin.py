@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import personalinfo
-from .models import locker
-admin.site.register(locker)
+from .models import users
+from .models import lockers
+admin.site.register(lockers)
 class userAdmin(admin.ModelAdmin):
     search_fields=['id']
-admin.site.register(personalinfo,userAdmin)
+admin.site.register(users,userAdmin)
 # Register your models here.
