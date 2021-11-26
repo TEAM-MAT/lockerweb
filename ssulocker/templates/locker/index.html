@@ -61,34 +61,23 @@
             <p id="passwdRule" class="m-2 text-sm-center" style="font-size: 1.5vw;">비밀번호는 학우님의 휴대전화 뒤 8자리입니다.</p>
             <p id="passwdExample" class="m-2 text-sm-center" style="font-size: 1.5vw;">Ex) 010-1234-5678인 경우: 12345678
             </p>
-            <div class="loginbox">
-            <form method="post",class="post-form",action="{% url 'locker:login' %}" style="font-size: 1.5vw;">
-                {% csrf_token %}
-
-                <!-- 학번 -->
-                <div class="form-group m-sm-3">
-                    <label for="username" class="form-label">학번</label>
-                    <div>
+            <div class="container-sm border border-5 border-primary rounded-3">
+                <form method="post" class="post-form" action="{% url 'login:login' %}">
+                    {% csrf_token %}
+                    {% include "form_errors.html" %}
+                    <div class="form-group m-sm-3">
+                        <label for="username" class="form-label">학번</label>
                         <input type="text" id="username" class="form-control rounded-3",name="username"
                         value="{{form.username.value|default_if_none:''}}">
                     </div>
-                </div>
-                <!-- 비밀번호 -->
-                <div class="form-group m-sm-3">
-                    <label for="password" class="form-label">비밀번호</label>
-                    <div>
+                    <div class="form-group m-sm-3">
+                        <label for="password" class="form-label">학번</label>
                         <input type="password" id="password" class="form-control rounded-3",name="password"
                         value="{{form.password.value|default_if_none:''}}">
                     </div>
-                </div>
-                <!-- submit -->
-                <div class="form-group m-sm-3">
-                    <div>
-                        <button type="submit" class="btn btn-primary rounded-3"
-                            style="background-color: #89c6dc;border-color: #89c6dc;">로그인</button>
-                    </div>
-                </div>
-            </form>
+                    <button type="submit" class="btn btn-primary rounded-3"
+                        style="background-color: #89c6dc;border-color: #89c6dc;">로그인</button>
+                </form>
             </div>
         </div>
     </main>
