@@ -54,10 +54,10 @@ class users(AbstractBaseUser):
     REQUIRED_FIELDS=['name','department','password']
     def __str__(self):
         return self.name
-def has_perm(self,perm,obj=None):
-    return True
-def has_module_perms(self,app_label):
-    return True
-@property
-def is_staff(self):
-    return self.is_admin
+    def has_perm(self,perm,obj=None):
+        return True
+    def has_module_perms(self,app_label):
+        return True
+    @property
+    def is_staff(self):
+        return self.is_admin
