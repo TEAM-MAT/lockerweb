@@ -1,0 +1,72 @@
+@import "reset";
+@import "color";
+@import "font";
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    h1 {
+        text-align: center;
+    }
+}
+
+#infoDiv {
+    margin-left: 15%;
+    width: 70%;
+    background-color: $slblue;
+    ul {
+        @include flex-center;
+        padding: 0;
+        list-style: none;
+        @media (max-width: 650px) {
+            display: inline-flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        li {
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: row;
+            text-align: center;
+            margin: 0.5vh;
+            @media (max-width: 650px) {
+                display: inline-flex;
+                flex-direction: column;
+                margin: 1vh;
+                font-size: 90%;
+            }
+            span {
+                margin: 0px 5px;
+            }
+            :nth-child(1) {
+                width: 22vh;
+            }
+        }
+    }
+}
+
+#loginDiv {
+    @include flex-center;
+    margin-left: 15%;
+    width: 70%;
+    background-color: $lblue;
+    * {
+        margin: 0.8vh;
+    }
+    input {
+        border: none;
+    }
+}
+
+#loginForm {
+    @include flex-center;
+}
+
+footer {
+    @include flex-center;
+}
