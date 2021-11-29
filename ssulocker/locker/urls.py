@@ -6,5 +6,5 @@ app_name='locker'
 urlpatterns = [
     path('', views.index, name='index'),
     path('lockerlist',views.lockerlist,name='lockerlist'),
-    path('login/',views.login,name='login')
+    path('login',views.login,name='login')
 ]
