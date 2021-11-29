@@ -17,19 +17,7 @@ class lockers(models.Model):
     building=models.CharField(max_length=6,choices=buildings,default='IS')
     department=models.CharField(max_length=4,choices=departments,default="CS")
 class UserManager(BaseUserManager):
-    def create_user(self,name,id,department,password):
-        if not name:
-            raise ValueError("USERS MUST HAVE NAME")
-        else:
-            user=self.model(
-                name=name,
-                id=id,
-                department=department
-            )
-            user.set_password(password)
-            user.save(using=self._db)
-            return user
-    def create_superuser(self,name,id,department,password):
+    def create_user(self,name,id,department,password=None):
         if not name:
             raise ValueError("USERS MUST HAVE NAME")
         user=self.model(
@@ -38,13 +26,26 @@ class UserManager(BaseUserManager):
             department=department
         )
         user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self,name,id,department,password):
+        if not name:
+            raise ValueError("USERS MUST HAVE NAME")
+        user=self.create_user(
+            name=name,
+            id=id,
+            department=department,
+            password=password
+        )
         user.is_admin=True
         user.save(using=self._db)
         return user
+
+        
 class users(AbstractBaseUser):
     name=models.CharField(max_length=10,help_text='이름',null=False)
     id=models.CharField(max_length=8,help_text="학번",primary_key=True,null=False,unique=True)
-    password=models.CharField(max_length=20,null=False,default='abcdefg')
     lockernum=ForeignKey(lockers,related_name="lockerusing",on_delete=SET_NULL,db_column="lockernum",null=True)
     department=models.CharField(max_length=4,choices=departments,default='CS')
     is_active=models.BooleanField(default=True)
@@ -54,10 +55,16 @@ class users(AbstractBaseUser):
     REQUIRED_FIELDS=['name','department','password']
     def __str__(self):
         return self.name
-def has_perm(self,perm,obj=None):
-    return True
-def has_module_perms(self,app_label):
-    return True
-@property
-def is_staff(self):
-    return self.is_admin
+    def has_perm(self,perm,obj=None):
+        if self.is_admin==True and self.is_active==True:
+            return True
+        else:
+            return False
+    def has_module_perms(self,app_label):
+        if self.is_admin==True and self.is_active==True:
+            return True
+        else:
+            return False
+    @property
+    def is_staff(self):
+        return self.is_admin
