@@ -62,7 +62,7 @@
             <p id="passwdExample" class="m-2 text-sm-center" style="font-size: 1.5vw;">Ex) 010-1234-5678인 경우: 12345678
             </p>
             <div class="container-sm border border-5 border-primary rounded-3">
-                <form method="post" class="post-form" action="{% url 'login:login' %}">
+                <form method="post" class="post-form" action="{% url 'locker:login' %}">
                     {% csrf_token %}
                     {% include "form_errors.html" %}
                     <div class="form-group m-sm-3">
