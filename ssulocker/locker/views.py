@@ -9,10 +9,5 @@ def lockerlist(request):
     locker_list=lockers.objects.order_by('lockernum')
     context={"locker_list":locker_list}
     return render(request,'locker/lockerlist.html',context)
-def login(request):
-    if request.method=='POST':
-        username=request.POST['username']
-        password=request.POST['password']
-        user=aut.authenticate(request,username=username,passord=password)
         
 # Create your views here.
