@@ -2,16 +2,25 @@
 @import "color";
 @import "font";
 
-@mixin flex-center {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+@mixin flex-center(
+    $arg_display: flex,
+    $arg_justifycontent: center,
+    $arg_flexdirection: column,
+    $arg_alignitems: center
+) {
+    display: $arg_display;
+    justify-content: $arg_justifycontent;
+    flex-direction: $arg_flexdirection;
+    align-items: $arg_alignitems;
 }
 
 header {
     h1 {
         text-align: center;
+        text-shadow: 3px 3px 5px $dblue;
+    }
+    @media (max-width: 650px) {
+        font-size: 1.5vh;
     }
 }
 
@@ -20,7 +29,7 @@ header {
     width: 70%;
     background-color: $slblue;
     ul {
-        @include flex-center;
+        @include flex-center();
         padding: 0;
         list-style: none;
         @media (max-width: 650px) {
@@ -44,29 +53,64 @@ header {
                 margin: 0px 5px;
             }
             :nth-child(1) {
-                width: 22vh;
+                min-width: 22vh;
             }
         }
     }
 }
 
 #loginDiv {
-    @include flex-center;
+    @include flex-center();
     margin-left: 15%;
     width: 70%;
     background-color: $lblue;
     * {
         margin: 0.8vh;
     }
+    span {
+        text-align: center;
+        font-size: 2.5vh;
+    }
+    span#passwdRule {
+        font-weight: 500;
+    }
     input {
         border: none;
+        box-shadow: 3px 3px 3px $dblue;
     }
 }
 
 #loginForm {
-    @include flex-center;
+    @include flex-center();
+    div {
+        @include flex-center(flex, center, column, center);
+    }
+    @media (max-width: 650px) {
+        div {
+            @include flex-center(flex, center, row, center);
+        }
+    }
+    button {
+        appearance: none;
+        border: none;
+
+        background-color: $slblue;
+        box-shadow: 2px 2px 5px $dblue;
+    }
+    button:hover {
+        background-color: $dblue;
+        color: $slblue;
+    }
 }
 
 footer {
-    @include flex-center;
+    @include flex-center();
+    a,
+    a:visited {
+        text-decoration: none;
+        color: $lblue;
+    }
+    a:hover {
+        color: $dblue;
+    }
 }
