@@ -1,7 +1,7 @@
 <!-- {% load static %} -->
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}<!-- 절대 고치지 말것-->
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,7 +10,8 @@
     <!-- Django 실행용 -->
     <!-- <link rel="stylesheet" href="{% static 'main.css' %}" /> -->
     <!-- 디자인용 -->
-    <link rel="stylesheet" href="../../locker/static/main.css">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <!--절대 고치지 말것-->
 
 </head>
 
