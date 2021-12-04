@@ -6,9 +6,10 @@ from .models import lockers
 from django.db import connection
 def index(request):
     #학부 별 남은라커 수/라커 수 구해서 띄워줄 것임.
-    CS_reserved=lockers.objects.filter(department="CS" , reserved=1).count('lockernum')
+    CS_left=lockers.objects.filter(department="CS" , reserved=0).count('lockernum')
     CS_lockers=lockers.objects.filter(department="CS").count('lockernum')
-    return render(request,'locker/index.html')
+    context={"CS_left":CS_left,"CS_lockers":CS_lockers}
+    return render(request,'locker/index.html',context)
 def lockerlist(request):
     locker_list=lockers.objects.order_by('lockernum')
     context={"locker_list":locker_list}
