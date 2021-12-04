@@ -1,0 +1,11 @@
+@mixin flex-default(
+    $arg_display: flex,
+    $arg_justifycontent: center,
+    $arg_flexdirection: column,
+    $arg_alignitems: center,
+) {
+    display: $arg_display;
+    justify-content: $arg_justifycontent;
+    flex-direction: $arg_flexdirection;
+    align-items: $arg_alignitems;
+}
