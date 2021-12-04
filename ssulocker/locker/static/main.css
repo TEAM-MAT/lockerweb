@@ -18,6 +18,13 @@ body {
 
 header h1 {
   text-align: center;
+  text-shadow: 3px 3px 5px #2471a3;
+}
+
+@media (max-width: 650px) {
+  header {
+    font-size: 1.5vh;
+  }
 }
 
 #infoDiv {
@@ -92,7 +99,7 @@ header h1 {
 }
 
 #infoDiv ul li :nth-child(1) {
-  width: 22vh;
+  min-width: 22vh;
 }
 
 #loginDiv {
@@ -118,8 +125,19 @@ header h1 {
   margin: 0.8vh;
 }
 
+#loginDiv span {
+  text-align: center;
+  font-size: 2.5vh;
+}
+
+#loginDiv span#passwdRule {
+  font-weight: 500;
+}
+
 #loginDiv input {
   border: none;
+  -webkit-box-shadow: 3px 3px 3px #2471a3;
+          box-shadow: 3px 3px 3px #2471a3;
 }
 
 #loginForm {
@@ -138,6 +156,55 @@ header h1 {
           align-items: center;
 }
 
+#loginForm div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 650px) {
+  #loginForm div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+#loginForm button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background-color: #ebf5fb;
+  -webkit-box-shadow: 2px 2px 5px #2471a3;
+          box-shadow: 2px 2px 5px #2471a3;
+}
+
+#loginForm button:hover {
+  background-color: #2471a3;
+  color: #ebf5fb;
+}
+
 footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -153,3 +220,14 @@ footer {
       -ms-flex-align: center;
           align-items: center;
 }
+
+footer a,
+footer a:visited {
+  text-decoration: none;
+  color: #85c1e9;
+}
+
+footer a:hover {
+  color: #2471a3;
+}
+/*# sourceMappingURL=main.css.map */

@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IT대학 사물함 예약 웹사이트</title>
-    <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <!-- Django 실행용 -->
+    <!-- <link rel="stylesheet" href="{% static 'main.css' %}" /> -->
+    <!-- 디자인용 -->
+    <link rel="stylesheet" href="../../locker/static/main.css">
+
 </head>
 
 <body>
@@ -50,18 +54,23 @@
             </ul>
         </div>
         <div id="loginDiv">
-            <span id="passwdRule">비밀번호는 학우님의 휴대전화 뒤 8자리입니다.</span>
-            <span id="passwdExample">Ex) 010-1234-5678인 경우: 12345678</span>
+            <span id="passwdRule">💡 비밀번호는 학우님의 휴대전화 뒤 8자리입니다.</span>
+            <span id="passwdExample">예시) 010-1234-5678인 경우: 12345678</span>
             <form id="loginForm" action="{% url 'locker:login' %}" class="bold post-form" method="post">
                 {% csrf_token %}
                 {% include "form_errors.html" %}
                 <!-- 학번 -->
-                <label for="username">학번</label>
-                <input type="text" id="username" class="form-control" name="username" 
-                value="{{ form.username.value|default_if_none:'' }}" />
+                <div>
+                    <label for="username">학번</label>
+                    <input type="text" id="username" class="form-control" name="username"
+                        value="{{ form.username.value|default_if_none:'' }}" />
+                </div>
                 <!-- 비밀번호 -->
-                <label for="password">비밀번호</label>
-                <input type="password" class="form-control" name="password" id="password" value="{{ form.password.value|default_if_none:'' }} "/>
+                <div>
+                    <label for="password">비밀번호</label>
+                    <input type="password" class="form-control" name="password" id="password"
+                        value="{{ form.password.value|default_if_none:'' }} " />
+                </div>
                 <!-- submit -->
                 <button type="submit">로그인</button>
             </form>
