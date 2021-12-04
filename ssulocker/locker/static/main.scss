@@ -1,8 +1,13 @@
-@import "reset";
-@import "color";
-@import "font";
+@import 'default/reset';
+@import 'default/color';
+@import 'default/font';
+@import 'default/mixins';
 
-@mixin flex-center(
+@import 'divs/infoDiv';
+@import 'divs/loginDiv';
+@import 'divs/contactDiv';
+
+@mixin flex-default(
     $arg_display: flex,
     $arg_justifycontent: center,
     $arg_flexdirection: column,
@@ -17,98 +22,24 @@
 header {
     h1 {
         text-align: center;
-        text-shadow: 3px 3px 5px $dblue;
     }
     @media (max-width: 650px) {
         font-size: 1.5vh;
     }
 }
 
-#infoDiv {
-    margin-left: 15%;
-    width: 70%;
-    background-color: $slblue;
-    ul {
-        @include flex-center();
-        padding: 0;
-        list-style: none;
-        @media (max-width: 650px) {
-            display: inline-flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        li {
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: row;
-            text-align: center;
-            margin: 0.5vh;
-            @media (max-width: 650px) {
-                display: inline-flex;
-                flex-direction: column;
-                margin: 1vh;
-                font-size: 90%;
-            }
-            span {
-                margin: 0px 5px;
-            }
-            :nth-child(1) {
-                min-width: 22vh;
-            }
-        }
-    }
-}
-
-#loginDiv {
-    @include flex-center();
-    margin-left: 15%;
-    width: 70%;
-    background-color: $lblue;
-    * {
-        margin: 0.8vh;
-    }
-    span {
-        text-align: center;
-        font-size: 2.5vh;
-    }
-    span#passwdRule {
-        font-weight: 500;
-    }
-    input {
-        border: none;
-        box-shadow: 3px 3px 3px $dblue;
-    }
-}
-
-#loginForm {
-    @include flex-center();
-    div {
-        @include flex-center(flex, center, column, center);
-    }
-    @media (max-width: 650px) {
-        div {
-            @include flex-center(flex, center, row, center);
-        }
-    }
-    button {
-        appearance: none;
-        border: none;
-
-        background-color: $slblue;
-        box-shadow: 2px 2px 5px $dblue;
-    }
-    button:hover {
-        background-color: $dblue;
-        color: $slblue;
-    }
-}
-
 footer {
-    @include flex-center();
+    position: fixed;
+    left: 1%;
+    bottom: 1%;
+    text-align: center;
+    @media (max-width: 1200px) {
+        position: relative;
+    }
     a,
     a:visited {
         text-decoration: none;
-        color: $lblue;
+        color: $black;
     }
     a:hover {
         color: $dblue;
