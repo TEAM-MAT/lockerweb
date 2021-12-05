@@ -154,7 +154,11 @@ body {
   box-shadow: 3px 3px 3px #003D8E;
 }
 #loginForm button {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  min-width: 122px;
+  min-height: 48px;
   border: none;
   background-color: #ebf5fb;
   box-shadow: 2px 2px 5px #D1E4FF;
@@ -219,12 +223,19 @@ body {
   margin: 0px 5px;
 }
 #contactDiv :nth-of-type(1) {
-  min-width: 22vh;
+  min-width: 10rem;
 }
 @media (max-width: 650px) {
   #contactDiv :nth-of-type(1) {
     min-width: 0vh;
   }
+}
+
+#lockerlistDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 header h1 {
@@ -254,6 +265,4 @@ footer a:visited {
 }
 footer a:hover {
   color: #D1E4FF;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
