@@ -1,0 +1,46 @@
+@import '../default/mixins';
+
+#contactDiv {
+    margin-left: 30%;
+    width: 40%;
+    @media (max-width: 650px) {
+        margin-left: 15%;
+        width: 70%;
+    }
+    background-color: $white;
+    border: 5px solid $lblue;
+    border-radius: 5px;
+    box-sizing: border-box;
+    ul {
+        @include flex-default();
+        width: 100%;
+        padding: 0;
+        list-style: none;
+        @media (max-width: 650px) {
+            display: inline-flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+    li {
+        @include flex-default(flex, flex-end, row, center);
+        text-align: center;
+        margin: 0.3vh;
+        @media (max-width: 650px) {
+            @include flex-default(inline-flex, flex-end, column, center);
+            flex-wrap: wrap;
+            width: 40%;
+            margin: 1vh;
+            font-size: 90%;
+        }
+    }
+    span {
+        margin: 0px 5px;
+    }
+    :nth-of-type(1) {
+        min-width: 22vh;
+        @media (max-width: 650px) {
+            min-width: 0vh;
+        }
+    }
+}

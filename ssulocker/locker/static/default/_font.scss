@@ -1,0 +1,19 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+* {
+    @media (max-width: 650px) {
+        font-size: min(3vh, 13px) !important;
+    }
+}
+h1 {
+    font-size: max(2em, 20px);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Pretendard, Roboto,
+        'Noto Sans KR', 'Segoe UI', 'Malgun Gothic', sans-serif;
+}
+
+
+.bold {
+    font-weight: bold;
+}

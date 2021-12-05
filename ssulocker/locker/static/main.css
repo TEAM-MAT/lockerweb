@@ -8,228 +8,252 @@ footer {
   padding: 0;
 }
 
+@media (max-width: 650px) {
+  * {
+    font-size: min(3vh, 13px) !important;
+  }
+}
+
+h1 {
+  font-size: max(2em, 20px);
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
- Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
- sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
 }
 
 .bold {
   font-weight: bold;
 }
 
-header h1 {
+#infoDiv {
+  margin-left: 20%;
+  margin-bottom: 1%;
+  width: 60%;
+  background-color: #E5F0FF;
+  border-radius: 5px;
+}
+@media (max-width: 650px) {
+  #infoDiv {
+    margin-left: 15%;
+    width: 70%;
+  }
+}
+#infoDiv ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 1200px) {
+  #infoDiv ul {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+#infoDiv li {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
   text-align: center;
-  text-shadow: 3px 3px 5px #2471a3;
+  width: 60%;
+  margin: 0.5vh;
+}
+@media (max-width: 1200px) {
+  #infoDiv li {
+    display: inline-flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 40%;
+    margin: 1vh;
+    font-size: 90%;
+  }
+}
+#infoDiv span {
+  margin: 0px 5px;
+}
+#infoDiv :nth-of-type(1) {
+  min-width: 22vh;
+}
+@media (max-width: 650px) {
+  #infoDiv :nth-of-type(1) {
+    min-width: 0vh;
+  }
 }
 
+#loginDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20%;
+  margin-bottom: 1%;
+  width: 60%;
+  background-color: #D1E4FF;
+  border-radius: 5px;
+}
+@media (max-width: 650px) {
+  #loginDiv {
+    margin-left: 15%;
+    width: 70%;
+  }
+}
+#loginDiv * {
+  margin: 0.5vh;
+}
+#loginDiv span {
+  text-align: center;
+  font-size: 2.5vh;
+}
+#loginDiv span#passwdRule {
+  font-weight: 500;
+}
+
+#loginForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#loginForm .inputDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 650px) {
+  #loginForm .inputDiv {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+#loginForm input {
+  border: none;
+  width: 80%;
+  height: 2rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #ebf5fb;
+  transition: box-shadow 0.5s;
+}
+@media (max-width: 650px) {
+  #loginForm input {
+    width: 60%;
+  }
+}
+#loginForm :focus {
+  outline: none;
+  box-shadow: 3px 3px 3px #003D8E;
+}
+#loginForm button {
+  appearance: none;
+  border: none;
+  background-color: #ebf5fb;
+  box-shadow: 2px 2px 5px #D1E4FF;
+  border-radius: 5px;
+}
+#loginForm button:hover {
+  background-color: #D1E4FF;
+  color: white;
+}
+
+#contactDiv {
+  margin-left: 30%;
+  width: 40%;
+  background-color: #fff;
+  border: 5px solid #E5F0FF;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+@media (max-width: 650px) {
+  #contactDiv {
+    margin-left: 15%;
+    width: 70%;
+  }
+}
+#contactDiv ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 650px) {
+  #contactDiv ul {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+#contactDiv li {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  margin: 0.3vh;
+}
+@media (max-width: 650px) {
+  #contactDiv li {
+    display: inline-flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 40%;
+    margin: 1vh;
+    font-size: 90%;
+  }
+}
+#contactDiv span {
+  margin: 0px 5px;
+}
+#contactDiv :nth-of-type(1) {
+  min-width: 22vh;
+}
+@media (max-width: 650px) {
+  #contactDiv :nth-of-type(1) {
+    min-width: 0vh;
+  }
+}
+
+header h1 {
+  text-align: center;
+}
 @media (max-width: 650px) {
   header {
     font-size: 1.5vh;
   }
 }
 
-#infoDiv {
-  margin-left: 15%;
-  width: 70%;
-  background-color: #ebf5fb;
-}
-
-#infoDiv ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0;
-  list-style: none;
-}
-
-@media (max-width: 650px) {
-  #infoDiv ul {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-}
-
-#infoDiv ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  text-align: center;
-  margin: 0.5vh;
-}
-
-@media (max-width: 650px) {
-  #infoDiv ul li {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    margin: 1vh;
-    font-size: 90%;
-  }
-}
-
-#infoDiv ul li span {
-  margin: 0px 5px;
-}
-
-#infoDiv ul li :nth-child(1) {
-  min-width: 22vh;
-}
-
-#loginDiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: 15%;
-  width: 70%;
-  background-color: #85c1e9;
-}
-
-#loginDiv * {
-  margin: 0.8vh;
-}
-
-#loginDiv span {
-  text-align: center;
-  font-size: 2.5vh;
-}
-
-#loginDiv span#passwdRule {
-  font-weight: 500;
-}
-
-#loginDiv input {
-  border: none;
-  -webkit-box-shadow: 3px 3px 3px #2471a3;
-          box-shadow: 3px 3px 3px #2471a3;
-}
-
-#loginForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#loginForm div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-@media (max-width: 650px) {
-  #loginForm div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
-
-#loginForm button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border: none;
-  background-color: #ebf5fb;
-  -webkit-box-shadow: 2px 2px 5px #2471a3;
-          box-shadow: 2px 2px 5px #2471a3;
-}
-
-#loginForm button:hover {
-  background-color: #2471a3;
-  color: #ebf5fb;
-}
-
 footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  position: fixed;
+  left: 1%;
+  bottom: 1%;
+  text-align: center;
 }
-
+@media (max-width: 1200px) {
+  footer {
+    position: relative;
+  }
+}
 footer a,
 footer a:visited {
   text-decoration: none;
-  color: #85c1e9;
+  color: #17202a;
+}
+footer a:hover {
+  color: #D1E4FF;
 }
 
-footer a:hover {
-  color: #2471a3;
-}
 /*# sourceMappingURL=main.css.map */

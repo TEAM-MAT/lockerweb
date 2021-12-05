@@ -1,0 +1,45 @@
+@import '../default/mixins';
+
+#infoDiv {
+    margin-left: 20%;
+    margin-bottom: 1%;
+    width: 60%;
+    @media (max-width: 650px) {
+        margin-left: 15%;
+        width: 70%;
+    }
+    background-color: $lblue;
+    border-radius: 5px;
+    ul {
+        @include flex-default();
+        padding: 0;
+        list-style: none;
+        @media (max-width: 1200px) {
+            display: inline-flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+    li {
+        @include flex-default(flex, space-between, row, center);
+        text-align: center;
+        width: 60%;
+        margin: 0.5vh;
+        @media (max-width: 1200px) {
+            @include flex-default(inline-flex, flex-end, column, center);
+            flex-wrap: wrap;
+            width: 40%;
+            margin: 1vh;
+            font-size: 90%;
+        }
+    }
+    span {
+        margin: 0px 5px;
+    }
+    :nth-of-type(1) {
+        min-width: 22vh;
+        @media (max-width: 650px) {
+            min-width: 0vh;
+        }
+    }
+}
