@@ -1,61 +1,61 @@
 #loginDiv {
-    @include flex-default();
-    margin-left: 20%;
-    margin-bottom: 1%;
-    width: 60%;
-    @media (max-width: 650px) {
-        margin-left: 15%;
-        width: 70%;
-    }
-    background-color: $dblue;
-    border-radius: 5px;
-    * {
-        margin: 0.5vh;
-    }
-    span {
-        text-align: center;
-        font-size: 2.5vh;
-    }
-    span#passwdRule {
-        font-weight: 500;
-    }
+  @include flex-default();
+  margin-left: 20%;
+  margin-bottom: 1%;
+  width: 60%;
+  @media (max-width: 650px) {
+    margin-left: 15%;
+    width: 70%;
+  }
+  background-color: $dblue;
+  border-radius: 5px;
+  * {
+    margin: 0.5vh;
+  }
+  span {
+    text-align: center;
+    font-size: 1rem;
+  }
+  span#passwdRule {
+    font-weight: 500;
+  }
 }
 
 #loginForm {
-    @include flex-default();
-    .inputDiv {
-        @include flex-default(flex, center, column, center);
-        width: 100%;
-        @media (max-width: 650px) {
-            @include flex-default(flex, space-between, row, center);
-        }
+  @include flex-default();
+  .inputDiv {
+    @include flex-default(flex, center, column, center);
+    width: 100%;
+    @media (max-width: 650px) {
+      @include flex-default(flex, space-between, row, center);
     }
-    input {
-        border: none;
-        width: 80%;
-        @media (max-width: 650px) {
-            width: 60%;
-        }
-        height: 2rem;
-        border-radius: 5px;
-        box-shadow: 3px 3px 3px $slblue;
-        transition: box-shadow 0.5s;
+  }
+  input {
+    border: none;
+    width: 80%;
+    @media (max-width: 650px) {
+      width: 60%;
     }
-    :focus {
-        outline: none;
-        box-shadow: 3px 3px 3px $bblue;
-    }
-    button {
-        appearance: none;
-        min-width: 122px;
-        min-height: 48px;
-        border: none;
-        background-color: $slblue;
-        box-shadow: 2px 2px 5px $dblue;
-        border-radius: 5px;
-    }
-    button:hover {
-        background-color: $dblue;
-        color: white;
-    }
+    height: 2rem;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px $slblue;
+    transition: box-shadow 0.5s;
+  }
+  :focus {
+    outline: none;
+    box-shadow: 3px 3px 3px $bblue;
+  }
+  button {
+    appearance: none;
+    min-width: 122px;
+    min-height: 48px;
+    border: none;
+    background-color: $slblue;
+    box-shadow: 2px 2px 5px $dblue;
+    border-radius: 5px;
+  }
+  button:hover {
+    background-color: $dblue;
+    color: white;
+  }
 }

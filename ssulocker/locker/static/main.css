@@ -30,7 +30,7 @@ body {
   margin-left: 20%;
   margin-bottom: 1%;
   width: 60%;
-  background-color: #E5F0FF;
+  background-color: #e5f0ff;
   border-radius: 5px;
 }
 @media (max-width: 650px) {
@@ -79,7 +79,7 @@ body {
   margin: 0px 5px;
 }
 #infoDiv :nth-of-type(1) {
-  min-width: 22vh;
+  min-width: 10rem;
 }
 @media (max-width: 650px) {
   #infoDiv :nth-of-type(1) {
@@ -95,7 +95,7 @@ body {
   margin-left: 20%;
   margin-bottom: 1%;
   width: 60%;
-  background-color: #D1E4FF;
+  background-color: #d1e4ff;
   border-radius: 5px;
 }
 @media (max-width: 650px) {
@@ -109,7 +109,7 @@ body {
 }
 #loginDiv span {
   text-align: center;
-  font-size: 2.5vh;
+  font-size: 1rem;
 }
 #loginDiv span#passwdRule {
   font-weight: 500;
@@ -151,7 +151,7 @@ body {
 }
 #loginForm :focus {
   outline: none;
-  box-shadow: 3px 3px 3px #003D8E;
+  box-shadow: 3px 3px 3px #003d8e;
 }
 #loginForm button {
   -webkit-appearance: none;
@@ -161,19 +161,19 @@ body {
   min-height: 48px;
   border: none;
   background-color: #ebf5fb;
-  box-shadow: 2px 2px 5px #D1E4FF;
+  box-shadow: 2px 2px 5px #d1e4ff;
   border-radius: 5px;
 }
 #loginForm button:hover {
-  background-color: #D1E4FF;
+  background-color: #d1e4ff;
   color: white;
 }
 
 #contactDiv {
-  margin-left: 30%;
-  width: 40%;
+  margin-left: 25%;
+  width: 50%;
   background-color: #fff;
-  border: 5px solid #E5F0FF;
+  border: 5px solid #e5f0ff;
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -264,5 +264,5 @@ footer a:visited {
   color: #17202a;
 }
 footer a:hover {
-  color: #D1E4FF;
+  color: #d1e4ff;
 }/*# sourceMappingURL=main.css.map */
