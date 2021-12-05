@@ -1,47 +1,48 @@
-@import 'default/reset';
-@import 'default/color';
-@import 'default/font';
-@import 'default/mixins';
+@import "default/reset";
+@import "default/color";
+@import "default/font";
+@import "default/mixins";
 
-@import 'divs/infoDiv';
-@import 'divs/loginDiv';
-@import 'divs/contactDiv';
+@import "divs/infoDiv";
+@import "divs/loginDiv";
+@import "divs/contactDiv";
+@import "divs/lockerlistDiv";
 
 @mixin flex-default(
-    $arg_display: flex,
-    $arg_justifycontent: center,
-    $arg_flexdirection: column,
-    $arg_alignitems: center
+  $arg_display: flex,
+  $arg_justifycontent: center,
+  $arg_flexdirection: column,
+  $arg_alignitems: center
 ) {
-    display: $arg_display;
-    justify-content: $arg_justifycontent;
-    flex-direction: $arg_flexdirection;
-    align-items: $arg_alignitems;
+  display: $arg_display;
+  justify-content: $arg_justifycontent;
+  flex-direction: $arg_flexdirection;
+  align-items: $arg_alignitems;
 }
 
 header {
-    h1 {
-        text-align: center;
-    }
-    @media (max-width: 650px) {
-        font-size: 1.5vh;
-    }
+  h1 {
+    text-align: center;
+  }
+  @media (max-width: 650px) {
+    font-size: 1.5vh;
+  }
 }
 
 footer {
-    position: fixed;
-    left: 1%;
-    bottom: 1%;
-    text-align: center;
-    @media (max-width: 1200px) {
-        position: relative;
-    }
-    a,
-    a:visited {
-        text-decoration: none;
-        color: $black;
-    }
-    a:hover {
-        color: $dblue;
-    }
+  position: fixed;
+  left: 1%;
+  bottom: 1%;
+  text-align: center;
+  @media (max-width: 1200px) {
+    position: relative;
+  }
+  a,
+  a:visited {
+    text-decoration: none;
+    color: $black;
+  }
+  a:hover {
+    color: $dblue;
+  }
 }
