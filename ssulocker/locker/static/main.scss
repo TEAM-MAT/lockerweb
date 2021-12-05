@@ -1,11 +1,12 @@
-@import 'default/reset';
-@import 'default/color';
-@import 'default/font';
-@import 'default/mixins';
+@import "default/reset";
+@import "default/color";
+@import "default/font";
+@import "default/mixins";
 
-@import 'divs/infoDiv';
-@import 'divs/loginDiv';
-@import 'divs/contactDiv';
+@import "divs/infoDiv";
+@import "divs/loginDiv";
+@import "divs/contactDiv";
+@import "divs/lockerlistDiv";
 
 @mixin flex-default(
     $arg_display: flex,

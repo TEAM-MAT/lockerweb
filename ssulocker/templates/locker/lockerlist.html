@@ -1,27 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+{% load static %}
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>숭실대학교 IT대학 사물함 예약 웹사이트</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <title>IT대학 사물함 예약 웹사이트</title>
+    <meta property="og:title" content="IT대학 사물함 예약" />
+    <meta name="description" content="IT대학 학우들을 위한 사물함 예약 사이트입니다." />
+    <meta property="og:description" content="IT대학 학우들을 위한 사물함 예약 사이트입니다." />
+    <meta name="keywords" content="숭실대학교, IT대학, 사물함" />
+    <meta property="og:image" content="https://i.imgur.com/v2UpZTg.png" />
+
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
 </head>
 
 <body>
-    <h1>사물함목록</h1>
+    <header>
+        <h1>사물함목록</h1>
+    </header>
+
     <main>
-        {% if locker_list %}
-        <ul>
-            {% for l in locker_list %}
-            <li>{{l.lockernum}}</li>
-            {% endfor %}
-        </ul>
-        {%else%}
-        <p>no lockers available</p>
+        <div id="lockerlistDiv">
+            {% if locker_list %}
+            <ul>
+                {% for l in locker_list %}
+                <li>{{l.lockernum}}</li>
+                {% endfor %}
+            </ul>
+            {%else%}
+            <p class="warning">오류로 인하여 사물함을 표시할 수 없습니다.</p>
+        </div>
+
         {%endif%}
     </main>
-
+    <footer>
+        <p>제작자 : <span><a href="https://github.com/amuguna1mandeum"><img alt="#"
+                        src="https://cdn-icons-png.flaticon.com/512/25/25231.png" style="height:1em;"></img>
+                    Github</a></span></p>
+    </footer>
 </body>
 
 </html>

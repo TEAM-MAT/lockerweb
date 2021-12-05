@@ -1,5 +1,3 @@
-@import '../default/mixins';
-
 #loginDiv {
     @include flex-default();
     margin-left: 20%;
@@ -49,6 +47,8 @@
     }
     button {
         appearance: none;
+        min-width: 122px;
+        min-height: 48px;
         border: none;
         background-color: $slblue;
         box-shadow: 2px 2px 5px $dblue;
