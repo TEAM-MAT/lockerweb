@@ -43,6 +43,7 @@ class lockerAdmin(admin.ModelAdmin):
     ordering=('lockernum',)
     filter_horizontal=()
 admin.site.register(users,userAdmin)
-admin.site.register(lockers,lockerAdmin)
+#admin.site.register(lockers,lockerAdmin)
+admin.site.register(lockers)
 admin.site.unregister(Group)
 # Register your models here.
