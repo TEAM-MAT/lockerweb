@@ -1,10 +1,10 @@
 #loginDiv {
   @include flex-default();
-  margin-left: 20%;
+  margin: auto;
   margin-bottom: 1%;
   width: 60%;
   @media (max-width: 650px) {
-    margin-left: 15%;
+    margin: auto;
     width: 70%;
   }
   background-color: $dblue;
