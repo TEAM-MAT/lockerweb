@@ -27,7 +27,7 @@ body {
 }
 
 #infoDiv {
-  margin-left: 20%;
+  margin: auto;
   margin-bottom: 1%;
   width: 60%;
   background-color: #e5f0ff;
@@ -92,7 +92,7 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-left: 20%;
+  margin: auto;
   margin-bottom: 1%;
   width: 60%;
   background-color: #d1e4ff;
@@ -100,7 +100,7 @@ body {
 }
 @media (max-width: 650px) {
   #loginDiv {
-    margin-left: 15%;
+    margin: auto;
     width: 70%;
   }
 }
@@ -170,8 +170,8 @@ body {
 }
 
 #contactDiv {
-  margin-left: 25%;
   width: 50%;
+  margin: auto;
   background-color: #fff;
   border: 5px solid #e5f0ff;
   border-radius: 5px;
@@ -205,7 +205,7 @@ body {
   flex-direction: row;
   align-items: center;
   text-align: center;
-  margin: 0.3vh;
+  margin: auto;
 }
 @media (max-width: 650px) {
   #contactDiv li {
@@ -236,6 +236,29 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.warning {
+  font-weight: bold;
+  color: red;
+}
+
+nav {
+  width: 30%;
+  margin: auto;
+}
+nav ul {
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+}
+nav ul li {
+  text-align: center;
+  padding: 1%;
+  list-style: none;
+  border: 3px solid #d1e4ff;
 }
 
 header h1 {

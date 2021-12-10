@@ -1,0 +1,14 @@
+nav {
+  width: 30%;
+  margin: auto;
+  ul {
+    padding: 0;
+    @include flex-default(flex, space-evenly, row, center);
+    li {
+      text-align: center;
+      padding: 1%;
+      list-style: none;
+      border: 3px solid $dblue;
+    }
+  }
+}
