@@ -9,7 +9,6 @@ def index(request):
     CS_left=lockers.objects.filter(department="CS",reserved=0).count()
     CS_lockers=lockers.objects.filter(department="CS").count()
     context={"CS_left":CS_left,"CS_lockers":CS_lockers}
-    print(CS_left)
     return render(request,'locker/index.html',context)
 def lockerlist(request):
     locker_list=lockers.objects.order_by('lockernum')
