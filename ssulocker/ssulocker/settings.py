@@ -84,9 +84,9 @@ DATABASES = {
         'HOST':dbset['default']['HOST'],
         'PORT':'3306'
     },
-    'sqldb1':{
+    'sqlitedb1':{
         'ENGINE':'django.db.backends.sqlite3',
-        'NAME':'ssulocker',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
