@@ -83,6 +83,10 @@ DATABASES = {
         'PASSWORD':dbset['default']['PASSWORD'],
         'HOST':dbset['default']['HOST'],
         'PORT':'3306'
+    },
+    'sqlitedb1':{
+        'ENGINE':'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
