@@ -13,8 +13,8 @@
     <meta property="og:description" content="IT대학 학우들을 위한 사물함 예약 사이트입니다." />
     <meta name="keywords" content="숭실대학교, IT대학, 사물함" />
     <meta property="og:image" content="https://i.imgur.com/v2UpZTg.png" />
-
     <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <script src="{% static 'main.js' %}"></script>
 </head>
 
 <body>
@@ -28,18 +28,54 @@
         </ul>
     </nav>
     <main>
+        <div id="lockerSelection">
+            <select name="Building" id="building" onchange="selectBuilding(this.value)">
+                <option value="">구역을 선택하세요.</option>
+                <optgroup label="형남공학관">
+                    <option value="HNA">A</option>
+                    <option value="HNB">B</option>
+                    <option value="HNC">C</option>
+                </optgroup>
+                <optgroup label="정보과학관">
+                    <option value="ISA">A</option>
+                    <option value="ISB">B</option>
+                    <option value="ISC">C</option>
+                </optgroup>
+                <optgroup label="문화관">
+                    <option value="CBA">A</option>
+                    <option value="CBB">B</option>
+                    <option value="CBC">C</option>
+                </optgroup>
+            </select>
+        </div>
         <div id="lockerlistDiv">
             {% if locker_list %}
-            <ul>
-                {% for l in locker_list %}
-                <li>{{l.lockernum}}</li>
-                {% endfor %}
-            </ul>
-            {%else%}
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="5">{{locker_list.values.first.building}}건물 {{locker_list.values.first.sector}}구역
+                            사물함 목록
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for l in locker_list%}
+                    {% if l.building == 'IS' %}
+                    {% if forloop.counter|divisibleby:5 != 0 %}
+                    <td>{{l.lockernum}}</td>
+                    <tr>
+                        {% else %}
+                        <td>{{l.lockernum}}</td>
+                        {% endif %}
+                        {% else %}
+                        {%endif%}
+                        {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
             <p class="warning">오류로 인하여 사물함을 표시할 수 없습니다.</p>
+            {% endif %}
         </div>
-
-        {%endif%}
     </main>
     <footer>
         <p>제작자 : <span><a href="https://github.com/amuguna1mandeum"><img alt="#" src="https://i.imgur.com/vxsETgn.png"

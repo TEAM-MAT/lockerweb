@@ -1,5 +1,23 @@
 #lockerlistDiv {
-  @include flex-default();
+  margin-left: 15%;
+  width: 70%;
+  table {
+    width: 100%;
+    tr {
+      th {
+        width: 100%;
+      }
+      td {
+        margin: 1%;
+        padding: 1%;
+        width: 20%;
+
+        text-align: center;
+        font-size: 100%;
+        border: 3px solid $dblue;
+      }
+    }
+  }
 }
 
 .warning {
