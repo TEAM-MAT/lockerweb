@@ -1,5 +1,9 @@
 #contactDiv {
-  width: 50%;
+  position: absolute;
+  z-index: 999;
+  left: 1%;
+  bottom: 1%;
+  width: 350px;
   margin: auto;
   @media (max-width: 650px) {
     margin-left: 15%;
@@ -9,6 +13,7 @@
   border: 5px solid $lblue;
   border-radius: 5px;
   box-sizing: border-box;
+
   ul {
     @include flex-default();
     width: 100%;
@@ -35,10 +40,28 @@
   span {
     margin: 0px 5px;
   }
-  :nth-of-type(1) {
+  span:nth-of-type(1) {
     min-width: 10rem;
     @media (max-width: 650px) {
       min-width: 0vh;
     }
   }
+  button {
+    appearance: none;
+    position: absolute;
+    top: -20%;
+    right: -1%;
+    margin: 1%;
+    min-width: 61px;
+    min-height: 24px;
+
+    border: none;
+    background-color: $slblue;
+    box-shadow: 2px 2px 5px $dblue;
+    border-radius: 5px;
+  }
+}
+
+.hidden {
+  display: none;
 }
