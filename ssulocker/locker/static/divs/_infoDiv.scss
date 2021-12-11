@@ -34,10 +34,20 @@
   span {
     margin: 0px 5px;
   }
-  :nth-of-type(1) {
+  span:nth-of-type(1) {
     min-width: 10rem;
     @media (max-width: 650px) {
       min-width: 0vh;
     }
+  }
+  button {
+    appearance: none;
+    margin: 1%;
+    min-width: 61px;
+    min-height: 24px;
+    border: 2px solid $lblue;
+    background-color: $slblue;
+    box-shadow: 2px 2px 5px $dblue;
+    border-radius: 5px;
   }
 }

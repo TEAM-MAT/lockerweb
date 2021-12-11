@@ -78,13 +78,25 @@ body {
 #infoDiv span {
   margin: 0px 5px;
 }
-#infoDiv :nth-of-type(1) {
+#infoDiv span:nth-of-type(1) {
   min-width: 10rem;
 }
 @media (max-width: 650px) {
-  #infoDiv :nth-of-type(1) {
+  #infoDiv span:nth-of-type(1) {
     min-width: 0vh;
   }
+}
+#infoDiv button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 1%;
+  min-width: 61px;
+  min-height: 24px;
+  border: 2px solid #e5f0ff;
+  background-color: #ebf5fb;
+  box-shadow: 2px 2px 5px #d1e4ff;
+  border-radius: 5px;
 }
 
 #loginDiv {
@@ -170,7 +182,11 @@ body {
 }
 
 #contactDiv {
-  width: 50%;
+  position: absolute;
+  z-index: 999;
+  left: 1%;
+  bottom: 1%;
+  width: 350px;
   margin: auto;
   background-color: #fff;
   border: 5px solid #e5f0ff;
@@ -222,13 +238,32 @@ body {
 #contactDiv span {
   margin: 0px 5px;
 }
-#contactDiv :nth-of-type(1) {
+#contactDiv span:nth-of-type(1) {
   min-width: 10rem;
 }
 @media (max-width: 650px) {
-  #contactDiv :nth-of-type(1) {
+  #contactDiv span:nth-of-type(1) {
     min-width: 0vh;
   }
+}
+#contactDiv button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+  top: -20%;
+  right: -1%;
+  margin: 1%;
+  min-width: 61px;
+  min-height: 24px;
+  border: none;
+  background-color: #ebf5fb;
+  box-shadow: 2px 2px 5px #d1e4ff;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
 }
 
 #lockerlistDiv {

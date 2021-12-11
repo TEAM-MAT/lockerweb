@@ -14,6 +14,7 @@
     <meta name="keywords" content="숭실대학교, IT대학, 사물함">
     <meta property="og:image" content="https://i.imgur.com/v2UpZTg.png">
     <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script src="{% static 'main.js' %}"></script>
 </head>
 
 <body>
@@ -54,6 +55,7 @@
                     <span>00:00 ~ 00:00</span>
                 </li>
             </ul>
+            <button onclick="popupClose('contactDiv')" id="popup-close">문의사항</button>
         </div>
         <div id="loginDiv">
             <span id="passwdRule">💡 비밀번호는 학우님의 휴대전화 뒤 8자리입니다.</span>
@@ -78,7 +80,8 @@
             </form>
         </div>
     </main>
-    <div id="contactDiv">
+    <div id="contactDiv" class="hidden">
+        <button onclick="popupClose('contactDiv')" id="popup-close">닫기</button>
         <ul>
             <li>
                 <span>전자정보공학부</span>
@@ -103,8 +106,8 @@
         </ul>
     </div>
     <footer>
-        <p>제작자 : <span><a href="https://github.com/amuguna1mandeum"><img alt="#"
-                        src="https://cdn-icons-png.flaticon.com/512/25/25231.png" style="height:1em;"></img>
+        <p>제작자 : <span><a href="https://github.com/amuguna1mandeum"><img alt="#" src="https://i.imgur.com/vxsETgn.png"
+                        style="height:1em;"></img>
                     Github</a></span></p>
     </footer>
 </body>
