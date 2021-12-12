@@ -14,5 +14,6 @@ def lockerlist(request):
     locker_list=lockers.objects.order_by('lockernum')
     context={"locker_list":locker_list}
     return render(request,'locker/lockerlist.html',context)
-        
+def registpop(request):
+    return render(request,'locker/regist_popup.html')
 # Create your views here.
