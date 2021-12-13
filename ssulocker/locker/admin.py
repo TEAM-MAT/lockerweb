@@ -14,7 +14,6 @@ class userAdmin(BaseUserAdmin):
     list_filter=('is_admin','department','lockernum')
     fieldsets=(
         (None,{'fields':('id','name')}),
-        ('Locker',{'fields':('lockernum',)}),
         ('Permissions',{'fields':('is_admin',)}),
     )
     add_fieldsets=(
