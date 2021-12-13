@@ -9,6 +9,10 @@ nav {
       padding: 1%;
       list-style: none;
       border: 3px solid $dblue;
+      background-color: $white;
+      :hover {
+        background-color: $dblue;
+      }
     }
   }
 }

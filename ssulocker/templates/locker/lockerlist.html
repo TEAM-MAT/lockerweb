@@ -23,32 +23,47 @@
     </header>
     <nav class="nav">
         <ul>
-            <li>내 사물함</li>
-            <li>예약 / 변경</li>
+            <li><span>내 사물함</span></li>
+            <li><span>예약 / 변경</span></li>
         </ul>
     </nav>
-    <main>
-        <div id="lockerSelection">
-            <select name="Building" id="building" onchange="selectBuilding(this.value)">
-                <option value="">구역을 선택하세요.</option>
-                <optgroup label="형남공학관">
-                    <option value="HNA">A</option>
-                    <option value="HNB">B</option>
-                    <option value="HNC">C</option>
-                </optgroup>
-                <optgroup label="정보과학관">
-                    <option value="ISA">A</option>
-                    <option value="ISB">B</option>
-                    <option value="ISC">C</option>
-                </optgroup>
-                <optgroup label="문화관">
-                    <option value="CBA">A</option>
-                    <option value="CBB">B</option>
-                    <option value="CBC">C</option>
-                </optgroup>
-            </select>
+    <div class="popup">
+        <div class="popupContent" id="infoPopup">
+            <button>X</button>
+            <span>{이름}님</span>
+            <span>현재 예약된 사물함 위치 : {예약한 사물함}</span>
         </div>
+    </div>
+    <div class="popup">
+        <div class="popupContent" id="registerPopup">
+            <button>X</button>
+            <span>선택한 사물함 : {선택한 사물함}</span>
+            <button>예약</button>
+            <span class="warning">현재 예약된 사물함{예약한 사물함}이 취소됩니다.</span>
+        </div>
+    </div>
+    <main>
         <div id="lockerlistDiv">
+            <div id="lockerSelection">
+                <select name="Building" id="building" onchange="selectBuilding(this.value)">
+                    <option value="">구역을 선택하세요.</option>
+                    <optgroup label="형남공학관">
+                        <option value="HNA">A</option>
+                        <option value="HNB">B</option>
+                        <option value="HNC">C</option>
+                    </optgroup>
+                    <optgroup label="정보과학관">
+                        <option value="ISA">A</option>
+                        <option value="ISB">B</option>
+                        <option value="ISC">C</option>
+                    </optgroup>
+                    <optgroup label="문화관">
+                        <option value="CBA">A</option>
+                        <option value="CBB">B</option>
+                        <option value="CBC">C</option>
+                    </optgroup>
+                </select>
+            </div>
             {% if locker_list %}
             <table>
                 <thead>

@@ -3,11 +3,13 @@
 @import "default/font";
 @import "default/mixins";
 
-@import "divs/infoDiv";
-@import "divs/loginDiv";
 @import "divs/contactDiv";
+@import "divs/infoDiv";
 @import "divs/lockerlistDiv";
+@import "divs/loginDiv";
 @import "divs/nav";
+@import "divs/popups";
+
 @mixin flex-default(
   $arg_display: flex,
   $arg_justifycontent: center,
@@ -21,6 +23,7 @@
 }
 
 header {
+  width: 100%;
   h1 {
     text-align: center;
   }

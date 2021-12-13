@@ -26,161 +26,6 @@ body {
   font-weight: bold;
 }
 
-#infoDiv {
-  margin: auto;
-  margin-bottom: 1%;
-  width: 60%;
-  background-color: #e5f0ff;
-  border-radius: 5px;
-}
-@media (max-width: 650px) {
-  #infoDiv {
-    margin-left: 15%;
-    width: 70%;
-  }
-}
-#infoDiv ul {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-  list-style: none;
-}
-@media (max-width: 1200px) {
-  #infoDiv ul {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}
-#infoDiv li {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  width: 60%;
-  margin: 0.5vh;
-}
-@media (max-width: 1200px) {
-  #infoDiv li {
-    display: inline-flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 40%;
-    margin: 1vh;
-    font-size: 90%;
-  }
-}
-#infoDiv span {
-  margin: 0px 5px;
-}
-#infoDiv span:nth-of-type(1) {
-  min-width: 10rem;
-}
-@media (max-width: 650px) {
-  #infoDiv span:nth-of-type(1) {
-    min-width: 0vh;
-  }
-}
-#infoDiv button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  margin: 1%;
-  min-width: 61px;
-  min-height: 24px;
-  border: 2px solid #e5f0ff;
-  background-color: #ebf5fb;
-  box-shadow: 2px 2px 5px #d1e4ff;
-  border-radius: 5px;
-}
-
-#loginDiv {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  margin-bottom: 1%;
-  width: 60%;
-  background-color: #d1e4ff;
-  border-radius: 5px;
-}
-@media (max-width: 650px) {
-  #loginDiv {
-    margin: auto;
-    width: 70%;
-  }
-}
-#loginDiv * {
-  margin: 0.5vh;
-}
-#loginDiv span {
-  text-align: center;
-  font-size: 1rem;
-}
-#loginDiv span#passwdRule {
-  font-weight: 500;
-}
-
-#loginForm {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-#loginForm .inputDiv {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-@media (max-width: 650px) {
-  #loginForm .inputDiv {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-  }
-}
-#loginForm input {
-  border: none;
-  width: 80%;
-  height: 2rem;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px #ebf5fb;
-  transition: box-shadow 0.5s;
-}
-@media (max-width: 650px) {
-  #loginForm input {
-    width: 60%;
-  }
-}
-#loginForm :focus {
-  outline: none;
-  box-shadow: 3px 3px 3px #003d8e;
-}
-#loginForm button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  min-width: 122px;
-  min-height: 48px;
-  border: none;
-  background-color: #ebf5fb;
-  box-shadow: 2px 2px 5px #d1e4ff;
-  border-radius: 5px;
-}
-#loginForm button:hover {
-  background-color: #d1e4ff;
-  color: white;
-}
-
 #contactDiv {
   position: absolute;
   z-index: 999;
@@ -266,6 +111,79 @@ body {
   display: none;
 }
 
+#infoDiv {
+  margin: auto;
+  margin-bottom: 1%;
+  width: 60%;
+  background-color: #e5f0ff;
+  border-radius: 5px;
+}
+@media (max-width: 650px) {
+  #infoDiv {
+    margin-left: 15%;
+    width: 70%;
+  }
+}
+#infoDiv ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 1200px) {
+  #infoDiv ul {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+#infoDiv li {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  width: 60%;
+  margin: 0.5vh;
+}
+@media (max-width: 1200px) {
+  #infoDiv li {
+    display: inline-flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 40%;
+    margin: 1vh;
+    font-size: 90%;
+  }
+}
+#infoDiv span {
+  margin: 0px 5px;
+}
+#infoDiv span:nth-of-type(1) {
+  min-width: 10rem;
+}
+@media (max-width: 650px) {
+  #infoDiv span:nth-of-type(1) {
+    min-width: 0vh;
+  }
+}
+#infoDiv button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 1%;
+  min-width: 61px;
+  min-height: 24px;
+  border: 2px solid #e5f0ff;
+  background-color: #ebf5fb;
+  box-shadow: 2px 2px 5px #d1e4ff;
+  border-radius: 5px;
+}
+
 #lockerlistDiv {
   margin-left: 15%;
   width: 70%;
@@ -290,6 +208,88 @@ body {
   color: red;
 }
 
+#loginDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 1%;
+  width: 60%;
+  background-color: #d1e4ff;
+  border-radius: 5px;
+}
+@media (max-width: 650px) {
+  #loginDiv {
+    margin: auto;
+    width: 70%;
+  }
+}
+#loginDiv * {
+  margin: 0.5vh;
+}
+#loginDiv span {
+  text-align: center;
+  font-size: 1rem;
+}
+#loginDiv span#passwdRule {
+  font-weight: 500;
+}
+
+#loginForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#loginForm .inputDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 650px) {
+  #loginForm .inputDiv {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+#loginForm input {
+  border: none;
+  width: 80%;
+  height: 2rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #ebf5fb;
+  transition: box-shadow 0.5s;
+}
+@media (max-width: 650px) {
+  #loginForm input {
+    width: 60%;
+  }
+}
+#loginForm :focus {
+  outline: none;
+  box-shadow: 3px 3px 3px #003d8e;
+}
+#loginForm button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  min-width: 122px;
+  min-height: 48px;
+  border: none;
+  background-color: #ebf5fb;
+  box-shadow: 2px 2px 5px #d1e4ff;
+  border-radius: 5px;
+}
+#loginForm button:hover {
+  background-color: #d1e4ff;
+  color: white;
+}
+
 nav {
   width: 30%;
   margin: auto;
@@ -306,8 +306,49 @@ nav ul li {
   padding: 1%;
   list-style: none;
   border: 3px solid #d1e4ff;
+  background-color: #fff;
+}
+nav ul li :hover {
+  background-color: #d1e4ff;
 }
 
+.popup {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0000001a;
+}
+
+.popupContent {
+  width: 200px;
+  height: 200px;
+  padding: 1%;
+  border: 5px solid #d1e4ff;
+  background-color: #e5f0ff;
+}
+
+#infoPopup {
+  position: absolute;
+  top: 100px;
+  left: 20%;
+}
+
+#registerPopup {
+  position: absolute;
+  top: 100px;
+  right: 20%;
+}
+@media (max-width: 650px) {
+  #registerPopup {
+    top: inherit;
+    bottom: 20%;
+  }
+}
+
+header {
+  width: 100%;
+}
 header h1 {
   text-align: center;
 }
