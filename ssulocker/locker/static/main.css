@@ -400,7 +400,7 @@ body {
 }
 #loginForm :focus {
   outline: none;
-  box-shadow: 3px 3px 3px #003d8e;
+  box-shadow: 3px 3px 3px rgba(168, 168, 168, 0.65);
 }
 #loginForm button {
   font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;

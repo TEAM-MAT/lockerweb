@@ -40,11 +40,11 @@
     height: 2rem;
     border-radius: 5px;
     box-shadow: 3px 3px 3px $lblue;
-    transition: box-shadow 0.5s cubic-bezier(0, 0.55, 0.45, 1);;
+    transition: box-shadow 0.5s cubic-bezier(0, 0.55, 0.45, 1);
   }
   :focus {
     outline: none;
-    box-shadow: 3px 3px 3px $bblue;
+    box-shadow: 3px 3px 3px $darkgray;
   }
   button {
     font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
