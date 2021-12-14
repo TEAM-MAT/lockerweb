@@ -21,11 +21,36 @@
   flex-direction: $arg_flexdirection;
   align-items: $arg_alignitems;
 }
+body {
+  height: 100vh;
+  //TEMP
+
+  background: #7f7fd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #6a93cb;
+  background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+  background-repeat: no-repeat;
+}
 
 header {
   width: 100%;
   h1 {
     text-align: center;
+    margin: 1%;
+    margin-top: 3%;
+    font-weight: bold;
+    color: $lblue;
   }
   @media (max-width: 650px) {
     font-size: 1.5vh;
@@ -36,6 +61,8 @@ footer {
   position: fixed;
   left: 1%;
   bottom: 1%;
+  margin: auto;
+  margin-top: 3%;
   text-align: center;
   @media (max-width: 1200px) {
     position: relative;

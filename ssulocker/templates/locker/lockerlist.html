@@ -21,28 +21,15 @@
     <header>
         <h1>IT대학 사물함 예약 웹사이트 3.0</h1>
     </header>
+
     <nav class="nav">
         <ul>
-            <li><span>내 사물함</span></li>
-            <li><span>예약 / 변경</span></li>
+            <li><span onclick="popupClose('infoPopupDiv')">내 사물함</span></li>
+            <li><span onclick="popupClose('registerPopupDiv')">예약 / 변경</span></li>
             <li><span>취소</span></li>
         </ul>
     </nav>
-    <div class="popup">
-        <div class="popupContent" id="infoPopup">
-            <button>X</button>
-            <span>{이름}님</span>
-            <span>현재 예약된 사물함 위치 : {예약한 사물함}</span>
-        </div>
-    </div>
-    <div class="popup">
-        <div class="popupContent" id="registerPopup">
-            <button>X</button>
-            <span>선택한 사물함 : {선택한 사물함}</span>
-            <button>예약</button>
-            <span class="warning">현재 예약된 사물함{예약한 사물함}이 취소됩니다.</span>
-        </div>
-    </div>
+
     <main>
         <div id="lockerlistDiv">
             <div id="lockerSelection">
@@ -93,6 +80,23 @@
             {% endif %}
         </div>
     </main>
+
+    <div class="popup hidden" id="infoPopupDiv">
+        <div class="popupContent" id="infoPopup">
+            <button onclick="popupClose('infoPopupDiv')">X</button>
+            <span>{이름}님</span>
+            <span>현재 예약된 사물함 위치 : {예약한 사물함}</span>
+        </div>
+    </div>
+    <div class="popup hidden" id="registerPopupDiv">
+        <div class="popupContent" id="registerPopup">
+            <button onclick="popupClose('registerPopupDiv')">X</button>
+            <span>선택한 사물함 : {선택한 사물함}</span>
+            <button>예약</button>
+            <span class="warning">현재 예약된 사물함{예약한 사물함}이 취소됩니다.</span>
+        </div>
+    </div>
+
     <footer>
         <p>제작자 : <span><a href="https://github.com/amuguna1mandeum"><img alt="#" src="https://i.imgur.com/vxsETgn.png"
                         style="height:1em;"></img>

@@ -1,11 +1,137 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 html,
 body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
 header,
-main,
-footer {
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 @media (max-width: 650px) {
@@ -113,6 +239,7 @@ body {
 
 #infoDiv {
   margin: auto;
+  margin-top: 3%;
   margin-bottom: 1%;
   width: 60%;
   background-color: #e5f0ff;
@@ -161,7 +288,7 @@ body {
   }
 }
 #infoDiv span {
-  margin: 0px 5px;
+  margin: 1% 5px;
 }
 #infoDiv span:nth-of-type(1) {
   min-width: 10rem;
@@ -214,6 +341,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: auto;
+  margin-top: 3%;
   margin-bottom: 1%;
   width: 60%;
   background-color: #d1e4ff;
@@ -262,8 +390,8 @@ body {
   width: 80%;
   height: 2rem;
   border-radius: 5px;
-  box-shadow: 3px 3px 3px #ebf5fb;
-  transition: box-shadow 0.5s;
+  box-shadow: 3px 3px 3px #e5f0ff;
+  transition: box-shadow 0.5s cubic-bezier(0, 0.55, 0.45, 1);
 }
 @media (max-width: 650px) {
   #loginForm input {
@@ -275,6 +403,7 @@ body {
   box-shadow: 3px 3px 3px #003d8e;
 }
 #loginForm button {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -282,11 +411,11 @@ body {
   min-height: 48px;
   border: none;
   background-color: #ebf5fb;
-  box-shadow: 2px 2px 5px #d1e4ff;
   border-radius: 5px;
+  transition: all 0.5s;
 }
 #loginForm button:hover {
-  background-color: #d1e4ff;
+  background-color: #003d8e;
   color: white;
 }
 
@@ -346,11 +475,27 @@ nav ul li :hover {
   }
 }
 
+body {
+  height: 100vh;
+  background: #7f7fd5;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #91eae4, #86a8e7, #7f7fd5);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #6a93cb;
+  background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+  background-repeat: no-repeat;
+}
+
 header {
   width: 100%;
 }
 header h1 {
   text-align: center;
+  margin: 1%;
+  margin-top: 3%;
+  font-weight: bold;
+  color: #e5f0ff;
 }
 @media (max-width: 650px) {
   header {
@@ -362,6 +507,8 @@ footer {
   position: fixed;
   left: 1%;
   bottom: 1%;
+  margin: auto;
+  margin-top: 3%;
   text-align: center;
 }
 @media (max-width: 1200px) {
