@@ -35,7 +35,7 @@ class UserChangeForm(forms.ModelForm):
     password=ReadOnlyPasswordHashField()
     class Meta:
         model=users
-        fields=('id','lockernum','department','name','is_active','is_admin')
+        fields=('id','department','name','is_active','is_admin')
     def clean_password(self):
         return self.initial["password"]
 class lockeraddForm(forms.ModelForm):
