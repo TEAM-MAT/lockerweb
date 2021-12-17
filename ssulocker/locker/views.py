@@ -9,7 +9,17 @@ def index(request):
     #학부 별 남은라커 수/라커 수 구해서 띄워줄 것임.
     cs_left=lockers.objects.filter(department="CS",reserved=0).count()
     cs_lockers=lockers.objects.filter(department="CS").count()
-    locker_context={"cs_left":cs_left,"cs_lockers":cs_lockers}
+    ee_left=lockers.objects.filter(department="EIE",reserved=0).count()
+    ee_lockers=lockers.objects.filter(department='EIE').count()
+    gm_left=lockers.objects.filter(department='GM',reserved=0).count()
+    gm_lockers=lockers.objects.filter(department='GM').count()
+    sw_left=lockers.objects.filter(department='SW',reserved=0).count()
+    sw_lockers=lockers.objects.filter(department="SW").count()
+    AIC_left=lockers.objects.filter(department="AIC",reserved=0).count()
+    AIC_lockers=lockers.objects.filter(department="AIC").count()
+    locker_context={"cs_left":cs_left,"cs_lockers":cs_lockers,'eie_left':ee_left,'eie_lockers':ee_lockers,
+    'gm_left':gm_left,'gm_lockers':gm_lockers,'sw_left':sw_left,'sw_lockers':sw_lockers,
+    'AI_left':AIC_left,'AI_lockers':AIC_lockers}
     if request.method=="POST":
         username=request.POST["username"]
         password=request.POST["password"]
