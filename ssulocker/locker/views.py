@@ -32,9 +32,12 @@ def index(request):
     else:
         return render(request,'locker/index.html',locker_context)
 def lockerlist(request):
-    locker_list=lockers.objects.order_by('lockernum')
-    context={"locker_list":locker_list}
-    return render(request,'locker/lockerlist.html',context)
+    if request.user.is_authenticated:
+        locker_list=lockers.objects.order_by('lockernum')
+        context={"locker_list":locker_list}
+        return render(request,'locker/lockerlist.html',context)
+    else:
+        return redirect('/locker/login')
 def registpop(request):
     return render(request,'locker/regist_popup.html')
 # Create your views here.
