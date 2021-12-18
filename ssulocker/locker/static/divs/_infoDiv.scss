@@ -7,7 +7,7 @@
     margin-left: 15%;
     width: 70%;
   }
-  background-color: $lblue;
+  background-color: white;
   border-radius: 5px;
   ul {
     @include flex-default();
@@ -46,7 +46,7 @@
     margin: 1%;
     min-width: 61px;
     min-height: 24px;
-    border: 2px solid $lblue;
+    border: 3px solid $dblue;
     background-color: $slblue;
     box-shadow: 2px 2px 5px $dblue;
     border-radius: 5px;

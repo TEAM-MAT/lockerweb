@@ -8,7 +8,7 @@
     margin: auto;
     width: 70%;
   }
-  background-color: $dblue;
+  background-color: white;
   border-radius: 5px;
   * {
     margin: 0.5vh;
@@ -32,14 +32,14 @@
     }
   }
   input {
-    border: none;
+    border: 3px solid $lblue;
     width: 80%;
     @media (max-width: 650px) {
       width: 60%;
     }
     height: 2rem;
     border-radius: 5px;
-    box-shadow: 3px 3px 3px $lblue;
+    box-shadow: 3px 3px 3px $dblue;
     transition: box-shadow 0.5s cubic-bezier(0, 0.55, 0.45, 1);
   }
   :focus {

@@ -111,6 +111,12 @@ body {
   line-height: 1;
 }
 
+select {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+}
+
 ol,
 ul {
   list-style: none;
@@ -145,7 +151,7 @@ h1 {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
 }
 
 .bold {
@@ -242,7 +248,7 @@ body {
   margin-top: 3%;
   margin-bottom: 1%;
   width: 60%;
-  background-color: #e5f0ff;
+  background-color: white;
   border-radius: 5px;
 }
 @media (max-width: 650px) {
@@ -305,7 +311,7 @@ body {
   margin: 1%;
   min-width: 61px;
   min-height: 24px;
-  border: 2px solid #e5f0ff;
+  border: 3px solid #d1e4ff;
   background-color: #ebf5fb;
   box-shadow: 2px 2px 5px #d1e4ff;
   border-radius: 5px;
@@ -315,11 +321,35 @@ body {
   margin-left: 15%;
   width: 70%;
 }
+#lockerlistDiv #lockerSelection {
+  margin: 1%;
+  text-align: center;
+}
+#lockerlistDiv #lockerSelection select {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+       appearance: button;
+  width: 250px;
+  padding: 1%;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 25px #d1e4ff;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  background-color: #d1e4ff;
+  color: #17202a;
+}
+#lockerlistDiv #lockerSelection select option {
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  padding: 1%;
+}
 #lockerlistDiv table {
+  margin: 1%;
   width: 100%;
 }
 #lockerlistDiv table tr th {
   width: 100%;
+  padding: 1%;
+  font-weight: bold;
 }
 #lockerlistDiv table tr td {
   margin: 1%;
@@ -328,6 +358,7 @@ body {
   text-align: center;
   font-size: 100%;
   border: 3px solid #d1e4ff;
+  background-color: #e5f0ff;
 }
 
 .warning {
@@ -344,7 +375,7 @@ body {
   margin-top: 3%;
   margin-bottom: 1%;
   width: 60%;
-  background-color: #d1e4ff;
+  background-color: white;
   border-radius: 5px;
 }
 @media (max-width: 650px) {
@@ -386,11 +417,11 @@ body {
   }
 }
 #loginForm input {
-  border: none;
+  border: 3px solid #e5f0ff;
   width: 80%;
   height: 2rem;
   border-radius: 5px;
-  box-shadow: 3px 3px 3px #e5f0ff;
+  box-shadow: 3px 3px 3px #d1e4ff;
   transition: box-shadow 0.5s cubic-bezier(0, 0.55, 0.45, 1);
 }
 @media (max-width: 650px) {

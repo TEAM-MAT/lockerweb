@@ -108,6 +108,10 @@ section {
 body {
   line-height: 1;
 }
+select {
+  appearance: none;
+  -webkit-appearance: none;
+}
 ol,
 ul {
   list-style: none;
