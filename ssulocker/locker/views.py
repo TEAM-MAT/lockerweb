@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate
 from django.shortcuts import render,get_object_or_404,redirect
 import django.contrib.auth as auth
 #from django.http import HttpResponse
-from .models import lockers
+from .models import lockers,users
 import logging
 from django.db import connection
 def index(request):
@@ -33,8 +33,9 @@ def index(request):
         return render(request,'locker/index.html',locker_context)
 def lockerlist(request):
     if request.user.is_authenticated:
-        locker_list=lockers.objects.order_by('lockernum')
-        context={"locker_list":locker_list}
+        user=users.objects.get(id=request.user)
+        locker_list=lockers.objects.filter(department=user.department).order_by("lockernum")
+        context={"locker_list":locker_list,"department":user.department}
         return render(request,'locker/lockerlist.html',context)
     else:
         return redirect('/locker/login')
