@@ -63,13 +63,18 @@
                 </thead>
                 <tbody>
                     {% for l in locker_list%}
-                    {% if l.building == 'IS' %}
+                    {% if l.building == 'HN' %}
+                    <noscript>건물 필터링</noscript>
+                    {% if l.sector == 'A'%}
+                    <noscript>구역 필터링</noscript>
                     {% if forloop.counter|divisibleby:5 != 0 %}
                     <td>{{l.lockernum}}</td>
                     <tr>
                         {% else %}
                         <td>{{l.lockernum}}</td>
                         {% endif %}
+                        {% else %}
+                        {%endif%}
                         {% else %}
                         {%endif%}
                         {% endfor %}

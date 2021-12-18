@@ -29,3 +29,13 @@
     bottom: 20%;
   }
 }
+
+#cancelPopup {
+  position: absolute;
+  top: 100px;
+  right: 20%;
+  @media (max-width: 650px) {
+    top: inherit;
+    bottom: 20%;
+  }
+}
