@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-epj&8w#0i6_f-y*vtw77=q5vsl@5@(wx9qm2y2qbi)i(t)g+me
 DEBUG = True
 
 ALLOWED_HOSTS = ["ec2-13-209-167-172.ap-northeast-2.compute.amazonaws.com","localhost"]
-
+#cookie(login) duration
+SESSION_COOKIE_AGE=600
+SESSION_SAVE_EVERY_REQUEST=True
 
 # Application definition
 

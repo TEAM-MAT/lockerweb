@@ -30,7 +30,10 @@ def index(request):
         else:
             return render(request,'locker/index.html',{'error':'아이디 또는 패스워드가 일치하지 않습니다'})
     else:
-        return render(request,'locker/index.html',locker_context)
+        if request.user.is_authenticated:
+            return redirect('/locker/lockerist')
+        else:
+            return render(request,'locker/index.html',locker_context)
 def lockerlist(request):
     if request.user.is_authenticated:
         user=users.objects.get(id=request.user)
