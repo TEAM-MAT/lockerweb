@@ -31,12 +31,9 @@
                     <span>00:00 ~ 00:00</span>
                 </li>
                 <li>
-                    <span class="bold">컴퓨터학부</span>
-                    {% if cs_left %}
-                    <span>{{cs_left}} / {{cs_lockers}}</span>
-                    {% else %}
-                    <span>no left</span>
-                    {% endif %}
+                    <span class="bold">컴퓨터학부</span> {% if cs_left %}
+                    <span>{{cs_left}} / {{cs_lockers}}</span> {% else %}
+                    <span>no left</span> {% endif %}
                     <span>2022.01.01(토)</span>
                     <span>00:00 ~ 00:00</span>
                 </li>
@@ -64,20 +61,18 @@
         <div id="loginDiv">
             <span id="passwdRule">💡 비밀번호는 학우님의 휴대전화 뒤 8자리입니다.</span>
             <span id="passwdExample">예시) 010-1234-5678인 경우: 12345678</span>
+            <span id="errormessage" style="color: red;">{% if error %} {{"학번 또는 비밀번호가 잘못되었습니다"}} {%endif%}</span>
             <form id="loginForm" action="{% url 'locker:login' %}" class="bold post-form" method="post">
-                {% csrf_token %}
-                {% include "form_errors.html" %}
+                {% csrf_token %} {% include "form_errors.html" %}
                 <!-- 학번 -->
                 <div class="inputDiv">
                     <label for="username">학번</label>
-                    <input type="text" id="username" class="form-control" name="username"
-                        value="{{ form.username.value|default_if_none:'' }}" />
+                    <input type="text" id="username" class="form-control" name="username" value="{{ form.username.value|default_if_none:'' }}" />
                 </div>
                 <!-- 비밀번호 -->
                 <div class="inputDiv">
                     <label for="password">비밀번호</label>
-                    <input type="password" class="form-control" name="password" id="password"
-                        value="{{ form.password.value|default_if_none:'' }} " />
+                    <input type="password" class="form-control" name="password" id="password" value="{{form.password.value|default_if_none:''}}" />
                 </div>
                 <!-- submit -->
                 <button type="submit">로그인</button>

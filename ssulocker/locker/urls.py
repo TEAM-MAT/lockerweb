@@ -9,5 +9,6 @@ urlpatterns = [
     path('lockerlist',views.lockerlist,name='lockerlist'),
     path('login',views.index,name='login'),
     path('registeration_popup',views.registpop,name="rpop"),
-    path('',views.index,name='maintologin')
+    path('',views.index,name='maintologin'),
+    path('logout',views.logout,name='logout')
 ]
