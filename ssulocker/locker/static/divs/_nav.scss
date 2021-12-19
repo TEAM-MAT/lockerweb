@@ -1,14 +1,20 @@
 nav {
-  width: 30%;
+  width: 50%;
   margin: auto;
   ul {
-    padding: 0;
+    padding: 1%;
     @include flex-default(flex, space-evenly, row, center);
+    :hover {
+      background-color: $dblue;
+    }
     li {
       text-align: center;
-      padding: 1%;
+      padding: 1% 3%;
+      font-size: 1.1em;
       list-style: none;
       border: 3px solid $dblue;
+      border-radius: 5px;
+      background-color: $white;
     }
   }
 }

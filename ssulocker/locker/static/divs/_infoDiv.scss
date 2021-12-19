@@ -1,12 +1,13 @@
 #infoDiv {
   margin: auto;
+  margin-top: 3%;
   margin-bottom: 1%;
   width: 60%;
   @media (max-width: 650px) {
     margin-left: 15%;
     width: 70%;
   }
-  background-color: $lblue;
+  background-color: white;
   border-radius: 5px;
   ul {
     @include flex-default();
@@ -32,7 +33,7 @@
     }
   }
   span {
-    margin: 0px 5px;
+    margin: 1% 5px;
   }
   span:nth-of-type(1) {
     min-width: 10rem;
@@ -45,7 +46,7 @@
     margin: 1%;
     min-width: 61px;
     min-height: 24px;
-    border: 2px solid $lblue;
+    border: 3px solid $dblue;
     background-color: $slblue;
     box-shadow: 2px 2px 5px $dblue;
     border-radius: 5px;

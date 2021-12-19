@@ -1,11 +1,143 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 html,
 body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
 header,
-main,
-footer {
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+select {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 @media (max-width: 650px) {
@@ -19,166 +151,11 @@ h1 {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
 }
 
 .bold {
   font-weight: bold;
-}
-
-#infoDiv {
-  margin: auto;
-  margin-bottom: 1%;
-  width: 60%;
-  background-color: #e5f0ff;
-  border-radius: 5px;
-}
-@media (max-width: 650px) {
-  #infoDiv {
-    margin-left: 15%;
-    width: 70%;
-  }
-}
-#infoDiv ul {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-  list-style: none;
-}
-@media (max-width: 1200px) {
-  #infoDiv ul {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}
-#infoDiv li {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  width: 60%;
-  margin: 0.5vh;
-}
-@media (max-width: 1200px) {
-  #infoDiv li {
-    display: inline-flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 40%;
-    margin: 1vh;
-    font-size: 90%;
-  }
-}
-#infoDiv span {
-  margin: 0px 5px;
-}
-#infoDiv span:nth-of-type(1) {
-  min-width: 10rem;
-}
-@media (max-width: 650px) {
-  #infoDiv span:nth-of-type(1) {
-    min-width: 0vh;
-  }
-}
-#infoDiv button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  margin: 1%;
-  min-width: 61px;
-  min-height: 24px;
-  border: 2px solid #e5f0ff;
-  background-color: #ebf5fb;
-  box-shadow: 2px 2px 5px #d1e4ff;
-  border-radius: 5px;
-}
-
-#loginDiv {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  margin-bottom: 1%;
-  width: 60%;
-  background-color: #d1e4ff;
-  border-radius: 5px;
-}
-@media (max-width: 650px) {
-  #loginDiv {
-    margin: auto;
-    width: 70%;
-  }
-}
-#loginDiv * {
-  margin: 0.5vh;
-}
-#loginDiv span {
-  text-align: center;
-  font-size: 1rem;
-}
-#loginDiv span#passwdRule {
-  font-weight: 500;
-}
-
-#loginForm {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-#loginForm .inputDiv {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-@media (max-width: 650px) {
-  #loginForm .inputDiv {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-  }
-}
-#loginForm input {
-  border: none;
-  width: 80%;
-  height: 2rem;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px #ebf5fb;
-  transition: box-shadow 0.5s;
-}
-@media (max-width: 650px) {
-  #loginForm input {
-    width: 60%;
-  }
-}
-#loginForm :focus {
-  outline: none;
-  box-shadow: 3px 3px 3px #003d8e;
-}
-#loginForm button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  min-width: 122px;
-  min-height: 48px;
-  border: none;
-  background-color: #ebf5fb;
-  box-shadow: 2px 2px 5px #d1e4ff;
-  border-radius: 5px;
-}
-#loginForm button:hover {
-  background-color: #d1e4ff;
-  color: white;
 }
 
 #contactDiv {
@@ -266,15 +243,113 @@ body {
   display: none;
 }
 
+#infoDiv {
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  width: 60%;
+  background-color: white;
+  border-radius: 5px;
+}
+@media (max-width: 650px) {
+  #infoDiv {
+    margin-left: 15%;
+    width: 70%;
+  }
+}
+#infoDiv ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 1200px) {
+  #infoDiv ul {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+#infoDiv li {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  width: 60%;
+  margin: 0.5vh;
+}
+@media (max-width: 1200px) {
+  #infoDiv li {
+    display: inline-flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 40%;
+    margin: 1vh;
+    font-size: 90%;
+  }
+}
+#infoDiv span {
+  margin: 1% 5px;
+}
+#infoDiv span:nth-of-type(1) {
+  min-width: 10rem;
+}
+@media (max-width: 650px) {
+  #infoDiv span:nth-of-type(1) {
+    min-width: 0vh;
+  }
+}
+#infoDiv button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 1%;
+  min-width: 61px;
+  min-height: 24px;
+  border: 3px solid #d1e4ff;
+  background-color: #ebf5fb;
+  box-shadow: 2px 2px 5px #d1e4ff;
+  border-radius: 5px;
+}
+
 #lockerlistDiv {
   margin-left: 15%;
   width: 70%;
 }
+#lockerlistDiv #lockerSelection {
+  margin: 1%;
+  text-align: center;
+}
+#lockerlistDiv #lockerSelection select {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+       appearance: button;
+  width: 250px;
+  padding: 1%;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 25px #d1e4ff;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  background-color: #d1e4ff;
+  color: #17202a;
+}
+#lockerlistDiv #lockerSelection select option {
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  padding: 1%;
+}
 #lockerlistDiv table {
+  margin: 1%;
   width: 100%;
 }
 #lockerlistDiv table tr th {
   width: 100%;
+  padding: 1%;
+  font-weight: bold;
 }
 #lockerlistDiv table tr td {
   margin: 1%;
@@ -283,6 +358,7 @@ body {
   text-align: center;
   font-size: 100%;
   border: 3px solid #d1e4ff;
+  background-color: #e5f0ff;
 }
 
 .warning {
@@ -290,30 +366,183 @@ body {
   color: red;
 }
 
+#loginDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  width: 60%;
+  background-color: white;
+  border-radius: 5px;
+}
+@media (max-width: 650px) {
+  #loginDiv {
+    margin: auto;
+    width: 70%;
+  }
+}
+#loginDiv * {
+  margin: 0.5vh;
+}
+#loginDiv span {
+  text-align: center;
+  font-size: 1rem;
+}
+#loginDiv span#passwdRule {
+  font-weight: 500;
+}
+
+#loginForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#loginForm .inputDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 650px) {
+  #loginForm .inputDiv {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+#loginForm input {
+  border: 3px solid #e5f0ff;
+  width: 80%;
+  height: 2rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #d1e4ff;
+  transition: box-shadow 0.5s cubic-bezier(0, 0.55, 0.45, 1);
+}
+@media (max-width: 650px) {
+  #loginForm input {
+    width: 60%;
+  }
+}
+#loginForm :focus {
+  outline: none;
+  box-shadow: 3px 3px 3px rgba(168, 168, 168, 0.65);
+}
+#loginForm button {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  min-width: 122px;
+  min-height: 48px;
+  border: none;
+  background-color: #ebf5fb;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+#loginForm button:hover {
+  background-color: #003d8e;
+  color: white;
+}
+
 nav {
-  width: 30%;
+  width: 50%;
   margin: auto;
 }
 nav ul {
-  padding: 0;
+  padding: 1%;
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
 }
+nav ul :hover {
+  background-color: #d1e4ff;
+}
 nav ul li {
   text-align: center;
-  padding: 1%;
+  padding: 1% 3%;
+  font-size: 1.1em;
   list-style: none;
   border: 3px solid #d1e4ff;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
+.popup {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0000001a;
+}
+
+.popupContent {
+  width: 200px;
+  height: 200px;
+  padding: 1%;
+  border: 5px solid #d1e4ff;
+  background-color: #e5f0ff;
+}
+
+#infoPopup {
+  position: absolute;
+  top: 100px;
+  left: 20%;
+}
+
+#registerPopup {
+  position: absolute;
+  top: 100px;
+  right: 20%;
+}
+@media (max-width: 650px) {
+  #registerPopup {
+    top: inherit;
+    bottom: 20%;
+  }
+}
+
+#cancelPopup {
+  position: absolute;
+  top: 100px;
+  right: 20%;
+}
+@media (max-width: 650px) {
+  #cancelPopup {
+    top: inherit;
+    bottom: 20%;
+  }
+}
+
+body {
+  max-width: 100vw;
+  width: 100%;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #6a93cb;
+  background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+  background-repeat: no-repeat;
+}
+
+header {
+  width: 100%;
+}
 header h1 {
   text-align: center;
+  margin: 1%;
+  margin-top: 3%;
+  font-weight: bold;
+  color: #e5f0ff;
+  font-size: 2.5em;
 }
 @media (max-width: 650px) {
   header {
-    font-size: 1.5vh;
+    font-size: 1.5em;
   }
 }
 
@@ -321,6 +550,8 @@ footer {
   position: fixed;
   left: 1%;
   bottom: 1%;
+  margin: auto;
+  margin-top: 3%;
   text-align: center;
 }
 @media (max-width: 1200px) {

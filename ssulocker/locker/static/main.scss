@@ -1,13 +1,16 @@
-@import "default/reset";
+@import "base/reset";
+
 @import "default/color";
 @import "default/font";
 @import "default/mixins";
 
-@import "divs/infoDiv";
-@import "divs/loginDiv";
 @import "divs/contactDiv";
+@import "divs/infoDiv";
 @import "divs/lockerlistDiv";
+@import "divs/loginDiv";
 @import "divs/nav";
+@import "divs/popups";
+
 @mixin flex-default(
   $arg_display: flex,
   $arg_justifycontent: center,
@@ -19,13 +22,27 @@
   flex-direction: $arg_flexdirection;
   align-items: $arg_alignitems;
 }
+body {
+  max-width: 100vw;
+  width: 100%;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #6a93cb;
+  background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+  background-repeat: no-repeat;
+}
 
 header {
+  width: 100%;
   h1 {
     text-align: center;
+    margin: 1%;
+    margin-top: 3%;
+    font-weight: bold;
+    color: $lblue;
+    font-size: 2.5em;
   }
   @media (max-width: 650px) {
-    font-size: 1.5vh;
+    font-size: 1.5em;
   }
 }
 
@@ -33,6 +50,8 @@ footer {
   position: fixed;
   left: 1%;
   bottom: 1%;
+  margin: auto;
+  margin-top: 3%;
   text-align: center;
   @media (max-width: 1200px) {
     position: relative;
