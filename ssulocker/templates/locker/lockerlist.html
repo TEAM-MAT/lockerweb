@@ -14,7 +14,6 @@
     <meta name="keywords" content="숭실대학교, IT대학, 사물함" />
     <meta property="og:image" content="https://i.imgur.com/v2UpZTg.png" />
     <link rel="stylesheet" href="{% static 'main.css' %}" />
-    <script src="{% static 'main.js' %}"></script>
 </head>
 
 <body>
@@ -32,44 +31,74 @@
     </nav>
 
     <main>
+        <div id="popup">
+            <div id="infoPopupDiv">
+                <button onclick="popupClose('infoPopupDiv')">X</button>
+                <span id="userDepartment2">{{user.department}}</span>
+                <span id="userName">{{username}}님</span>
+            </div>
+            <div id="registerPopupDiv">
+                <button onclick="popupClose('registerPopupDiv')">X</button>
+                <span>선택한 사물함 : {선택한 사물함}</span>
+                <button>예약</button>
+                <span class="warning">현재 예약된 사물함{{usercurrlocker}}이 취소됩니다.</span>
+            </div>
+        </div>
         <div id="lockerlistDiv">
             <div id="lockerSelection">
-                <select name="Building" id="building" onchange="selectBuilding(this.value)">
+                <select name="Building" id="building" onchange="selectBuilding(this.value);">
                     <option value="">구역을 선택하세요.</option>
-                    <optgroup label="형남공학관">
-                        <option value="HNA">형남-A</option>
-                        <option value="HNB">형남-B</option>
-                        <option value="HNC">형남-C</option>
-                    </optgroup>
-                    <optgroup label="정보과학관">
-                        <option value="ISA">정보-A</option>
-                        <option value="ISB">정보-B</option>
-                        <option value="ISC">정보-C</option>
-                    </optgroup>
-                    <optgroup label="문화관">
-                        <option value="CBA">문화-A</option>
-                        <option value="CBB">문화-B</option>
-                        <option value="CBC">문화-C</option>
-                    </optgroup>
+                    <script>
+                        //학부에 따라 select option 필터링
+                        const theSelect = document.querySelector("select#building");
+                        const _userdepartment = "{{ user.department }}";
+                        console.log(_userdepartment);
+                        if (_userdepartment == "EIE") {
+                            theSelect.innerHTML += `
+                            <optgroup label="형남공학관">
+                                <option value="HN1">형남-1</option>
+                                <option value="HN3">형남-3</option>
+                            </optgroup>`;
+                        } else if (_userdepartment == "CB") {
+                            theSelect.innerHTML += `
+                            <optgroup label="문화관">
+                                <option value="CB1">문화-1</option>
+                                <option value="CB2">문화-2</option>
+                                <option value="CB3">문화-3</option>
+                            </optgroup>`;
+                        } else {
+                            theSelect.innerHTML += `
+                            <optgroup label="정보과학관">
+                                <option value="IS1">정보-1</option>
+                                <option value="IS2">정보-2</option>
+                                <option value="IS3">정보-3</option>
+                            </optgroup>`;
+                        }
+                    </script>
                 </select>
             </div>
+
             {% if locker_list %}
             <table>
                 <thead>
                     <tr>
-                        <th colspan="5">{{locker_list.values.first.building}}건물 {{locker_list.values.first.sector}}구역 사물함 목록
+                        <th colspan="5">
+                            <span id="userDepartment1">{{user.department}}</span>
+                            <span id="building-floor">사물함 목록</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for l in locker_list%} {% if l.building == 'HN' %}
-                    <noscript>건물 필터링</noscript> {% if l.sector == 'A'%}
-                    <noscript>구역 필터링</noscript> {% if forloop.counter|divisibleby:5 != 0 %}
+                    {% for l in locker_list %}
+                    <noscript>건물 필터링</noscript>
+                    <span id="floorFiltering">{% if l.floor == 3 %}</span>
+                    <noscript>5개씩 출력</noscript>
+                    {% if forloop.counter|divisibleby:5 != 0 %}
                     <td>{{l.lockernum}}</td>
                     <tr>
                         {% else %}
                         <td>{{l.lockernum}}</td>
-                        {% endif %} {% else %} {%endif%} {% else %} {%endif%} {% endfor %}
+                        {%endif%} {% else %} {%endif%} {% endfor %}
                 </tbody>
             </table>
             {% else %}
@@ -77,28 +106,12 @@
             {% endif %}
         </div>
     </main>
-
-    <div class="popup hidden" id="infoPopupDiv">
-        <div class="popupContent" id="infoPopup">
-            <button onclick="popupClose('infoPopupDiv')">X</button>
-            <span>{{username}}님</span>
-            <span>현재 예약된 사물함 위치 : {{usercurrlocker}}</span>
-        </div>
-    </div>
-    <div class="popup hidden" id="registerPopupDiv">
-        <div class="popupContent" id="registerPopup">
-            <button onclick="popupClose('registerPopupDiv')">X</button>
-            <span>선택한 사물함 : {선택한 사물함}</span>
-            <button>예약</button>
-            <span class="warning">현재 예약된 사물함{{usercurrlocker}}이 취소됩니다.</span>
-        </div>
-    </div>
-
     <footer>
         <p>제작자 : <span><a href="https://github.com/amuguna1mandeum"><img alt="#" src="https://i.imgur.com/vxsETgn.png"
                         style="height:1em;"></img>
                     Github</a></span></p>
     </footer>
+    <script src="{% static 'main.js' %}"></script>
 </body>
 
 </html>
