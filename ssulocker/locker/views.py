@@ -35,7 +35,7 @@ def lockerlist(request):
     if request.user.is_authenticated:
         user=users.objects.get(id=request.user)
         locker_list=lockers.objects.filter(department=user.department).order_by("lockernum")
-        context={"locker_list":locker_list,"department":user.department}
+        context={"locker_list":locker_list,"department":user.department,"username":user.name,"usercurrlocker":user.lockernum}
         return render(request,'locker/lockerlist.html',context)
     else:
         return redirect('/locker/login')

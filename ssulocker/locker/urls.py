@@ -8,5 +8,6 @@ urlpatterns = [
     #path('', views.index, name='index'),
     path('lockerlist',views.lockerlist,name='lockerlist'),
     path('login',views.index,name='login'),
-    path('registeration_popup',views.registpop,name="rpop")
+    path('registeration_popup',views.registpop,name="rpop"),
+    path('',views.index,name='maintologin')
 ]

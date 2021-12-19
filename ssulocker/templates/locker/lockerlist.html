@@ -56,28 +56,19 @@
             <table>
                 <thead>
                     <tr>
-                        <th colspan="5">{{locker_list.values.first.building}}건물 {{locker_list.values.first.sector}}구역
-                            사물함 목록
+                        <th colspan="5">{{locker_list.values.first.building}}건물 {{locker_list.values.first.sector}}구역 사물함 목록
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for l in locker_list%}
-                    {% if l.building == 'HN' %}
-                    <noscript>건물 필터링</noscript>
-                    {% if l.sector == 'A'%}
-                    <noscript>구역 필터링</noscript>
-                    {% if forloop.counter|divisibleby:5 != 0 %}
+                    {% for l in locker_list%} {% if l.building == 'HN' %}
+                    <noscript>건물 필터링</noscript> {% if l.sector == 'A'%}
+                    <noscript>구역 필터링</noscript> {% if forloop.counter|divisibleby:5 != 0 %}
                     <td>{{l.lockernum}}</td>
                     <tr>
                         {% else %}
                         <td>{{l.lockernum}}</td>
-                        {% endif %}
-                        {% else %}
-                        {%endif%}
-                        {% else %}
-                        {%endif%}
-                        {% endfor %}
+                        {% endif %} {% else %} {%endif%} {% else %} {%endif%} {% endfor %}
                 </tbody>
             </table>
             {% else %}
@@ -89,8 +80,8 @@
     <div class="popup hidden" id="infoPopupDiv">
         <div class="popupContent" id="infoPopup">
             <button onclick="popupClose('infoPopupDiv')">X</button>
-            <span>{이름}님</span>
-            <span>현재 예약된 사물함 위치 : {예약한 사물함}</span>
+            <span>{{username}}님</span>
+            <span>현재 예약된 사물함 위치 : {{usercurrlocker}}</span>
         </div>
     </div>
     <div class="popup hidden" id="registerPopupDiv">
