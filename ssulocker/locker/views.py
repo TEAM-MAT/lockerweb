@@ -31,7 +31,7 @@ def index(request):
             return render(request,'locker/index.html',{'error':'아이디 또는 패스워드가 일치하지 않습니다'})
     else:
         if request.user.is_authenticated:
-            return redirect('/locker/lockerist')
+            return redirect('/locker/lockerlist')
         else:
             return render(request,'locker/index.html',locker_context)
 def lockerlist(request):
@@ -44,4 +44,8 @@ def lockerlist(request):
         return redirect('/locker/login')
 def registpop(request):
     return render(request,'locker/regist_popup.html')
+def logout(request):
+    if request.user.is_authenticated:
+        auth.logout(request)
+    return redirect('/locker/login')
 # Create your views here.
