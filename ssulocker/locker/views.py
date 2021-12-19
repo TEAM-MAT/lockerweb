@@ -28,7 +28,8 @@ def index(request):
             auth.login(request,user)
             return redirect('/locker/lockerlist')
         else:
-            return render(request,'locker/index.html',{'error':'아이디 또는 패스워드가 일치하지 않습니다'})
+            locker_context['error']=1
+            return render(request,'locker/index.html',locker_context)
     else:
         if request.user.is_authenticated:
             return redirect('/locker/lockerlist')
