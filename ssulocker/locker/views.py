@@ -1,9 +1,11 @@
 from django.contrib.auth import authenticate
+from django.http.response import HttpResponse
 from django.shortcuts import render,get_object_or_404,redirect
 import django.contrib.auth as auth
 #from django.http import HttpResponse
 from .models import lockers,users
 import logging
+import json
 from django.db import connection
 def index(request):
     #학부 별 남은라커 수/라커 수 구해서 띄워줄 것임.
@@ -49,4 +51,11 @@ def logout(request):
     if request.user.is_authenticated:
         auth.logout(request)
     return redirect('/locker/login')
+def reserve(request):#예약
+    if request.method=="POST":
+        user=users.objects.get(id=request.user)
+        locknum=json.loads(request.body.decode("utf-8"))
+        user.lockernum=locknum['lockernum']
+        user.save()
+        return redirect('/locker/lockerlist')
 # Create your views here.
