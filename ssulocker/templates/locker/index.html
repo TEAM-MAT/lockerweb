@@ -14,7 +14,7 @@
     <meta name="keywords" content="숭실대학교, IT대학, 사물함">
     <meta property="og:image" content="https://i.imgur.com/v2UpZTg.png">
     <link rel="stylesheet" href="{% static 'main.css' %}">
-    <script src="{% static 'main.js' %}"></script>
+    <script src="{% static 'popups.js' %}"></script>
 </head>
 
 <body>
@@ -61,18 +61,22 @@
         <div id="loginDiv">
             <span id="passwdRule">💡 비밀번호는 학우님의 휴대전화 뒤 8자리입니다.</span>
             <span id="passwdExample">예시) 010-1234-5678인 경우: 12345678</span>
-            <span id="errormessage" style="color: red;">{% if error %} {{"학번 또는 비밀번호가 잘못되었습니다"}} {%endif%}</span>
+            <span id="errormessage" style="color: red;">
+                {% if error %} {{"학번 또는 비밀번호가 잘못되었습니다"}} {%endif%}
+            </span>
             <form id="loginForm" action="{% url 'locker:login' %}" class="bold post-form" method="post">
                 {% csrf_token %} {% include "form_errors.html" %}
                 <!-- 학번 -->
                 <div class="inputDiv">
                     <label for="username">학번</label>
-                    <input type="text" id="username" class="form-control" name="username" value="{{ form.username.value|default_if_none:'' }}" />
+                    <input type="text" id="username" class="form-control" name="username"
+                        value="{{ form.username.value|default_if_none:'' }}" />
                 </div>
                 <!-- 비밀번호 -->
                 <div class="inputDiv">
                     <label for="password">비밀번호</label>
-                    <input type="password" class="form-control" name="password" id="password" value="{{form.password.value|default_if_none:''}}" />
+                    <input type="password" class="form-control" name="password" id="password"
+                        value="{{form.password.value|default_if_none:''}}" />
                 </div>
                 <!-- submit -->
                 <button type="submit">로그인</button>

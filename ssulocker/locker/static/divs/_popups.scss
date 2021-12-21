@@ -5,8 +5,10 @@
   @include flex-default(flex, space-evenly, column, center);
   width: 30%;
   height: 100px;
+  margin-top: 1%;
   background-color: $lblue;
   border: 3px solid $dblue;
+  border-radius: 5px;
 }
 
 #registerPopupDiv {

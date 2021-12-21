@@ -318,14 +318,12 @@ body {
 }
 
 #lockerlistDiv {
+  margin-top: 1%;
   margin-left: 15%;
   width: 70%;
-}
-#lockerlistDiv #lockerSelection {
-  margin: 1%;
   text-align: center;
 }
-#lockerlistDiv #lockerSelection select {
+#lockerlistDiv select {
   -webkit-appearance: button;
   -moz-appearance: button;
        appearance: button;
@@ -338,23 +336,33 @@ body {
   background-color: #d1e4ff;
   color: #17202a;
 }
-#lockerlistDiv #lockerSelection select option {
+#lockerlistDiv select option {
   font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   padding: 1%;
 }
-#lockerlistDiv table {
-  margin: 1%;
+
+#lockerList {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   width: 100%;
+  margin-top: 1%;
 }
-#lockerlistDiv table tr th {
+#lockerList table {
+  margin: 1%;
+  width: 90%;
+}
+#lockerList table tr th {
   width: 100%;
   padding: 1%;
   font-weight: bold;
 }
-#lockerlistDiv table tr td {
+#lockerList table tr td {
   margin: 1%;
   padding: 1%;
-  width: 20%;
+  width: 10%;
   text-align: center;
   font-size: 100%;
   border: 3px solid #d1e4ff;
@@ -364,6 +372,10 @@ body {
 .warning {
   font-weight: bold;
   color: red;
+}
+
+.sectorDOWN {
+  display: none;
 }
 
 #loginDiv {
@@ -450,21 +462,45 @@ body {
   color: white;
 }
 
-nav {
+#topNav {
   width: 50%;
   margin: auto;
 }
-nav ul {
+#topNav ul {
   padding: 1%;
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
 }
-nav ul :hover {
+#topNav ul :hover {
   background-color: #d1e4ff;
 }
-nav ul li {
+#topNav ul li {
+  text-align: center;
+  padding: 1% 3%;
+  font-size: 1.1em;
+  list-style: none;
+  border: 3px solid #d1e4ff;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#middleNav {
+  width: 50%;
+  margin: 0;
+}
+#middleNav ul {
+  padding: 1%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+}
+#middleNav ul :hover {
+  background-color: #d1e4ff;
+}
+#middleNav ul li {
   text-align: center;
   padding: 1% 3%;
   font-size: 1.1em;
@@ -488,8 +524,10 @@ nav ul li {
   align-items: center;
   width: 30%;
   height: 100px;
+  margin-top: 1%;
   background-color: #e5f0ff;
   border: 3px solid #d1e4ff;
+  border-radius: 5px;
 }
 
 #registerPopupDiv {
@@ -501,6 +539,20 @@ nav ul li {
   height: 100px;
   background-color: #e5f0ff;
   border: 3px solid #d1e4ff;
+}
+
+#registerPopupDiv button {
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  text-align: center;
+  padding: 1% 3%;
+  font-size: 1.1em;
+  list-style: none;
+  border: 3px solid #d1e4ff;
+  border-radius: 5px;
+  background-color: #fff;
+}
+#registerPopupDiv :hover {
+  background-color: #d1e4ff;
 }
 
 body {
