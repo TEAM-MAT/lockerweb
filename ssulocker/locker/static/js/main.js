@@ -14,3 +14,10 @@ for (i in departments) {
     userDepSpan2.innerText = t.name;
   }
 }
+
+const floorSpan = document.querySelectorAll("span.floor");
+floorSpan.forEach(function (t) {
+  if (t.innerText == "0") {
+    t.innerText = "B1";
+  }
+});

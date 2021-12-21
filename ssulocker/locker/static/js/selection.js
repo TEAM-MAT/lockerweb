@@ -1,4 +1,5 @@
 function selectBuilding(inp) {
+  console.log(lockers);
   const building = inp[0] + inp[1];
   const floor = inp[2];
 
@@ -15,6 +16,25 @@ function selectBuilding(inp) {
   } else {
     _building = _floor = "";
   }
+
   theSpan.innerText = `${_building} ${_floor}`;
   document.querySelector("span#userDep1").innerText = "";
+}
+const sectors = ["A", "B", "C", "D", "E", "F"];
+let beforeSelected = "A";
+
+function selectSector(inp) {
+  for (i in sectors) {
+    if (inp === sectors[i]) {
+      const t = document.querySelectorAll(`td.sector${sectors[i]}`);
+      t.forEach(function (t) {
+        t.classList.remove("sectorDOWN");
+      });
+    } else {
+      const t = document.querySelectorAll(`td.sector${sectors[i]}`);
+      t.forEach(function (t) {
+        t.classList.add("sectorDOWN");
+      });
+    }
+  }
 }
