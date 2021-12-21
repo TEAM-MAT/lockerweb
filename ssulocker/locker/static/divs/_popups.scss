@@ -1,41 +1,18 @@
-.popup {
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #0000001a;
+#popup {
+  @include flex-default(flex, space-evenly, row, center);
 }
-.popupContent {
-  width: 200px;
-  height: 200px;
-  padding: 1%;
-
-  border: 5px solid $dblue;
+#infoPopupDiv {
+  @include flex-default(flex, space-evenly, column, center);
+  width: 30%;
+  height: 100px;
   background-color: $lblue;
+  border: 3px solid $dblue;
 }
 
-#infoPopup {
-  position: absolute;
-  top: 100px;
-  left: 20%;
-}
-
-#registerPopup {
-  position: absolute;
-  top: 100px;
-  right: 20%;
-  @media (max-width: 650px) {
-    top: inherit;
-    bottom: 20%;
-  }
-}
-
-#cancelPopup {
-  position: absolute;
-  top: 100px;
-  right: 20%;
-  @media (max-width: 650px) {
-    top: inherit;
-    bottom: 20%;
-  }
+#registerPopupDiv {
+  @include flex-default(flex, space-evenly, column, center);
+  width: 30%;
+  height: 100px;
+  background-color: $lblue;
+  border: 3px solid $dblue;
 }
