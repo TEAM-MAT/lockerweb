@@ -45,8 +45,6 @@ def lockerlist(request):
         return render(request,'locker/lockerlist.html',context)
     else:
         return redirect('/locker/login')
-def registpop(request):
-    return render(request,'locker/regist_popup.html')
 def logout(request):
     if request.user.is_authenticated:
         auth.logout(request)

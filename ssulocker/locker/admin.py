@@ -3,7 +3,6 @@ from django.contrib import admin
 from locker.forms import UserCreationForm,UserChangeForm
 from .models import users
 from .models import lockers
-from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from locker.forms import lockeraddForm#lockerchangeForm
