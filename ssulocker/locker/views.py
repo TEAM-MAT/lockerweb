@@ -55,5 +55,12 @@ def reserve(request):#예약
         locknum=json.loads(request.body.decode("utf-8"))
         user.lockernum=locknum['lockernum']
         user.save()
-    return redirect('/locker/lockerlist')
+        return redirect('locker: lockerlist')
+    else:
+        pass
+    return render(request, 'locker/regist_popup.html')
+def cancel(request):
+    return render(request, 'locker/regist_popup.html')
+    
+    
 # Create your views here.
