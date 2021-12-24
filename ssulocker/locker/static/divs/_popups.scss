@@ -1,10 +1,7 @@
-.popup {
+#popup {
   @include flex-default(flex, space-evenly, row, center);
 }
-
-#infoPopupDiv,
-#registerPopupDiv,
-#cancelPopupDiv {
+#infoPopupDiv {
   @include flex-default(flex, space-evenly, column, center);
   width: 30%;
   height: 100px;
@@ -12,22 +9,12 @@
   background-color: $lblue;
   border: 3px solid $dblue;
   border-radius: 5px;
-  button {
-    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-      Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
-      sans-serif;
-    appearance: none;
-    min-width: 122px;
-    min-height: 48px;
-    border: 3px solid $dblue;
-    background-color: $slblue;
-    box-shadow: 2px 2px 5px $dblue;
-    border-radius: 5px;
-    transition: all 0.3s;
-    font-size: medium;
-  }
-  button:hover {
-    background-color: $bblue;
-    color: white;
-  }
+}
+
+#registerPopupDiv {
+  @include flex-default(flex, space-evenly, column, center);
+  width: 30%;
+  height: 100px;
+  background-color: $lblue;
+  border: 3px solid $dblue;
 }
