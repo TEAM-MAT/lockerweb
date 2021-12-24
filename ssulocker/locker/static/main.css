@@ -569,6 +569,7 @@ body {
   box-shadow: 2px 2px 5px #d1e4ff;
   border-radius: 5px;
   transition: all 0.3s;
+  font-size: medium;
 }
 #infoPopupDiv button:hover,
 #registerPopupDiv button:hover,
