@@ -18,13 +18,16 @@
 </head>
 
 <body>
-    <div id="registerPopupDiv">
-        <!-- <span>현재 선택한 사물함: "선택한 사물함"</span> -->
-        <button>예약하기</button>
-        {% if usercurrlocker %}
-        <span class="warning">선택한 사물함 {{usercurrlocker}} 이 취소됩니다.</span>
-        {% else %}
-        <span class="warning">선택한 사물함이 없습니다.</span>
-        {% endif %}
+    <div class="fullscreen popup">
+        <div id="registerPopupDiv">
+            <!-- <span>현재 선택한 사물함: "선택한 사물함"</span> -->
+            <button>예약하기</button>
+
+            {% if usercurrlocker %}
+            <span class="warning">선택한 사물함 {{usercurrlocker}} 이 취소됩니다.</span>
+            {% else %}
+            <span class="warning">선택한 사물함이 없습니다.</span>
+            {% endif %}
+        </div>
     </div>
 </body>
