@@ -11,5 +11,4 @@ urlpatterns = [
     path('',views.index,name='maintologin'),
     path('logout',views.logout,name='logout'),
     path('reserve',views.reserve,name='reserve'),
-    path('cancel',views.cancel,name='cancel'),
 ]
