@@ -23,14 +23,16 @@
 
   <nav id="topNav">
     <ul>
-      <li><span onclick="location.href='{%url 'locker:reserve' %}'">예약 / 변경</span></li><!--예약을 post로 해줘야함 수정 필요-->
-      <li><span>취소</span></li>
+      {% csrf_token %}
+      <li><span onclick="location.href='{%url 'locker:reserve' %}'">예약 / 변경</span></li>
+      <!--예약을 post로 해줘야함 수정 필요-->
+      <li><span onclick="location.href='{%url 'locker:cancel' %}'">취소</span></li>
       <li><span onclick="location.href='{%url 'locker:logout' %}'">로그아웃</span></li>
     </ul>
   </nav>
 
   <main>
-    <section id="popup">
+    <section class="popup">
       <div id="infoPopupDiv">
         <span id="userDep2">{{user.department}}</span>
         <span id="userName">{{username}}님</span>
@@ -162,6 +164,7 @@
   </footer>
   <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'js/selection.js' %}"></script>
+  <script src="{% static 'js/popups.js' %}"></script>
 </body>
 
 </html>

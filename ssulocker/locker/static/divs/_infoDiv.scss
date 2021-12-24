@@ -1,9 +1,10 @@
 #infoDiv {
+  @include flex-default();
   margin: auto;
   margin-top: 3%;
   margin-bottom: 1%;
-  width: 60%;
-  @media (max-width: 650px) {
+  width: fit-content;
+  @media (max-width: 1200px) {
     margin-left: 15%;
     width: 70%;
   }
@@ -22,12 +23,11 @@
   li {
     @include flex-default(flex, space-between, row, center);
     text-align: center;
-    width: 60%;
     margin: 0.5vh;
     @media (max-width: 1200px) {
       @include flex-default(inline-flex, flex-end, column, center);
       flex-wrap: wrap;
-      width: 40%;
+      // width: 40%;
       margin: 1vh;
       font-size: 90%;
     }
@@ -35,7 +35,19 @@
   span {
     margin: 1% 5px;
   }
-  span:nth-of-type(1) {
+  :nth-of-type(1) {
+    min-width: 10rem;
+    @media (max-width: 650px) {
+      min-width: 0vh;
+    }
+  }
+  :nth-of-type(2) {
+    min-width: 5rem;
+    @media (max-width: 650px) {
+      min-width: 0vh;
+    }
+  }
+  :nth-of-type(4) {
     min-width: 10rem;
     @media (max-width: 650px) {
       min-width: 0vh;
