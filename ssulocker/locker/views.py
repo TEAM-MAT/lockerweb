@@ -60,7 +60,7 @@ def reserve(request):#예약
     if request.method=="POST":
         user=request.user
         locknum=json.loads(request.body.decode("utf-8"))
-        locker=lockers.objects.get(lockernum=locknum)
+        locker=lockers.objects.get(lockernum=locknum.get('lockernum',None))
         if user.lockernum is not None:#이미 예약한 사물함 존재
             oldlocker=user.lockernum
             oldlocker.reserved=0
