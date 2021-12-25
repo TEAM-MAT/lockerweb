@@ -1,7 +1,9 @@
 from django.contrib.auth import authenticate
+from django.db.models.expressions import Value
 from django.http.response import HttpResponse
 from django.shortcuts import render,get_object_or_404,redirect
 import django.contrib.auth as auth
+from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponse
 from .models import lockers,users
 import logging
@@ -37,6 +39,8 @@ def index(request):
             return redirect('/locker/lockerlist')
         else:
             return render(request,'locker/index.html',locker_context)
+
+@login_required(login_url='locker:login')
 def lockerlist(request):
     if request.user.is_authenticated:
         user=users.objects.get(id=request.user)
@@ -45,15 +49,39 @@ def lockerlist(request):
         return render(request,'locker/lockerlist.html',context)
     else:
         return redirect('/locker/login')
+
 def logout(request):
     if request.user.is_authenticated:
         auth.logout(request)
     return redirect('/locker/login')
+
+@login_required(login_url='locker:login')
 def reserve(request):#예약
     if request.method=="POST":
-        user=users.objects.get(id=request.user)
+        user=request.user
         locknum=json.loads(request.body.decode("utf-8"))
-        user.lockernum=locknum['lockernum']
+        locker=lockers.objects.get(lockernum=locknum)
+        if user.lockernum is not None:#이미 예약한 사물함 존재
+            oldlocker=user.lockernum
+            oldlocker.reserved=0
+            oldlocker.save()
+            user.lockernum=None
+        user.lockernum=locker
+        user.lockernum.reserved=1
         user.save()
+        locker.save()
     return redirect('/locker/lockerlist')
-# Create your views here.
+
+@login_required(login_url='locker:login')
+def cancel(request):
+    if request.method=="POST":
+        user=users.objects.get(id=request.user)
+        current_locker=user.lockernum
+        if current_locker is not None:
+            cl=current_locker.lockernum
+            c=lockers.objects.get(lockernum=cl)
+            c.reserved=0
+            c.save()
+            user.lockernum=None
+            user.save()
+    return redirect('/locker/lockerlist')
