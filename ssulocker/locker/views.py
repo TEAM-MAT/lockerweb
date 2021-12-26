@@ -1,7 +1,9 @@
 from django.contrib.auth import authenticate
+from django.db.models.expressions import Value
 from django.http.response import HttpResponse
 from django.shortcuts import render,get_object_or_404,redirect
 import django.contrib.auth as auth
+from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponse
 from .models import lockers,users
 import logging
@@ -37,10 +39,12 @@ def index(request):
             return redirect('/locker/lockerlist')
         else:
             return render(request,'locker/index.html',locker_context)
+
+@login_required(login_url='locker:login')
 def lockerlist(request):
     if request.user.is_authenticated:
-        user=users.objects.get(id=request.user)
-        locker_list=lockers.objects.filter(department=user.department).order_by("lockernum")
+        user=users.objects.get(id=request.user.id)
+        locker_list=lockers.objects.filter(department=user.department,reserved=0).order_by("lockernum")
         context={"locker_list":locker_list,"department":user.department,"username":user.name,"usercurrlocker":user.lockernum}
         return render(request,'locker/lockerlist.html',context)
     else:
@@ -49,11 +53,39 @@ def logout(request):
     if request.user.is_authenticated:
         auth.logout(request)
     return redirect('/locker/login')
+
+@login_required(login_url='locker:login')
 def reserve(request):#예약
     if request.method=="POST":
-        user=users.objects.get(id=request.user)
+        user=request.user
         locknum=json.loads(request.body.decode("utf-8"))
-        user.lockernum=locknum['lockernum']
-        user.save()
-    return redirect('/locker/lockerlist')
-# Create your views here.
+        locker=lockers.objects.get(lockernum=locknum.get('lockernum',None))
+        if locker.reserved==0:
+            if user.lockernum is not None:#이미 예약한 사물함 존재
+                oldlocker=user.lockernum
+                oldlocker.reserved=0
+                oldlocker.save()
+                user.lockernum=None
+            user.lockernum=locker
+            user.lockernum.reserved=1
+            user.save()
+            locker.save()
+            return HttpResponse(json.dumps({'code':200,'result':str(locker.lockernum)}),content_type='application/json')
+        else:
+            return HttpResponse(json.dumps({'code':403,'result':'reserved locker'}),content_type='application/json')
+
+@login_required(login_url='locker:login')
+def cancel(request):
+    if request.method=="POST":
+        user=users.objects.get(id=request.user.id)
+        current_locker=user.lockernum
+        if current_locker is not None:
+            cl=current_locker.lockernum
+            c=lockers.objects.get(lockernum=cl)
+            c.reserved=0
+            c.save()
+            user.lockernum=None
+            user.save()
+            return HttpResponse(json.dumps({'code':200}))
+        else:
+            return HttpResponse(json.dumps({'code':404}))

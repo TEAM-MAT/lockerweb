@@ -12,14 +12,13 @@ class userAdmin(BaseUserAdmin):
     list_display=('id','name','lockernum','department','lockernum','is_admin')
     list_filter=('is_admin','department','lockernum')
     fieldsets=(
-        (None,{'fields':('id','name')}),
-        ('locker',{'fields':('lockernum',)}),
+        (None,{'fields':('id','name','department','password')}),
         ('Permissions',{'fields':('is_admin',)}),
     )
     add_fieldsets=(
         (None,{
             'classes':('wide',),
-            'fields':('id','name','password1','password2'),
+            'fields':('id','name','password1','password2','department','is_admin'),
         }),
     )
     search_fields=('id','name','department')
