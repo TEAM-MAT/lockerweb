@@ -44,7 +44,7 @@ def index(request):
 def lockerlist(request):
     if request.user.is_authenticated:
         user=users.objects.get(id=request.user)
-        locker_list=lockers.objects.filter(department=user.department).order_by("lockernum")
+        locker_list=lockers.objects.filter(department=user.department,reserved=0).order_by("lockernum")
         context={"locker_list":locker_list,"department":user.department,"username":user.name,"usercurrlocker":user.lockernum}
         return render(request,'locker/lockerlist.html',context)
     else:
@@ -61,21 +61,24 @@ def reserve(request):#예약
         user=request.user
         locknum=json.loads(request.body.decode("utf-8"))
         locker=lockers.objects.get(lockernum=locknum.get('lockernum',None))
-        if user.lockernum is not None:#이미 예약한 사물함 존재
-            oldlocker=user.lockernum
-            oldlocker.reserved=0
-            oldlocker.save()
-            user.lockernum=None
-        user.lockernum=locker
-        user.lockernum.reserved=1
-        user.save()
-        locker.save()
-    return redirect('/locker/lockerlist')
+        if locker.reserved==0:
+            if user.lockernum is not None:#이미 예약한 사물함 존재
+                oldlocker=user.lockernum
+                oldlocker.reserved=0
+                oldlocker.save()
+                user.lockernum=None
+            user.lockernum=locker
+            user.lockernum.reserved=1
+            user.save()
+            locker.save()
+            return HttpResponse(json.dumps({'code':200,'result':str(locker.lockernum)}),content_type='application/json')
+        else:
+            return HttpResponse(json.dumps({'code':403,'result':'reserved locker'}),content_type='application/json')
 
 @login_required(login_url='locker:login')
 def cancel(request):
     if request.method=="POST":
-        user=users.objects.get(id=request.user)
+        user=users.objects.get(id=request.user.id)
         current_locker=user.lockernum
         if current_locker is not None:
             cl=current_locker.lockernum
@@ -84,4 +87,6 @@ def cancel(request):
             c.save()
             user.lockernum=None
             user.save()
-    return redirect('/locker/lockerlist')
+            return HttpResponse(json.dumps({'code':200}))
+        else:
+            return HttpResponse(json.dumps({'code':404}))
