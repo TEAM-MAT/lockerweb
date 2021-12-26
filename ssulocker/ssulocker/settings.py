@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-epj&8w#0i6_f-y*vtw77=q5vsl@5@(wx9qm2y2qbi)i(t)g+me
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["ec2-13-209-167-172.ap-northeast-2.compute.amazonaws.com","localhost","13.209.167.172"]
+ALLOWED_HOSTS = ["ec2-13-209-167-172.ap-northeast-2.compute.amazonaws.com","localhost","13.209.167.172","ssuitlocker.kro.kr"]
 #cookie(login) duration
 SESSION_COOKIE_AGE=600
 SESSION_SAVE_EVERY_REQUEST=True
@@ -132,6 +132,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'locker','static')
+STATICFILES_DIRS=[]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

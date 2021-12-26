@@ -43,13 +43,12 @@ def index(request):
 @login_required(login_url='locker:login')
 def lockerlist(request):
     if request.user.is_authenticated:
-        user=users.objects.get(id=request.user)
+        user=users.objects.get(id=request.user.id)
         locker_list=lockers.objects.filter(department=user.department,reserved=0).order_by("lockernum")
         context={"locker_list":locker_list,"department":user.department,"username":user.name,"usercurrlocker":user.lockernum}
         return render(request,'locker/lockerlist.html',context)
     else:
         return redirect('/locker/login')
-
 def logout(request):
     if request.user.is_authenticated:
         auth.logout(request)
