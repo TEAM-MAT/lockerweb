@@ -19,7 +19,7 @@ class userAdmin(BaseUserAdmin):
     add_fieldsets=(
         (None,{
             'classes':('wide',),
-            'fields':('id','name','password1','password2'),
+            'fields':('id','name','password1','password2','department','is_admin'),
         }),
     )
     search_fields=('id','name','department')
