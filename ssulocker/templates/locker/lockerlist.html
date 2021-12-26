@@ -25,7 +25,7 @@
 
   <nav id="topNav">
     <ul>
-      <li><span onclick="location.href='{%url 'locker:reserve' %}'">예약 / 변경</span></li><!--예약을 post로 해줘야함 수정 필요-->
+      <li><span onclick="location.href='{%url 'locker:reservePop' %}'">예약 / 변경</span></li><!--예약을 post로 해줘야함 수정 필요-->
       <li><span>취소</span></li>
       <li><span onclick="location.href='{%url 'locker:logout' %}'">로그아웃</span></li>
     </ul>
@@ -91,7 +91,7 @@
         </ul>
       </nav>
       <script>
-        function test(inp){
+        function select(inp){
           sessionStorage.setItem("lockerData", inp);
           console.log(sessionStorage.getItem("lockerData"))
         }
@@ -111,21 +111,21 @@
           {% if forloop.counter|divisibleby:5 != 0 %}
           <!--  -->
           {% if l.sector == 'A' %}
-          <td class="sectorA" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
+          <td class="sectorA" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
           {% elif l.sector == 'B' %}
-          <td class="sectorB sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
+          <td class="sectorB sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
           </td>
           {% elif l.sector == 'C' %}
-          <td class="sectorC sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
+          <td class="sectorC sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
           </td>
           {% elif l.sector == 'D' %}
-          <td class="sectorD sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
+          <td class="sectorD sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
           </td>
           {% elif l.sector == 'E' %}
-          <td class="sectorE sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
+          <td class="sectorE sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
           </td>
           {% elif l.sector == 'F' %}
-          <td class="sectorF sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
+          <td class="sectorF sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
           </td>
           {%else%}
           {%endif%}
@@ -134,22 +134,22 @@
             {% else %}
             <!--  -->
             {% if l.sector == 'A' %}
-            <td class="sectorA sectorUP" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
+            <td class="sectorA sectorUP" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
             </td>
             {% elif l.sector == 'B' %}
-            <td class="sectorB sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
+            <td class="sectorB sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
               {{l.written_lockernum}}번</td>
             {% elif l.sector == 'C' %}
-            <td class="sectorC sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
+            <td class="sectorC sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
               {{l.written_lockernum}}번</td>
             {% elif l.sector == 'D' %}
-            <td class="sectorD sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
+            <td class="sectorD sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
               {{l.written_lockernum}}번</td>
             {% elif l.sector == 'E' %}
-            <td class="sectorE sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
+            <td class="sectorE sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
               {{l.written_lockernum}}번</td>
             {% elif l.sector == 'F' %}
-            <td class="sectorF sectorDOWN" onClick="test('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
+            <td class="sectorF sectorDOWN" onClick="select('{{l.lockernum}}')"><span class="floor">{{l.floor}}</span>층 {{l.sector}}구역
               {{l.written_lockernum}}번</td>
             {%else%}
             {%endif%}

@@ -58,7 +58,9 @@ def logout(request):
 
 
 @login_required(login_url='locker:login')
-
+def reservePop(request):
+    return render(request,'locker/regist_popup.html')
+    
 def reserve(request):#예약
     if request.method=="POST":
         user=request.user
@@ -74,10 +76,9 @@ def reserve(request):#예약
             user.lockernum.reserved=1
             user.save()
             locker.save()
-            return HttpResponse(json.dumps({'code':200,'result':str(locker.lockernum)}),content_type='application/json')
+            return HttpResponse(json.dumps({'code':200}))
         else:
-            return HttpResponse(json.dumps({'code':403,'result':'reserved locker'}),content_type='application/json')
-
+            return HttpResponse(json.dumps({'code':404}))
 @login_required(login_url='locker:login')
 def cancel(request):
     if request.method=="POST":
