@@ -1,4 +1,4 @@
-<h1>API명세</h1><br>
+<h1>API명세</h1>
 <ol>
   <li><h2>예약</h2></li>
   url은 locker/reserve <br>
