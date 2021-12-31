@@ -4,6 +4,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render,get_object_or_404,redirect
 import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
+
 #from django.http import HttpResponse
 from .models import lockers,users
 import logging
@@ -44,7 +45,8 @@ def index(request):
 def lockerlist(request):
     if request.user.is_authenticated:
         user=users.objects.get(id=request.user.id)
-        locker_list=lockers.objects.filter(department=user.department,reserved=0).order_by("lockernum")
+        locker_list=lockers.objects.filter(department=user.department,reserved=0).order_by("lockernum")   
+        
         context={"locker_list":locker_list,"department":user.department,"username":user.name,"usercurrlocker":user.lockernum}
         return render(request,'locker/lockerlist.html',context)
     else:
@@ -54,7 +56,11 @@ def logout(request):
         auth.logout(request)
     return redirect('/locker/login')
 
+
 @login_required(login_url='locker:login')
+def reservePop(request):
+    return render(request,'locker/regist_popup.html')
+    
 def reserve(request):#예약
     if request.method=="POST":
         user=request.user
@@ -70,10 +76,9 @@ def reserve(request):#예약
             user.lockernum.reserved=1
             user.save()
             locker.save()
-            return HttpResponse(json.dumps({'code':200,'result':str(locker.lockernum)}),content_type='application/json')
+            return HttpResponse(json.dumps({'code':200}))
         else:
-            return HttpResponse(json.dumps({'code':403,'result':'reserved locker'}),content_type='application/json')
-
+            return HttpResponse(json.dumps({'code':404}))
 @login_required(login_url='locker:login')
 def cancel(request):
     if request.method=="POST":
