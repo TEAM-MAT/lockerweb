@@ -43,7 +43,7 @@
     <!--사물함이 로딩되었을 시 출력-->
     <section id="lockerlistDiv">
       <select name="Building" id="building" onchange="selectBuilding(this.value);">
-        <option selected disabled>구역을 선택하세요.</option>
+        <option selected disabled>층을 선택하세요.</option>
         <script>
           // 학부에 따라 select option 필터링
           const theSelect = document.querySelector("select#building");
@@ -118,14 +118,11 @@
       <table>
         <thead>
           <tr>
-            <th colspan="5">
-              <span id="userDep1">{{user.department}}</span>
-              <span id="building-floor"></span>
-              <span>사물함 목록</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
+      <th colspan="5">
+        <span id="userDep1">{{user.department}}</span>
+        <span id="building-floor"></span>
+        <span>사물함 목록</span>
+        <table id="table">
           {% for l in locker_list %}
           {% if forloop.counter|divisibleby:5 != 0 %}
           <!--  -->
@@ -175,7 +172,7 @@
             <!--  -->
             {%endif%} {% endfor %}
         </tbody>
-      </table>
+        </table>
     </section>
 
     {% else %}

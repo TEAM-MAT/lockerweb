@@ -8,7 +8,7 @@ link : <a href="http://ssuitlocker.kro.kr/locker/login">http://ssuitlocker.kro.k
 
 사용 framework: [Django 4.0](https://github.com/django/django)  
 DB: Mysql 8.0.26 , AWS RDS  
-Extension : [Dart Sass 1.45.1]9https://github.com/sass/dart-sass)  
+Extension : [Dart Sass 1.45.1](https://github.com/sass/dart-sass)  
 [기획,개발일지 in Notion](https://amuguna1mandeum.notion.site/IT-28e22b4b568543d7ade823bcc97bcead)  
 
 

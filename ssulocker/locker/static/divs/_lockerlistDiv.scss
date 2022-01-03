@@ -1,59 +1,59 @@
 #lockerlistDiv {
-  margin-top: 1%;
-  margin-left: 15%;
-  width: 70%;
-  text-align: center;
-  select {
-    -webkit-appearance: button;
-    appearance: button;
-    width: 250px;
-    padding: 1%;
-    border: none;
-    outline: none;
-    box-shadow: 0 5px 25px $dblue;
-    font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
-      sans-serif;
-    background-color: $dblue;
-    color: $black;
-    option {
-      font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
-        "Malgun Gothic", sans-serif;
-      padding: 1%;
+    margin-top: 1%;
+    margin-left: 15%;
+    width: 70%;
+    text-align: center;
+    select {
+        -webkit-appearance: button;
+        appearance: button;
+        width: 250px;
+        padding: 1%;
+        border: none;
+        outline: none;
+        box-shadow: 0 5px 25px $dblue;
+        font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
+            "Malgun Gothic", sans-serif;
+        background-color: $dblue;
+        color: $black;
+        option {
+            font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
+                "Malgun Gothic", sans-serif;
+            padding: 1%;
+        }
     }
-  }
 }
 
 #lockerList {
-  @include flex-default;
-  text-align: center;
-  width: 100%;
-  margin-top: 1%;
-  table {
-    margin: 1%;
-    width: 90%;
-    tr {
-      th {
-        width: 100%;
-        padding: 1%;
-        font-weight: bold;
-      }
-      td {
+    @include flex-default;
+    text-align: center;
+    width: 100%;
+    margin-top: 1%;
+    table {
         margin: 1%;
-        padding: 1%;
-        width: 10%;
-        text-align: center;
-        font-size: 100%;
-        border: 3px solid $dblue;
-        background-color: $lblue;
-      }
+        width: 90%;
+        tr {
+            th {
+                width: 100%;
+                padding: 1%;
+                font-weight: bold;
+            }
+            td {
+                margin: 1%;
+                padding: 1%;
+                width: 10%;
+                text-align: center;
+                font-size: 100%;
+                border: 3px solid $dblue;
+                background-color: $lblue;
+            }
+        }
     }
-  }
 }
 
 .warning {
-  font-weight: bold;
-  color: red;
+    font-weight: bold;
+    color: red;
 }
 .sectorDOWN {
-  display: none;
+    display: none;
 }
