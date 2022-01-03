@@ -482,6 +482,10 @@ body {
   display: none;
 }
 
+.floorDOWN {
+  display: none;
+}
+
 #loginDiv {
   display: -webkit-box;
   display: -ms-flexbox;
