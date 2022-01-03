@@ -4,11 +4,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render,get_object_or_404,redirect
 import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
-
-#from django.http import HttpResponse
-from .models import lockers,users
-import logging
-import json
+from ..models import lockers,users
 from django.db import connection
 def index(request):
     #학부 별 남은라커 수/라커 수 구해서 띄워줄 것임.
@@ -42,56 +38,7 @@ def index(request):
             return render(request,'locker/index.html',locker_context)
 
 @login_required(login_url='locker:login')
-def lockerlist(request):
-    if request.user.is_authenticated:
-        user=users.objects.get(id=request.user.id)
-        locker_list=lockers.objects.filter(department=user.department,reserved=0).order_by("lockernum")   
-        
-        context={"locker_list":locker_list,"department":user.department,"username":user.name,"usercurrlocker":user.lockernum}
-        return render(request,'locker/lockerlist.html',context)
-    else:
-        return redirect('/locker/login')
 def logout(request):
     if request.user.is_authenticated:
         auth.logout(request)
     return redirect('/locker/login')
-
-
-@login_required(login_url='locker:login')
-def reservePop(request):
-    return render(request,'locker/regist_popup.html')
-    
-def reserve(request):#예약
-    if request.method=="POST":
-        user=request.user
-        temp=json.dumps(request.body.decode("utf-8"))
-        locknum=json.loads(temp)
-        locker=lockers.objects.get(lockernum=locknum['lockernum'])
-        if locker.reserved==0:
-            if user.lockernum is not None:#이미 예약한 사물함 존재
-                oldlocker=user.lockernum
-                oldlocker.reserved=0
-                oldlocker.save()
-                user.lockernum=None
-            user.lockernum=locker
-            user.lockernum.reserved=1
-            user.save()
-            locker.save()
-            return HttpResponse(json.dumps({'code':200}))
-        else:
-            return HttpResponse(json.dumps({'code':404}))
-@login_required(login_url='locker:login')
-def cancel(request):
-    if request.method=="POST":
-        user=users.objects.get(id=request.user.id)
-        current_locker=user.lockernum
-        if current_locker is not None:
-            cl=current_locker.lockernum
-            c=lockers.objects.get(lockernum=cl)
-            c.reserved=0
-            c.save()
-            user.lockernum=None
-            user.save()
-            return HttpResponse(json.dumps({'code':200}))
-        else:
-            return HttpResponse(json.dumps({'code':404}))
