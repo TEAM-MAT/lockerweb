@@ -40,8 +40,7 @@
 
             reserveBtn.addEventListener('click', async() => {
             try {     
-                const response = await fetch('{%url 'locker:reserve' %}', {
-                    //여기 또  날림. 
+                await fetch('{%url 'locker:reserve' %}', {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json",
@@ -49,8 +48,8 @@
                     body: JSON.stringify({
                         lockernum: currentSelected
                     })
-                });
-                console.log('Completed!', response);
+                })
+                .then((res) => console.log(res));
             } catch(err) {
                 console.error(`Error: ${err}`);
             }
