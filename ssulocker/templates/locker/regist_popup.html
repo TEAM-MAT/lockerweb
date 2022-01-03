@@ -24,8 +24,8 @@
         {% else %}
         <span class="warning reserveCheck"> </span>
         {% endif %}
-        {% csrf_token %}
-        <form action="{%url 'locker:reserve' %}" method="POST">
+        <form>
+            {% csrf_token %}
             <button type="submit" name="reservation" value="reserve" class="reserveBtn">예약하기</button>
         </form>    
     </div>
@@ -34,12 +34,13 @@
         currentSelected = sessionStorage.getItem("lockerData");
         reserveBtn = document.querySelector('.reserveBtn');
 
-        reserveCheck.innerHTML = "선택하신 사물함은 " + currentSelected + "입니다. </br></br>예약하시겠습니까?";
-        reserveCheck.style.textAlign = "center";
+        if (currentSelected != null){
+            reserveCheck.innerHTML = "선택하신 사물함은 " + currentSelected + "입니다. </br></br>예약하시겠습니까?";
+            reserveCheck.style.textAlign = "center";
 
-        reserveBtn.addEventListener('click', async() => {
+            reserveBtn.addEventListener('click', async() => {
             try {     
-                const response = await fetch('{%url 'locker:reserve' %}', {
+                await fetch('{%url 'locker:reserve' %}', {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json",
@@ -47,11 +48,18 @@
                     body: JSON.stringify({
                         lockernum: currentSelected
                     })
-                });
-                console.log('Completed!', response);
+                })
+                .then((res) => console.log(res));
             } catch(err) {
                 console.error(`Error: ${err}`);
             }
-        });
+            });
+        }
+        else{
+            reserveCheck.innerHTML = "선택하신 사물함이 없습니다. </br></br> 사물함을 선택해주세요.";
+            reserveCheck.style.textAlign = "center";
+            reserveBtn.style.display = "none";
+        }
+        
     </script>
 </body>

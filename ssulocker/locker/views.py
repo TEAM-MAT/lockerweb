@@ -64,8 +64,9 @@ def reservePop(request):
 def reserve(request):#예약
     if request.method=="POST":
         user=request.user
-        locknum=json.loads(request.body.decode("utf-8"))
-        locker=lockers.objects.get(lockernum=locknum.get('lockernum',None))
+        temp=json.dumps(request.body.decode("utf-8"))
+        locknum=json.loads(temp)
+        locker=lockers.objects.get(lockernum=locknum['lockernum'])
         if locker.reserved==0:
             if user.lockernum is not None:#이미 예약한 사물함 존재
                 oldlocker=user.lockernum
