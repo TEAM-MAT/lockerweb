@@ -3,3 +3,6 @@ ssulocker/ssulocker/db.py
 ssulocker/기획.pptx
 dump
 .gitpod.yml
+ssulocker/locker/__pycache__/__init__.cpython-310.pyc
+ssulocker/locker/__pycache__/__init__.cpython-310.pyc
+*.pyc
