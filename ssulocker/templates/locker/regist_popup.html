@@ -34,21 +34,39 @@
         currentSelected = sessionStorage.getItem("lockerData");
         reserveBtn = document.querySelector('.reserveBtn');
 
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
         if (currentSelected != null){
             reserveCheck.innerHTML = "선택하신 사물함은 " + currentSelected + "입니다. </br></br>예약하시겠습니까?";
             reserveCheck.style.textAlign = "center";
 
+            let csrftoken = getCookie('csrftoken');
+
+            let data = {
+                'lockernum' : currentSelected,
+            }
+            
             reserveBtn.addEventListener('click', async() => {
-            try {     
-                await fetch('{%url 'locker:reserve' %}', {
+            try {   
+                let response = await fetch("{%url 'locker:reserve' %}", {
                     method: 'POST',
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        lockernum: currentSelected
-                    })
-                })
+                    body: JSON.stringify(data),
+                    headers: { "X-CSRFToken": csrftoken },
+                })      
                 .then((res) => console.log(res));
             } catch(err) {
                 console.error(`Error: ${err}`);
