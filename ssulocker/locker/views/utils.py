@@ -11,12 +11,11 @@ from django.db import connection
 @login_required(login_url='locker:login')
 def reservePop(request):
     return render(request,'locker/regist_popup.html')
-    
+@login_required
 def reserve(request):#예약
     if request.method=="POST":
         user=request.user
-        temp=json.dumps(request.body.decode("utf-8"))
-        locknum=json.loads(temp)
+        locknum=json.loads(request.body.decode("utf-8"))
         locker=lockers.objects.get(lockernum=locknum['lockernum'])
         if locker.reserved==0:
             if user.lockernum is not None:#이미 예약한 사물함 존재
