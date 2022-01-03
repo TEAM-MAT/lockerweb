@@ -24,8 +24,7 @@
         {% else %}
         <span class="warning reserveCheck"> </span>
         {% endif %}
-        
-        <form action="{%url 'locker:reserve' %}" method="POST">
+        <form action="{%url 'locker:reserve' %}" method="POST"><!--post이미 날렸고-->
             {% csrf_token %}
             <button type="submit" name="reservation" value="reserve" class="reserveBtn">예약하기</button>
         </form>    
@@ -42,6 +41,7 @@
             reserveBtn.addEventListener('click', async() => {
             try {     
                 const response = await fetch('{%url 'locker:reserve' %}', {
+                    //여기 또  날림. 
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json",
