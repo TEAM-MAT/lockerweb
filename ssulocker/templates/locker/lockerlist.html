@@ -25,9 +25,9 @@
 
   <nav id="topNav">
     <ul>
-      <li><span onclick="location.href='{%url 'locker:reservePop' %}'">예약 / 변경</span></li><!--예약을 post로 해줘야함 수정 필요-->
-      <li><span>취소</span></li>
-      <li><span onclick="location.href='{%url 'locker:logout' %}'">로그아웃</span></li>
+      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:reservePop' %}'">예약 / 변경</span></li><!--예약을 post로 해줘야함 수정 필요-->
+      <li style="cursor: pointer;"><span>취소</span></li>
+      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:logout' %}'">로그아웃</span></li>
     </ul>
   </nav>
 
@@ -42,7 +42,7 @@
     {% if locker_list %}
     <!--사물함이 로딩되었을 시 출력-->
     <section id="lockerlistDiv">
-      <select name="Building" id="building" onchange="selectBuilding(this.value);">
+      <select name="Building" id="building" onchange="selectBuilding(this.value);" style="cursor: pointer;">
         <option selected disabled>층을 선택하세요.</option>
         <script>
           // 학부에 따라 select option 필터링
@@ -91,30 +91,6 @@
           <li id="F" onclick="selectSector(this.id)" style="cursor: pointer;">F</li>
         </ul>
       </nav>
-      <script>
-        window.onload = function(){
-          sessionStorage.removeItem("lockerData");
-          selectionUpdate();
-        }
-
-        function selectionUpdate(){
-          userSelected = document.querySelector('.userSelected');
-
-          if (sessionStorage.getItem("lockerData") == null){
-            console.log(userSelected);
-            userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
-          }
-          else{
-            userSelected.innerHTML = "현재 선택한 사물함 : " + sessionStorage.getItem("lockerData");
-          }
-        }
-
-        function select(inp){
-          sessionStorage.setItem("lockerData", inp);
-          selectionUpdate();
-          console.log(sessionStorage.getItem("lockerData"));
-        } 
-      </script>
       <table>
         <thead>
           <tr>
@@ -192,5 +168,29 @@
   </style>
   <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'js/selection.js' %}"></script>  
+  <script>
+    window.onload = function(){
+      sessionStorage.removeItem("lockerData");
+      selectionUpdate();
+    }
+
+    function selectionUpdate(){
+      userSelected = document.querySelector('.userSelected');
+
+      if (sessionStorage.getItem("lockerData") == null){
+        console.log(userSelected);
+        userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
+      }
+      else{
+        userSelected.innerHTML = "현재 선택한 사물함 : " + sessionStorage.getItem("lockerData");
+      }
+    }
+
+    function select(inp){
+      sessionStorage.setItem("lockerData", inp);
+      selectionUpdate();
+      console.log(sessionStorage.getItem("lockerData"));
+    } 
+  </script>
 </body>
 </html>
