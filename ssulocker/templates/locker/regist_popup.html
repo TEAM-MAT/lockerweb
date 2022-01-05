@@ -24,10 +24,7 @@
         {% else %}
         <span class="warning reserveCheck"> </span>
         {% endif %}
-        <form>
-            {% csrf_token %}
-            <button type="submit" name="reservation" value="reserve" class="reserveBtn">예약하기</button>
-        </form>    
+        <button type="submit" name="reservation" value="reserve" class="reserveBtn" style="cursor: pointer;">예약하기</button>
     </div>
     <script>
         reserveCheck = document.querySelector('.reserveCheck');
@@ -67,7 +64,18 @@
                     body: JSON.stringify(data),
                     headers: { "X-CSRFToken": csrftoken },
                 })      
-                .then((res) => console.log(res));
+                .then((res) => {
+                    console.log(res.status)
+
+                    if (res.status == '200'){
+                        alert("예약이 완료되었습니다! 예약된 사물함 번호: " + currentSelected);
+                        location.href = "{%url 'locker:lockerlist' %}";
+                    }
+                    else if (res.status == '404'){
+                        alert("이미 예약된 사물합입니다! 다시 선택해주세요.");
+                        location.href = "{%url 'locker:lockerlist' %}";
+                    }
+                });
             } catch(err) {
                 console.error(`Error: ${err}`);
             }
