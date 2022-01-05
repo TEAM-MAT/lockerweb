@@ -11,6 +11,7 @@ from django.db import connection
 @login_required(login_url='locker:login')
 def reservePop(request):
     return render(request,'locker/regist_popup.html')
+
 @login_required
 def reserve(request):#예약
     if request.method=="POST":
@@ -30,6 +31,7 @@ def reserve(request):#예약
             return HttpResponse(json.dumps({'code':200}))
         else:
             return HttpResponse(json.dumps({'code':404}))
+    
 @login_required(login_url='locker:login')
 def cancel(request):
     if request.method=="POST":
