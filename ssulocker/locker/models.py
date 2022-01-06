@@ -19,7 +19,7 @@ class lockers(models.Model):
     reserved=models.IntegerField(default=0)#reserved -> 1 unreserved ->0,trigger로 바꿔줘야할듯
     sector=models.CharField(max_length=2,help_text='층별 구역',default='A')
     building=models.CharField(max_length=6,choices=buildings,default='IS')
-    locker_department=ForeignKey(department,related_name="lockerdept",on_delete=SET_NULL,db_column="locker_department",null=True)
+    department=ForeignKey(department,related_name="lockerdept",on_delete=SET_NULL,db_column="locker_department",null=True)
 class UserManager(BaseUserManager):
     def create_user(self,name,id,department,password=None):
         if not name:
