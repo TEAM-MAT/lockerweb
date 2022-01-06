@@ -10,7 +10,7 @@ departments=(('CS','컴퓨터학부'),
 buildings=(('HN','형남공학관'),('IS','정보과학관'),('CB','문화관'))
 class department(models.Model):
     deptname=models.CharField(max_length=6,choices=departments,primary_key=True)
-    time=models.DateTimeField()
+    time=models.DateTimeField()#예약시작날짜 
 
 class lockers(models.Model):
     lockernum=models.CharField(max_length=10,primary_key=True)#건물앞글자+층+섹터+번호 조합해서 만들기

@@ -4,7 +4,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render,get_object_or_404,redirect
 import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
-from ..models import lockers,users
+from ..models import lockers,users,department
 from django.db import connection
 def index(request):
     #학부 별 남은라커 수/라커 수 구해서 띄워줄 것임.
@@ -18,9 +18,15 @@ def index(request):
     sw_lockers=lockers.objects.filter(department="SW").count()
     AIC_left=lockers.objects.filter(department="AIC",reserved=0).count()
     AIC_lockers=lockers.objects.filter(department="AIC").count()
+    cs_time=department.objects.get(deptname="CS").time
+    ee_time=department.objects.get(deptname="EIE").time
+    gm_time=department.objects.get(deptname="GM").time
+    sw_time=department.objects.get(deptname="SW").time
+    aic_time=department.objects.get(deptname="AIC").time
     locker_context={"cs_left":cs_left,"cs_lockers":cs_lockers,'eie_left':ee_left,'eie_lockers':ee_lockers,
     'gm_left':gm_left,'gm_lockers':gm_lockers,'sw_left':sw_left,'sw_lockers':sw_lockers,
-    'AI_left':AIC_left,'AI_lockers':AIC_lockers}
+    'AI_left':AIC_left,'AI_lockers':AIC_lockers,"cs_time":cs_time,"ee_time":ee_time,"gm_time":gm_time,
+    "sw_time":sw_time,"aic_time":aic_time}
     if request.method=="POST":
         username=request.POST["username"]
         password=request.POST["password"]
