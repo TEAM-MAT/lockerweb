@@ -12,5 +12,6 @@ urlpatterns = [
     path('logout',views.logout,name='logout'),
     path('reserve',views.reserve,name='reserve'),
     path('reservePop',views.reservePop,name='reservePop'),
+    path('cancelPop',views.cancelPop,name='cancelPop'),
     path('cancel',views.cancel,name='cancel'),
 ]

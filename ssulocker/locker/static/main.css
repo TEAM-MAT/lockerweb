@@ -151,8 +151,7 @@ h1 {
 }
 
 body {
-  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
- sans-serif;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
 }
 
 .bold {
@@ -424,16 +423,13 @@ body {
   outline: none;
   -webkit-box-shadow: 0 5px 25px #d1e4ff;
           box-shadow: 0 5px 25px #d1e4ff;
-
   font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
-
   background-color: #d1e4ff;
   color: #17202a;
 }
 
 #lockerlistDiv select option {
-  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
- "Malgun Gothic", sans-serif;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   padding: 1%;
 }
 
@@ -605,9 +601,7 @@ body {
 }
 
 #loginForm button {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
- Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
- sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -735,7 +729,7 @@ body {
   border-radius: 5px;
 }
 
-#registerPopupDiv {
+#registerPopupDiv, #cancelPopupDiv {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -756,8 +750,7 @@ body {
 }
 
 #registerPopupDiv button {
-  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
- sans-serif;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   text-align: center;
   font-size: 1.0em;
   list-style: none;
@@ -767,6 +760,20 @@ body {
 }
 
 #registerPopupDiv button:hover {
+  background-color: #d1e4ff;
+}
+
+#cancelPopupDiv button {
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  text-align: center;
+  font-size: 1.0em;
+  list-style: none;
+  border: 3px solid #d1e4ff;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#cancelPopupDiv button:hover {
   background-color: #d1e4ff;
 }
 
