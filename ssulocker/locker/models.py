@@ -8,6 +8,10 @@ departments=(('CS','컴퓨터학부'),
     ('GM','글로벌미디어학부'),('EIE','전자정보공학부'),('SW','소프트웨어학부'),
     ('AIC','AI융합학부'))
 buildings=(('HN','형남공학관'),('IS','정보과학관'),('CB','문화관'))
+class department(models.Model):
+    deptname=models.CharField(max_length=6,choices=departments,primary_key=True)
+    time=models.DateTimeField()
+
 class lockers(models.Model):
     lockernum=models.CharField(max_length=10,primary_key=True)#건물앞글자+층+섹터+번호 조합해서 만들기
     written_lockernum=models.IntegerField(default='0')
@@ -15,7 +19,7 @@ class lockers(models.Model):
     reserved=models.IntegerField(default=0)#reserved -> 1 unreserved ->0,trigger로 바꿔줘야할듯
     sector=models.CharField(max_length=2,help_text='층별 구역',default='A')
     building=models.CharField(max_length=6,choices=buildings,default='IS')
-    department=models.CharField(max_length=4,choices=departments,default="CS")
+    department=ForeignKey(department,related_name="studentdept",on_delete=SET_NULL,db_column="department",null=True)
 class UserManager(BaseUserManager):
     def create_user(self,name,id,department,password=None):
         if not name:
