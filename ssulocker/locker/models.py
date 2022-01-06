@@ -19,7 +19,7 @@ class lockers(models.Model):
     reserved=models.IntegerField(default=0)#reserved -> 1 unreserved ->0,trigger로 바꿔줘야할듯
     sector=models.CharField(max_length=2,help_text='층별 구역',default='A')
     building=models.CharField(max_length=6,choices=buildings,default='IS')
-    department=ForeignKey(department,related_name="studentdept",on_delete=SET_NULL,db_column="department",null=True)
+    locker_department=ForeignKey(department,related_name="lockerdept",on_delete=SET_NULL,db_column="locker_department",null=True)
 class UserManager(BaseUserManager):
     def create_user(self,name,id,department,password=None):
         if not name:
@@ -51,7 +51,7 @@ class users(AbstractBaseUser):
     name=models.CharField(max_length=10,help_text='이름',null=False)
     id=models.CharField(max_length=8,help_text="학번",primary_key=True,null=False,unique=True)
     lockernum=ForeignKey(lockers,related_name="lockerusing",on_delete=SET_NULL,db_column="lockernum",null=True)
-    department=models.CharField(max_length=4,choices=departments,default='CS')
+    department=ForeignKey(department,related_name="studentdept",on_delete=SET_NULL,db_column="user_department",null=True)
     is_active=models.BooleanField(default=True)
     is_admin=models.BooleanField(default=False)
     objects=UserManager()
