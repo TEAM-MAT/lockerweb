@@ -46,6 +46,7 @@ def index(request):
                 return redirect('/locker/lockerlist')
             else:
                 locker_context["time_token"]=0
+                auth.logout(request)
                 return render(request,'locker/index.html',locker_context)
         else:
             locker_context['error']=1
