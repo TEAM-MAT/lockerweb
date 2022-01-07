@@ -23,10 +23,17 @@ def index(request):
     gm_time=department.objects.get(deptname="GM").time
     sw_time=department.objects.get(deptname="SW").time
     aic_time=department.objects.get(deptname="AIC").time
+    days=["월","화","수","목","금","토","일"]
+    class dept_weekdays():
+        eie_day=days[eie_time.weekday()]
+        cs_day=days[cs_time.weekday()]
+        gm_day=days[gm_time.weekday()]
+        sw_day=days[sw_time.weekday()]
+        aic_day=days[aic_time.weekday()]
     locker_context={"cs_left":cs_left,"cs_lockers":cs_lockers,'eie_left':ee_left,'eie_lockers':ee_lockers,
     'gm_left':gm_left,'gm_lockers':gm_lockers,'sw_left':sw_left,'sw_lockers':sw_lockers,
     'AI_left':AIC_left,'AI_lockers':AIC_lockers,"cs_time":cs_time,"eie_time":eie_time,"gm_time":gm_time,
-    "sw_time":sw_time,"aic_time":aic_time}
+    "sw_time":sw_time,"aic_time":aic_time,"days":dept_weekdays}
     if request.method=="POST":
         username=request.POST["username"]
         password=request.POST["password"]
