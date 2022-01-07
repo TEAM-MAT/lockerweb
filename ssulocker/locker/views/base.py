@@ -6,6 +6,7 @@ import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
 from ..models import lockers,users,department
 from django.db import connection
+from .time_login import timecheck
 def index(request):
     #학부 별 남은라커 수/라커 수 구해서 띄워줄 것임.
     cs_left=lockers.objects.filter(department="CS",reserved=0).count()
@@ -23,17 +24,30 @@ def index(request):
     gm_time=department.objects.get(deptname="GM").time
     sw_time=department.objects.get(deptname="SW").time
     aic_time=department.objects.get(deptname="AIC").time
+    days=["월","화","수","목","금","토","일"]
+    class dept_weekdays():
+        eie_day=days[eie_time.weekday()]
+        cs_day=days[cs_time.weekday()]
+        gm_day=days[gm_time.weekday()]
+        sw_day=days[sw_time.weekday()]
+        aic_day=days[aic_time.weekday()]
     locker_context={"cs_left":cs_left,"cs_lockers":cs_lockers,'eie_left':ee_left,'eie_lockers':ee_lockers,
     'gm_left':gm_left,'gm_lockers':gm_lockers,'sw_left':sw_left,'sw_lockers':sw_lockers,
     'AI_left':AIC_left,'AI_lockers':AIC_lockers,"cs_time":cs_time,"eie_time":eie_time,"gm_time":gm_time,
-    "sw_time":sw_time,"aic_time":aic_time}
+    "sw_time":sw_time,"aic_time":aic_time,"days":dept_weekdays,"time_token":1}
     if request.method=="POST":
         username=request.POST["username"]
         password=request.POST["password"]
         user=auth.authenticate(request,username=username,password=password)
         if user is not None:
             auth.login(request,user)
-            return redirect('/locker/lockerlist')
+            token=timecheck(user.department)
+            if token==1:
+                return redirect('/locker/lockerlist')
+            else:
+                locker_context["time_token"]=0
+                auth.logout(request)
+                return render(request,'locker/index.html',locker_context)
         else:
             locker_context['error']=1
             return render(request,'locker/index.html',locker_context)

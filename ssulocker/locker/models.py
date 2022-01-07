@@ -12,6 +12,9 @@ class department(models.Model):
     deptname=models.CharField(max_length=6,choices=departments,primary_key=True)
     time=models.DateTimeField()#예약시작날짜 
 
+    def getdepttime(self):
+        return self.time
+
 class lockers(models.Model):
     lockernum=models.CharField(max_length=10,primary_key=True)#건물앞글자+층+섹터+번호 조합해서 만들기
     written_lockernum=models.IntegerField(default='0')
