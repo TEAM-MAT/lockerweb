@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate
 from django.db.models.expressions import Value
+from django.db.models.fields import NullBooleanField
 from django.http.response import HttpResponse
 from django.shortcuts import render,get_object_or_404,redirect
 import django.contrib.auth as auth
@@ -10,7 +11,12 @@ from django.db import connection
 
 @login_required(login_url='locker:login')
 def reservePop(request):
-    return render(request,'locker/regist_popup.html')
+    user=users.objects.get(id=request.user.id)
+    userlocker=None
+    if user.lockernum is not None:
+        userlocker=user.lockernum.lockernum
+    context={"usercurrlocker":userlocker}
+    return render(request,'locker/regist_popup.html', context)
 
 @login_required
 def reserve(request):#예약
@@ -31,7 +37,16 @@ def reserve(request):#예약
             return HttpResponse(json.dumps({'code':200}))
         else:
             return HttpResponse(json.dumps({'code':404}))
-    
+
+@login_required(login_url='locker:login')
+def cancelPop(request):
+    user=users.objects.get(id=request.user.id)
+    userlocker=None
+    if user.lockernum is not None:
+        userlocker=user.lockernum.lockernum
+    context={"usercurrlocker":userlocker}
+    return render(request,'locker/cancel_popup.html', context)
+
 @login_required(login_url='locker:login')
 def cancel(request):
     if request.method=="POST":

@@ -11,10 +11,11 @@
   border-radius: 5px;
 }
 
-#registerPopupDiv {
+#registerPopupDiv, #cancelPopupDiv {
   @include flex-default(flex, space-evenly, column, center);
   width: 30%;
   height: 100px;
   background-color: $lblue;
   border: 3px solid $dblue;
 }
+

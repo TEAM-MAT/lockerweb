@@ -26,7 +26,7 @@
   <nav id="topNav">
     <ul>
       <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:reservePop' %}'">예약 / 변경</span></li><!--예약을 post로 해줘야함 수정 필요-->
-      <li style="cursor: pointer;"><span>취소</span></li>
+      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:cancelPop' %}'">취소</span></li>
       <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:logout' %}'">로그아웃</span></li>
     </ul>
   </nav>
@@ -34,7 +34,7 @@
   <main>
     <section id="popup">
       <div id="infoPopupDiv">
-        <span id="userDep2">{{user.department}}</span>
+        <span id="userDep2">{{department.get_deptname_display}}</span>
         <span id="userName">{{username}}님</span>
         <span>현재 예약된 사물함 : {{usercurrlocker}}</span>
         <span class="userSelected"></span>

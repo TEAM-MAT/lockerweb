@@ -27,33 +27,33 @@
                 <li>
                     <span class="bold">전자정보공학부</span>
                     <span>{{eie_left}} / {{eie_lockers}}</span>
-                    <span>2022.01.01(토)</span>
-                    <span>00:00 ~ 00:00</span>
+                    <span>{{eie_time.year}}.{{eie_time.month}}.{{eie_time.day}}(토)</span>
+                    <span>{{eie_time.hour}}:{{eie_time.minute}} ~ 00:00</span>
                 </li>
                 <li>
                     <span class="bold">컴퓨터학부</span> {% if cs_left %}
                     <span>{{cs_left}} / {{cs_lockers}}</span> {% else %}
                     <span>no left</span> {% endif %}
-                    <span>2022.01.01(토)</span>
-                    <span>00:00 ~ 00:00</span>
+                    <span>{{cs_time.year}}.{{cs_time.month}}.{{cs_time.day}}(토)</span>
+                    <span>{{cs_time.hour}}:{{cs_time.minute}} ~ 00:00</span>
                 </li>
                 <li>
                     <span class="bold">글로벌미디어학부</span>
                     <span>{{gm_left}} / {{gm_lockers}}</span>
-                    <span>2022.01.01(토)</span>
-                    <span>00:00 ~ 00:00</span>
+                    <span>{{gm_time.year}}.{{gm_time.month}}.{{gm_time.day}}(토)</span>
+                    <span>{{gm_time.hour}}:{{gm_time.minute}} ~ 00:00</span>
                 </li>
                 <li>
                     <span class="bold">소프트웨어학부</span>
                     <span>{{sw_left}} / {{sw_lockers}}</span>
-                    <span>2022.01.01(토)</span>
-                    <span>00:00 ~ 00:00</span>
+                    <span>{{sw_time.year}}.{{sw_time.month}}.{{sw_time.day}}(토)</span>
+                    <span>{{sw_time.hour}}:{{sw_time.minute}} ~ 00:00</span>
                 </li>
                 <li>
                     <span class="bold">AI융합학부</span>
                     <span>{{AI_left}} / {{AI_lockers}}</span>
-                    <span>2022.01.01(토)</span>
-                    <span>00:00 ~ 00:00</span>
+                    <span>{{aic_time.year}}.{{aic_time.month}}.{{aic_time.day}}(토)</span>
+                    <span>{{aic_time.hour}}:{{aic_time.minute}} ~ 00:00</span>
                 </li>
             </ul>
             <button onclick="popupClose('contactDiv')" id="popup-close">문의사항</button>
@@ -69,14 +69,12 @@
                 <!-- 학번 -->
                 <div class="inputDiv">
                     <label for="username">학번</label>
-                    <input type="text" id="username" class="form-control" name="username"
-                        value="{{ form.username.value|default_if_none:'' }}" />
+                    <input type="text" id="username" class="form-control" name="username" value="{{ form.username.value|default_if_none:'' }}" />
                 </div>
                 <!-- 비밀번호 -->
                 <div class="inputDiv">
                     <label for="password">비밀번호</label>
-                    <input type="password" class="form-control" name="password" id="password"
-                        value="{{form.password.value|default_if_none:''}}" />
+                    <input type="password" class="form-control" name="password" id="password" value="{{form.password.value|default_if_none:''}}" />
                 </div>
                 <!-- submit -->
                 <button type="submit">로그인</button>

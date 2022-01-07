@@ -1,8 +1,7 @@
 from django.contrib import admin
 
 from locker.forms import UserCreationForm,UserChangeForm
-from .models import users
-from .models import lockers
+from .models import users,lockers,department
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from locker.forms import lockeraddForm#lockerchangeForm
@@ -44,4 +43,5 @@ admin.site.register(users,userAdmin)
 #admin.site.register(lockers,lockerAdmin)
 admin.site.register(lockers)
 admin.site.unregister(Group)
+admin.site.register(department)
 # Register your models here.
