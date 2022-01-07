@@ -62,6 +62,7 @@
             <span id="passwdRule">💡 비밀번호는 010을 제외한 휴대전화번호 8자리입니다.</span>
             <span id="passwdExample">예시) 010-1234-5678인 경우: 12345678</span>
             <span id="errormessage" style="color: red;">
+                {% if time_token==0 %} {{"해당 학부의 예약 시간 전입니다."}} {%endif%}
                 {% if error %} {{"학번 또는 비밀번호가 잘못되었습니다"}} {%endif%}
             </span>
             <form id="loginForm" action="{% url 'locker:login' %}" class="bold post-form" method="post">
