@@ -6,7 +6,7 @@ import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
 from ..models import lockers,users,department
 from django.db import connection
-from time_login import timecheck
+from .time_login import timecheck
 def index(request):
     #학부 별 남은라커 수/라커 수 구해서 띄워줄 것임.
     cs_left=lockers.objects.filter(department="CS",reserved=0).count()
