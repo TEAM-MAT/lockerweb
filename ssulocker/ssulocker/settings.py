@@ -79,17 +79,9 @@ WSGI_APPLICATION = 'ssulocker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': dbset['default']['ENGINE'],
-        'NAME': dbset['default']['NAME'],
-        'USER':dbset['default']['USER'],
-        'PASSWORD':dbset['default']['PASSWORD'],
-        'HOST':dbset['default']['HOST'],
-        'PORT':'3306'
-    },
-    'sqlitedb1':{
         'ENGINE':'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
 }
 
 
