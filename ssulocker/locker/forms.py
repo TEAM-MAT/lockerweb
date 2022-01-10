@@ -18,7 +18,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model=users
-        fields=('id','department','name')
+        fields=('id','department','name','phone')
     def clean_password2(self):
         password1=self.cleaned_data.get("password1")
         password2=self.cleaned_data.get("password2")
@@ -35,7 +35,7 @@ class UserChangeForm(forms.ModelForm):
     password=ReadOnlyPasswordHashField()
     class Meta:
         model=users
-        fields=('id','department','name','is_active','is_admin')
+        fields=('id','department','name','phone','is_active','is_admin')
     def clean_password(self):
         return self.initial["password"]
 class lockeraddForm(forms.ModelForm):
