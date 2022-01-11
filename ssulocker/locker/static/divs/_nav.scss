@@ -36,6 +36,17 @@
       border: 3px solid $dblue;
       border-radius: 5px;
       background-color: $white;
+
+      cursor: pointer;
     }
   }
+}
+
+.sectorA,
+.sectorB,
+.sectorC,
+.sectorD,
+.sectorE,
+.sectorF {
+  cursor: pointer;
 }

@@ -542,6 +542,16 @@ body {
   border: 3px solid #d1e4ff;
   border-radius: 5px;
   background-color: #fff;
+  cursor: pointer;
+}
+
+.sectorA,
+.sectorB,
+.sectorC,
+.sectorD,
+.sectorE,
+.sectorF {
+  cursor: pointer;
 }
 
 #popup {
