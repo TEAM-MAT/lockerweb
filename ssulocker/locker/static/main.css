@@ -435,6 +435,11 @@ body {
 #loginDiv span#passwdRule {
   font-weight: 500;
 }
+@media (max-width: 650px) {
+  #loginDiv span#passwdRule {
+    font-size: 12px !important;
+  }
+}
 
 #loginForm {
   display: flex;

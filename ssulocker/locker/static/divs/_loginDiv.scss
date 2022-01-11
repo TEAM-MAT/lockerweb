@@ -19,6 +19,9 @@
   }
   span#passwdRule {
     font-weight: 500;
+    @media (max-width: 650px) {
+      font-size: 12px !important;
+    }
   }
 }
 
