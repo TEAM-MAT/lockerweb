@@ -63,9 +63,9 @@ class pwchangeform(forms.ModelForm):
         'required':'True'
     }))
     password2=forms.CharField(
-        label='Password confirmation',widget=forms.PasswordInput(attrs={'required':'True',
-        'placeholder': ('Password confirmation')
-        }
+        label='Password confirmation',
+        widget=forms.PasswordInput(attrs={'required':'True',
+        'placeholder': ('Password confirmation')}
         )
     )
     class Meta:
