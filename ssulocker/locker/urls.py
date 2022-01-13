@@ -15,4 +15,5 @@ urlpatterns = [
     path('cancelPop',views.cancelPop,name='cancelPop'),
     path('cancel',views.cancel,name='cancel'),
     path('pwchange',views.pwchange,name='pwchange'),
+    path('pwchange_login',views.pwclogin,name="pwchange_login"),
 ]
