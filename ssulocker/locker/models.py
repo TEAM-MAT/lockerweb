@@ -57,7 +57,7 @@ class users(AbstractBaseUser):
     department=ForeignKey(department,related_name="studentdept",on_delete=SET_NULL,db_column="user_department",null=True)
     is_active=models.BooleanField(default=True)
     is_admin=models.BooleanField(default=False)
-    phone=models.Charfield(max_length=12,help_text="전화번호")
+    phone=models.CharField(max_length=12,help_text="전화번호")
     objects=UserManager()
     USERNAME_FIELD='id'
     REQUIRED_FIELDS=['name','department','password']
