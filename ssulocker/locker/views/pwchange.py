@@ -6,6 +6,8 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from django.shortcuts import render,redirect
 #@login_required(login_url='locker:pwclogin')
+def pwchangePop(request):
+    return render(request,'locker/pwchange_login.html')
 def pwchange(request):
     if request.method=="POST":
         #form data받아서 처리
