@@ -58,6 +58,7 @@ class users(AbstractBaseUser):
     is_active=models.BooleanField(default=True)
     is_admin=models.BooleanField(default=False)
     objects=UserManager()
+    phone=models.TextField(max_length=20,null=True)
     USERNAME_FIELD='id'
     REQUIRED_FIELDS=['name','department','password']
     def __str__(self):
