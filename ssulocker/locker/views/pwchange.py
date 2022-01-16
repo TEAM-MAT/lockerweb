@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from models import users
+from locker.models import users
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import auth
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from django.shortcuts import render,redirect
-@login_required(login_url='locker:pwclogin')
+#@login_required(login_url='locker:pwclogin')
 def pwchange(request):
     if request.method=="POST":
         #form data받아서 처리
