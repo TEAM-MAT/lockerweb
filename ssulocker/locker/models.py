@@ -59,6 +59,7 @@ class users(AbstractBaseUser):
     is_admin=models.BooleanField(default=False)
     phone=models.CharField(max_length=12,help_text="전화번호")
     objects=UserManager()
+    phone=models.TextField(max_length=20,null=True)
     USERNAME_FIELD='id'
     REQUIRED_FIELDS=['name','department','password']
     def __str__(self):
