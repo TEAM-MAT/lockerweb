@@ -24,13 +24,13 @@ class lockers(models.Model):
     building=models.CharField(max_length=6,choices=buildings,default='IS')
     department=ForeignKey(department,related_name="lockerdept",on_delete=SET_NULL,db_column="locker_department",null=True)
 class UserManager(BaseUserManager):
-    def create_user(self,name,id,department,password=None):
+    def create_user(self,name,id,departmentname,password=None):
         if not name:
             raise ValueError("USERS MUST HAVE NAME")
         user=self.model(
             name=name,
             id=id,
-            department=department
+            department=department.objects.get(deptname=departmentname)
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -42,7 +42,7 @@ class UserManager(BaseUserManager):
         user=self.create_user(
             name=name,
             id=id,
-            department=department,
+            departmentname=department,
             password=password
         )
         user.is_admin=True
