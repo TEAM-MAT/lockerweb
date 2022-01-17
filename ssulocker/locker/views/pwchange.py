@@ -16,10 +16,10 @@ def pwchange(request):
             user=form.save()
             update_session_auth_hash(request,user)
             messages.success(request,"비밀번호가 변경되었습니다.")
-            return redirect('locker/login')
+            return redirect('locker:login')
         else:
-            messages.error("에러 발생")
-            return redirect('locker/pwchange')
+            #messages.error("에러 발생")
+            return redirect('locker:pwchangePop')
 
     elif request.method=="GET":
         # form 전송
@@ -32,7 +32,7 @@ def pwclogin(request):
         user = auth.authenticate(request,username=username,password=password)
         if user is not None:
             auth.login(request,user)
-            return redirect('locker/pwchange')
+            return redirect('locker:pwchange')
         else:
-            return redirect('locker/pwchange_login')
+            return redirect('locker:pwchangePop')
 #def cleaned_password()

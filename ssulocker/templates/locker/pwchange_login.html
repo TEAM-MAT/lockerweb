@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website">
+    <title>IT대학 사물함 예약 웹사이트</title>
+    <meta property="og:title" content="IT대학 사물함 예약">
+    <meta name="description" content="IT대학 학우들을 위한 사물함 예약 사이트입니다.">
+    <meta property="og:description" content="IT대학 학우들을 위한 사물함 예약 사이트입니다.">
+    <meta name="keywords" content="숭실대학교, IT대학, 사물함">
+    <meta property="og:image" content="https://i.imgur.com/v2UpZTg.png">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script src="{% static 'js/popups.js' %}"></script>
+</head>
+
+<body>
+    <header>
+        <h1>IT대학 사물함 예약 웹사이트 3.0</h1>
+    </header>
+    <main>
+        <div id="loginDiv">
+            <span id="passwdRule">💡 비밀번호는 010을 제외한 휴대전화번호 8자리입니다.</span>
+            <span id="passwdExample">예시) 010-1234-5678인 경우: 12345678</span>
+            <span id="errormessage" style="color: red;">
+                {% if time_token == 0 %} {{"해당 학부(과)의 예약 시간 전입니다."}} {%endif%}
+                {% if error %} {{"학번 또는 비밀번호가 잘못되었습니다"}} {%endif%}
+            </span>
+            <form id="loginForm" action="{% url 'locker:pwchange_login' %}" class="bold post-form" method="post">
+                {% csrf_token %} {% include "form_errors.html" %}
+                <!-- 학번 -->
+                <div class="inputDiv">
+                    <label for="username">학번</label>
+                    <input type="text" id="username" class="form-control" name="username" value="{{ form.username.value|default_if_none:'' }}" />
+                </div>
+                <!-- 비밀번호 -->
+                <div class="inputDiv">
+                    <label for="password">비밀번호</label>
+                    <input type="password" class="form-control" name="password" id="password" value="{{form.password.value|default_if_none:''}}" />
+                </div>
+                <!-- submit -->
+                <button type="submit" style="cursor: pointer;">비밀번호 변경하기</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>제작자 : <span><a href="https://github.com/amuguna1mandeum"><img alt="#" src="https://i.imgur.com/vxsETgn.png"
+                        style="height:1em;"></img>
+                    Github</a></span></p>
+    </footer>
+</body>
+
+</html>
