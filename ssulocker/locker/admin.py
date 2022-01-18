@@ -5,19 +5,20 @@ from .models import users,lockers,department
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from locker.forms import lockeraddForm#lockerchangeForm
-class userAdmin(BaseUserAdmin):
+from import_export.admin import ExportActionModelAdmin,ImportExportMixin,ImportMixin
+class userAdmin(ImportExportMixin,BaseUserAdmin):
     form=UserChangeForm
     add_form=UserCreationForm
     list_display=('id','name','lockernum','department','lockernum','is_admin')
     list_filter=('is_admin','department','lockernum')
     fieldsets=(
-        (None,{'fields':('id','name','department','password')}),
+        (None,{'fields':('id','name','department','password','phone')}),
         ('Permissions',{'fields':('is_admin',)}),
     )
     add_fieldsets=(
         (None,{
             'classes':('wide',),
-            'fields':('id','name','password1','password2','department','is_admin'),
+            'fields':('id','name','password1','password2','department','is_admin','phone'),
         }),
     )
     search_fields=('id','name','department')

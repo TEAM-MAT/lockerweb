@@ -3,17 +3,25 @@ from django.db.models.deletion import SET_NULL
 from django.db.models.enums import Choices
 from django.db.models.fields import NullBooleanField
 from django.db.models.fields.related import ForeignKey
+import datetime
 from django.contrib.auth.models import (BaseUserManager,AbstractBaseUser)
-departments=(('CS','컴퓨터학부'),
+departments=[('CS','컴퓨터학부'),
     ('GM','글로벌미디어학부'),('EIE','전자정보공학부'),('SW','소프트웨어학부'),
-    ('AIC','AI융합학부'))
-buildings=(('HN','형남공학관'),('IS','정보과학관'),('CB','문화관'))
+    ('AIC','AI융합학부')]
+buildings=[('HN','형남공학관'),('IS','정보과학관'),('CB','문화관')]
 class department(models.Model):
     deptname=models.CharField(max_length=6,choices=departments,primary_key=True)
     time=models.DateTimeField()#예약시작날짜 
 
     def getdepttime(self):
         return self.time
+
+class departmentset():
+    @staticmethod
+    def departmentset():
+        for i in range(5):
+            temp=department(deptname=departments[i][0],time=datetime.datetime.now())
+            temp.save()
 
 class lockers(models.Model):
     lockernum=models.CharField(max_length=10,primary_key=True)#건물앞글자+층+섹터+번호 조합해서 만들기
@@ -24,13 +32,13 @@ class lockers(models.Model):
     building=models.CharField(max_length=6,choices=buildings,default='IS')
     department=ForeignKey(department,related_name="lockerdept",on_delete=SET_NULL,db_column="locker_department",null=True)
 class UserManager(BaseUserManager):
-    def create_user(self,name,id,department,password=None):
+    def create_user(self,name,id,departmentname,password=None):
         if not name:
             raise ValueError("USERS MUST HAVE NAME")
         user=self.model(
             name=name,
             id=id,
-            department=department
+            department=department.objects.get(deptname=departmentname)
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -42,7 +50,7 @@ class UserManager(BaseUserManager):
         user=self.create_user(
             name=name,
             id=id,
-            department=department,
+            departmentname=department,
             password=password
         )
         user.is_admin=True
@@ -58,6 +66,7 @@ class users(AbstractBaseUser):
     is_active=models.BooleanField(default=True)
     is_admin=models.BooleanField(default=False)
     objects=UserManager()
+    phone=models.TextField(max_length=20,null=True)
     USERNAME_FIELD='id'
     REQUIRED_FIELDS=['name','department','password']
     def __str__(self):
