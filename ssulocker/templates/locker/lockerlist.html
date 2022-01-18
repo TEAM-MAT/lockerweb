@@ -39,6 +39,8 @@
         <span id="userName">{{username}}님</span>
         <span>현재 예약된 사물함 : {{usercurrlocker}}</span>
         <span class="userSelected"></span>
+      </div>
+      <div id="lockermap"> </div>
     </section>
     {% if locker_list %}
     <!--사물함이 로딩되었을 시 출력-->
@@ -205,6 +207,7 @@
     }
 
     function select(floor, sector, num) {
+      if (floor == 0) floor = "B1";
       sessionStorage.setItem("lockerData", `${floor}층 ${sector}구역 ${num}번`);
       selectionUpdate();
       console.log(sessionStorage.getItem("lockerData"));
