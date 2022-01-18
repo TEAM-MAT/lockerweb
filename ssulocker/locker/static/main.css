@@ -512,12 +512,12 @@ body {
 }
 #topNav ul li {
   text-align: center;
-  padding: 1% 3%;
-  font-size: 1.1em;
+  padding: 1% 2%;
   list-style: none;
   border: 3px solid #d1e4ff;
   border-radius: 5px;
   background-color: #fff;
+  min-width: 10%;
 }
 
 #middleNav {
@@ -573,8 +573,24 @@ body {
   border: 3px solid #d1e4ff;
   border-radius: 5px;
 }
+@media (max-width: 1200px) {
+  #infoPopupDiv {
+    font-size: 90%;
+    width: 50%;
+  }
+}
 
-#registerPopupDiv, #cancelPopupDiv {
+#regist,
+#cancel {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+}
+
+#registerPopupDiv,
+#cancelPopupDiv {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;

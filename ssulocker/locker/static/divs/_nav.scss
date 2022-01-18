@@ -9,12 +9,12 @@
     }
     li {
       text-align: center;
-      padding: 1% 3%;
-      font-size: 1.1em;
+      padding: 1% 2%;
       list-style: none;
       border: 3px solid $dblue;
       border-radius: 5px;
       background-color: $white;
+      min-width: 10%;
     }
   }
 }
