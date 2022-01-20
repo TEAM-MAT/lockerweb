@@ -528,6 +528,17 @@ body {
   font-weight: 500;
 }
 
+#loginDiv span#passwdChange {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+#loginDiv span#passwdChange:hover {
+  font-size: 0.8rem;
+  color: black;
+  cursor: pointer;
+}
+
 #loginForm {
   display: -webkit-box;
   display: -ms-flexbox;
