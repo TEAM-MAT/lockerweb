@@ -441,6 +441,17 @@ body {
   }
 }
 
+#loginDiv span#passwdChange {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+#loginDiv span#passwdChange:hover {
+  font-size: 0.8rem;
+  color: black;
+  cursor: pointer;
+}
+
 #loginForm {
   display: flex;
   justify-content: center;
