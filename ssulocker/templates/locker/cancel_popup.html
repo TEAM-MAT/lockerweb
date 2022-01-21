@@ -17,16 +17,13 @@
 </head>
 
 <body>
-    <div id="cancel">
-        <div id="cancelPopupDiv">
-            {% if usercurrlocker%}
-            <span class="warning">예약중이신 사물함 {{usercurrlocker}} 이 취소됩니다.</span>
-            {% else %}
-            <span class="warning">예약하신 사물함이 없습니다.</span>
-            {% endif %}
-            <button type="submit" name="cancelation" value="cancel" class="cancelBtn"
-                style="cursor: pointer;">취소하기</button>
-        </div>
+    <div id="cancelPopupDiv">
+        {% if usercurrlocker%}
+        <span class="warning">예약중이신 사물함 {{usercurrlocker}} 이 취소됩니다.</span>
+        {% else %}
+        <span class="warning">예약하신 사물함이 없습니다.</span>
+        {% endif %}
+        <button type="submit" name="cancelation" value="cancel" class="cancelBtn" style="cursor: pointer;">취소하기</button>
     </div>
     <script>
         function getCookie(name) {
@@ -45,42 +42,42 @@
             return cookieValue;
         }
 
-
+        
         let csrftoken = getCookie('csrftoken');
 
         let data = {
-            'lockernum': '{{usercurrlocker}}',
+            'lockernum' : '{{usercurrlocker}}',
         }
-
+        
         const cancelBtn = document.querySelector('.cancelBtn');
 
-        if ('{{usercurrlocker}}' == 'None') {
+        if ('{{usercurrlocker}}' == 'None'){
             cancelBtn.style.display = "none";
         }
-
-        cancelBtn.addEventListener('click', async () => {
-            try {
+        
+        cancelBtn.addEventListener('click', async() => {
+            try {   
                 let response = await fetch("{%url 'locker:cancel' %}", {
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: { "X-CSRFToken": csrftoken },
-                })
-                    .then((res) => {
-                        console.log(res.status)
+                })      
+                .then((res) => {
+                    console.log(res.status)
 
-                        if (res.status == '200') {
-                            alert("사물함 예약이 취소되었습니다.");
-                            location.href = "{%url 'locker:lockerlist' %}";
-                        }
-                        else if (res.status == '404') {
-                            alert("다시 시도해주세요!");
-                            location.href = "{%url 'locker:lockerlist' %}";
-                        }
-                    });
-            } catch (err) {
+                    if (res.status == '200'){
+                        alert("사물함 예약이 취소되었습니다.");
+                        location.href = "{%url 'locker:lockerlist' %}";
+                    }
+                    else if (res.status == '404'){
+                        alert("다시 시도해주세요!");
+                        location.href = "{%url 'locker:lockerlist' %}";
+                    }
+                });
+            } catch(err) {
                 console.error(`Error: ${err}`);
             }
         });
-
+        
     </script>
 </body>

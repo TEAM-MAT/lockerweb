@@ -21,3 +21,5 @@ floorSpan.forEach(function (t) {
     t.innerText = "B1";
   }
 });
+
+

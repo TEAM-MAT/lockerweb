@@ -5,26 +5,17 @@
   @include flex-default(flex, space-evenly, column, center);
   width: 30%;
   height: 100px;
+  margin-top: 1%;
   background-color: $lblue;
   border: 3px solid $dblue;
   border-radius: 5px;
-  @media (max-width: 1200px) {
-    font-size: 90%;
-    width: 50%;
-  }
 }
 
-#regist,
-#cancel {
-  min-height: 100vh;
-  @include flex-default(flex, space-evenly, column, center);
-}
-
-#registerPopupDiv,
-#cancelPopupDiv {
+#registerPopupDiv, #cancelPopupDiv {
   @include flex-default(flex, space-evenly, column, center);
   width: 30%;
   height: 100px;
   background-color: $lblue;
   border: 3px solid $dblue;
 }
+
