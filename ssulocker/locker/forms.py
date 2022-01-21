@@ -58,15 +58,3 @@ class lockeraddForm(forms.ModelForm):
         l.lockernum=str(l.building)+str(l.floor)+str(l.sector)+str(l.written_lockernum)
         if commit:
             l.save()
-'''class pwchangeform(forms.ModelForm):
-    password1=forms.CharField(label="Password",widget=forms.PasswordInput(attrs={
-        'required':'True'
-    }))
-    password2=forms.CharField(
-        label='Password confirmation',
-        widget=forms.PasswordInput(attrs={'required':'True',
-        'placeholder': ('Password confirmation')}
-        )
-    )
-    class Meta:
-        model=users '''
