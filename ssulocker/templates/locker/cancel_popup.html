@@ -24,8 +24,12 @@
             {% else %}
             <span class="warning">예약하신 사물함이 없습니다.</span>
             {% endif %}
-            <button type="submit" name="cancelation" value="cancel" class="cancelBtn"
+            <div class="buttonWrap">
+                <button type="submit" name="cancelation" value="cancel" class="cancelBtn"
                 style="cursor: pointer;">취소하기</button>
+                <button type="submit" name="back" value="back" class="backBtn"
+                style="cursor: pointer;" onclick="location.href='{%url 'locker:backHome' %}'">뒤로가기</button>
+            </div>
         </div>
     </div>
     <script>

@@ -76,19 +76,19 @@ WSGI_APPLICATION = 'ssulocker.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-         'ENGINE': dbset['default']['ENGINE'],
-         'NAME': dbset['default']['NAME'],
-         'USER':dbset['default']['USER'],
-         'PASSWORD':dbset['default']['PASSWORD'],
-         'HOST':dbset['default']['HOST'],
-         'PORT':'3306'
-     },
-     'sqlitedb1':{
-         'ENGINE':'django.db.backends.sqlite3',
-         'NAME': BASE_DIR / 'db.sqlite3',
-     }
- }
+    'default': {
+        'ENGINE': dbset['default']['ENGINE'],
+        'NAME': dbset['default']['NAME'],
+        'USER':dbset['default']['USER'],
+        'PASSWORD':dbset['default']['PASSWORD'],
+        'HOST':dbset['default']['HOST'],
+        'PORT':'3306'
+    },
+    'sqlitedb1':{
+        'ENGINE':'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
