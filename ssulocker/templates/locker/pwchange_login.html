@@ -34,15 +34,19 @@
                 <!-- 학번 -->
                 <div class="inputDiv">
                     <label for="username">학번</label>
-                    <input type="text" id="username" class="form-control" name="username" value="{{ form.username.value|default_if_none:'' }}" />
+                    <input type="text" id="username" class="form-control" name="username"
+                        value="{{ form.username.value|default_if_none:'' }}" />
                 </div>
                 <!-- 비밀번호 -->
                 <div class="inputDiv">
                     <label for="password">비밀번호</label>
-                    <input type="password" class="form-control" name="password" id="password" value="{{form.password.value|default_if_none:''}}" />
+                    <input type="password" class="form-control" name="password" id="password"
+                        value="{{form.password.value|default_if_none:''}}" />
                 </div>
                 <!-- submit -->
-                <button type="submit" style="cursor: pointer;">비밀번호 변경하기</button>
+                <button type="submit" style="cursor: pointer;">로그인 후 비밀번호 변경하기</button>
+                <!-- <button type="submit" name="back" value="back" class="backBtn" style="cursor: pointer;"
+                    onclick="location.href='{%url 'locker:backHome' %}'">뒤로가기</button> -->
             </form>
         </div>
     </main>
