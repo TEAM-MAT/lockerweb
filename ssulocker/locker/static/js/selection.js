@@ -3,12 +3,12 @@ const sectors = ["A", "B", "C", "D", "E", "F"];
 
 for (i in floors) {
   if (floors[i] === 1) {
-    const t = document.querySelectorAll(`td.floor${floors[i]}`);
+    const t = document.querySelectorAll(`button.floor${floors[i]}`);
     t.forEach(function (t) {
       t.classList.remove("sectorDOWN");
     });
   } else {
-    const t = document.querySelectorAll(`td.floor${floors[i]}`);
+    const t = document.querySelectorAll(`button.floor${floors[i]}`);
     t.forEach(function (t) {
       t.classList.remove("sectorDOWN");
     });
@@ -36,19 +36,19 @@ function selectBuilding(inp) {
   document.querySelector("span#userDep1").innerText = "";
   for (i in floors) {
     if (floor == floors[i]) {
-      const t = document.querySelectorAll(`td.floor${floors[i]}`);
+      const t = document.querySelectorAll(`button.floor${floors[i]}`);
       t.forEach(function (t) {
         t.classList.remove("floorDOWN");
       });
     } else {
-      const t = document.querySelectorAll(`td.floor${floors[i]}`);
+      const t = document.querySelectorAll(`button.floor${floors[i]}`);
       t.forEach(function (t) {
         t.classList.add("floorDOWN");
       });
     }
   }
   for (i in sectors) {
-    const t = document.querySelectorAll(`td.sector${sectors[i]}`);
+    const t = document.querySelectorAll(`button.sector${sectors[i]}`);
     t.forEach(function (t) {
       t.classList.remove("sectorDOWN");
     });
@@ -56,14 +56,15 @@ function selectBuilding(inp) {
 }
 
 function selectSector(inp) {
+  console.log(inp);
   for (i in sectors) {
     if (inp === sectors[i]) {
-      const t = document.querySelectorAll(`td.sector${sectors[i]}`);
+      const t = document.querySelectorAll(`button.sector${sectors[i]}`);
       t.forEach(function (t) {
         t.classList.remove("sectorDOWN");
       });
     } else {
-      const t = document.querySelectorAll(`td.sector${sectors[i]}`);
+      const t = document.querySelectorAll(`button.sector${sectors[i]}`);
       t.forEach(function (t) {
         t.classList.add("sectorDOWN");
       });
