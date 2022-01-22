@@ -9,3 +9,4 @@ ssulocker/locker/__pychache__/
 ssulocker/ssulocker/__pycache__/
 ssulocker/__pycache__/
 py310.yml
+*.pyc
