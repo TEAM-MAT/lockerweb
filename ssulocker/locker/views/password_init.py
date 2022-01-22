@@ -12,19 +12,18 @@ def pw_init(request):
             user_all=users.objects.all()
             for u in user_all:
                 if u.is_admin!=True:
-                    pn=u.phone#전화번호는 010떼고 입력받아야함.
+                    pn=u.phone[3:]
                     u.set_password(pn)
                     u.save()
                     number_process+=1
             if number_process>0:
-                initresult["result"]="성공"
+                result_test="성공"
             else:
-                initresult["result"]="실패"
-            initresult["num"]=number_process
-            return render(request,'locker/pwresult.html',initresult)      
+                result_test="실패"
+            render(request,'locker/pwresult.html',initresult)      
         else:
-            return redirect('/locker/login')
+            redirect('locker/login')
     else:
-        return redirect('/locker/login')
+        redirect('locker/login')
 
             
