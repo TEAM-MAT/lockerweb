@@ -17,6 +17,8 @@ def reservePop(request):
         userlocker=user.lockernum.lockernum
     context={"usercurrlocker":userlocker}
     return render(request,'locker/regist_popup.html', context)
+def backHome(request):
+    return redirect('locker:lockerlist')
 
 @login_required
 def reserve(request):#예약

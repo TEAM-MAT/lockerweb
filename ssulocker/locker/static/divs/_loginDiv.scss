@@ -19,6 +19,18 @@
   }
   span#passwdRule {
     font-weight: 500;
+    @media (max-width: 650px) {
+      font-size: 12px !important;
+    }
+  }
+  span#passwdChange {
+    font-size: 0.8rem;
+    color: gray;
+  }
+  span#passwdChange:hover {
+    font-size: 0.8rem;
+    color: black;
+    cursor: pointer;
   }
 }
 

@@ -17,6 +17,7 @@
   ul {
     @include flex-default();
     width: 100%;
+    margin: 1%;
     padding: 0;
     list-style: none;
     @media (max-width: 650px) {
@@ -28,13 +29,12 @@
   li {
     @include flex-default(flex, flex-end, row, center);
     text-align: center;
-    margin: auto;
+    margin: 1%;
     @media (max-width: 650px) {
       @include flex-default(inline-flex, flex-end, column, center);
       flex-wrap: wrap;
-      width: 40%;
+      width: 30%;
       margin: 1vh;
-      font-size: 90%;
     }
   }
   span {
@@ -44,6 +44,7 @@
     min-width: 10rem;
     @media (max-width: 650px) {
       min-width: 0vh;
+      font-size: 12px;
     }
   }
   button {

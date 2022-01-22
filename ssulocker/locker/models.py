@@ -3,17 +3,25 @@ from django.db.models.deletion import SET_NULL
 from django.db.models.enums import Choices
 from django.db.models.fields import NullBooleanField
 from django.db.models.fields.related import ForeignKey
+import datetime
 from django.contrib.auth.models import (BaseUserManager,AbstractBaseUser)
-departments=(('CS','컴퓨터학부'),
+departments=[('CS','컴퓨터학부'),
     ('GM','글로벌미디어학부'),('EIE','전자정보공학부'),('SW','소프트웨어학부'),
-    ('AIC','AI융합학부'))
-buildings=(('HN','형남공학관'),('IS','정보과학관'),('CB','문화관'))
+    ('AIC','AI융합학부')]
+buildings=[('HN','형남공학관'),('IS','정보과학관'),('CB','문화관')]
 class department(models.Model):
     deptname=models.CharField(max_length=6,choices=departments,primary_key=True)
     time=models.DateTimeField()#예약시작날짜 
 
     def getdepttime(self):
         return self.time
+
+class departmentset():
+    @staticmethod
+    def departmentset():
+        for i in range(5):
+            temp=department(deptname=departments[i][0],time=datetime.datetime.now())
+            temp.save()
 
 class lockers(models.Model):
     lockernum=models.CharField(max_length=10,primary_key=True)#건물앞글자+층+섹터+번호 조합해서 만들기

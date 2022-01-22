@@ -25,7 +25,8 @@
 
   <nav id="topNav">
     <ul>
-      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:reservePop' %}'">예약 / 변경</span></li><!--예약을 post로 해줘야함 수정 필요-->
+      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:reservePop' %}'">예약 / 변경</span></li>
+      <!--예약을 post로 해줘야함 수정 필요-->
       <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:cancelPop' %}'">취소</span></li>
       <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:logout' %}'">로그아웃</span></li>
     </ul>
@@ -38,6 +39,8 @@
         <span id="userName">{{username}}님</span>
         <span>현재 예약된 사물함 : {{usercurrlocker}}</span>
         <span class="userSelected"></span>
+      </div>
+      <div id="lockermap"><img src="{% static 'images/Basic.png' %}" alt="사물함 배치도"> </div>
     </section>
     {% if locker_list %}
     <!--사물함이 로딩되었을 시 출력-->
@@ -47,15 +50,15 @@
         <script>
           // 학부에 따라 select option 필터링
           const theSelect = document.querySelector("select#building");
-          const _userdepartment = "{{ user.department }}";
+          const _userdepartment = "{{ department.get_deptname_display }}";
           console.log(_userdepartment);
-          if (_userdepartment == "EIE") {
+          if (_userdepartment == "전자정보공학부") {
             theSelect.innerHTML += `
               <optgroup label="형남공학관">
                   <option value="HN1">> 1층</option>
                   <option value="HN3">> 3층</option>
               </optgroup>`;
-          } else if (_userdepartment == "CB") {
+          } else if (_userdepartment == "AI융합학부") {
             theSelect.innerHTML += `
             <optgroup label="형남공학관">
                   <option value="HN1">> 1층</option>
@@ -83,25 +86,28 @@
     <section id="lockerList">
       <nav id="middleNav">
         <ul>
-          <li id="A" onclick="selectSector(this.id)" style="cursor: pointer;">A</li>
-          <li id="B" onclick="selectSector(this.id)" style="cursor: pointer;">B</li>
-          <li id="C" onclick="selectSector(this.id)" style="cursor: pointer;">C</li>
-          <li id="D" onclick="selectSector(this.id)" style="cursor: pointer;">D</li>
-          <li id="E" onclick="selectSector(this.id)" style="cursor: pointer;">E</li>
-          <li id="F" onclick="selectSector(this.id)" style="cursor: pointer;">F</li>
+          <li id="A" onclick="selectSector(this.id)">A</li>
+          <li id="B" onclick="selectSector(this.id)">B</li>
+          <li id="C" onclick="selectSector(this.id)">C</li>
+          <li id="D" onclick="selectSector(this.id)">D</li>
+          <li id="E" onclick="selectSector(this.id)">E</li>
+          <li id="F" onclick="selectSector(this.id)">F</li>
+          <li id="G" onclick="selectSector(this.id)">G</li>
+          <li id="H" onclick="selectSector(this.id)">H</li>
+          <li id="I" onclick="selectSector(this.id)">I</li>
         </ul>
       </nav>
       <script>
         function select(inp) {
           sessionStorage.setItem("lockerData", inp);
-          console.log(sessionStorage.getItem("lockerData"))
+          console.log(sessionStorage.getItem("lockerData"));
         }
       </script>
       <table>
         <thead>
           <tr>
             <th colspan="5">
-              <span id="userDep1">{{user.department}}</span>
+              <span id="userDep1">{{ department.get_deptname_display }}</span>
               <span id="building-floor"></span>
               <span>사물함 목록</span>
               <table id="table">
@@ -109,23 +115,29 @@
                 {% if forloop.counter|divisibleby:5 != 0 %}
                 <!--  -->
                 {% if l.sector == 'A' %}
-                <td class="sectorA sectorUP floor{{l.floor}}" onClick="select('{{l.lockernum}}')">
+                <td class="sectorA sectorUP floor{{l.floor}}"
+                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')">
                   <span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
                 </td>
                 {% elif l.sector == 'B' %}
-                <td class="sectorB sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                <td class="sectorB sectorDOWN floor{{l.floor}}"
+                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                     class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
                 {% elif l.sector == 'C' %}
-                <td class="sectorC sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                <td class="sectorC sectorDOWN floor{{l.floor}}"
+                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                     class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
                 {% elif l.sector == 'D' %}
-                <td class="sectorD sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                <td class="sectorD sectorDOWN floor{{l.floor}}"
+                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                     class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
                 {% elif l.sector == 'E' %}
-                <td class="sectorE sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                <td class="sectorE sectorDOWN floor{{l.floor}}"
+                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                     class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
                 {% elif l.sector == 'F' %}
-                <td class="sectorF sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                <td class="sectorF sectorDOWN floor{{l.floor}}"
+                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                     class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
                 {%else%}
                 {%endif%}
@@ -134,22 +146,28 @@
                   {% else %}
                   <!--  -->
                   {% if l.sector == 'A' %}
-                  <td class="sectorA sectorUP floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                  <td class="sectorA sectorUP floor{{l.floor}}"
+                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                       class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
                   {% elif l.sector == 'B' %}
-                  <td class="sectorB sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                  <td class="sectorB sectorDOWN floor{{l.floor}}"
+                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                       class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
                   {% elif l.sector == 'C' %}
-                  <td class="sectorC sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                  <td class="sectorC sectorDOWN floor{{l.floor}}"
+                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                       class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
                   {% elif l.sector == 'D' %}
-                  <td class="sectorD sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                  <td class="sectorD sectorDOWN floor{{l.floor}}"
+                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                       class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
                   {% elif l.sector == 'E' %}
-                  <td class="sectorE sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                  <td class="sectorE sectorDOWN floor{{l.floor}}"
+                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                       class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
                   {% elif l.sector == 'F' %}
-                  <td class="sectorF sectorDOWN floor{{l.floor}}" onClick="select('{{l.lockernum}}')"><span
+                  <td class="sectorF sectorDOWN floor{{l.floor}}"
+                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
                       class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
                   {%else%}
                   {%endif%}
@@ -168,33 +186,29 @@
           Github</a></span></p>
   </footer>
 
-  <style>
-    .sectorA, .sectorB, .sectorC, .sectorD, .sectorE, .sectorF{
-      cursor: pointer;
-    }
-  </style>
   <script src="{% static 'js/main.js' %}"></script>
-  <script src="{% static 'js/selection.js' %}"></script>  
+  <script src="{% static 'js/selection.js' %}"></script>
   <script>
-    window.onload = function(){
+    window.onload = function () {
       sessionStorage.removeItem("lockerData");
       selectionUpdate();
     }
 
-    function selectionUpdate(){
+    function selectionUpdate() {
       userSelected = document.querySelector('.userSelected');
 
-      if (sessionStorage.getItem("lockerData") == null){
+      if (sessionStorage.getItem("lockerData") == null) {
         console.log(userSelected);
         userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
       }
-      else{
+      else {
         userSelected.innerHTML = "현재 선택한 사물함 : " + sessionStorage.getItem("lockerData");
       }
     }
 
-    function select(inp){
-      sessionStorage.setItem("lockerData", inp);
+    function select(floor, sector, num) {
+      if (floor == 0) floor = "B1";
+      sessionStorage.setItem("lockerData", `${floor}층 ${sector}구역 ${num}번`);
       selectionUpdate();
       console.log(sessionStorage.getItem("lockerData"));
     } 
