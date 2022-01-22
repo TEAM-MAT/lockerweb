@@ -5,8 +5,17 @@ from .models import users,lockers,department
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from locker.forms import lockeraddForm#lockerchangeForm
-from import_export.admin import ExportActionModelAdmin,ImportExportMixin,ImportMixin
-class userAdmin(ImportExportMixin,BaseUserAdmin):
+from import_export.admin import ImportExportModelAdmin
+from import_export import resources,fields
+from import_export.widgets import ForeignKeyWidget
+class userResource(resources.ModelResource):
+    class Meta:
+        model=users
+        fields=('id','name','department','phone','lockernum',)
+        exclude=('password','is_active','is_admin')
+        import_id_fields=('id',)
+class userAdmin(ImportExportModelAdmin,BaseUserAdmin):
+    resource_class=userResource
     form=UserChangeForm
     add_form=UserCreationForm
     list_display=('id','name','lockernum','department','lockernum','is_admin')

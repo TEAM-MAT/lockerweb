@@ -1,3 +1,4 @@
+from ast import ImportFrom
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.db.models.enums import Choices
@@ -38,6 +39,8 @@ class UserChangeForm(forms.ModelForm):
         fields=('id','department','name','phone','is_active','is_admin')
     def clean_password(self):
         return self.initial["password"]
+
+
 class lockeraddForm(forms.ModelForm):
     buildings=(('HN','형남공학관'),('IS','정보과학관'),('CB','문화관'))
     building=forms.ChoiceField(label="building",widget=forms.MultipleChoiceField,choices=buildings)
