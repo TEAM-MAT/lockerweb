@@ -99,12 +99,6 @@
           <li id="I" onclick="selectSector(this.id)">I</li>
         </ul>
       </nav>
-      <script>
-        function select(inp) {
-          sessionStorage.setItem("lockerData", inp);
-          console.log(sessionStorage.getItem("lockerData"));
-        }
-      </script>
       <p><span id="userDep1">{{ department.get_deptname_display }}</span>
         <span id="building-floor"></span>
         <span>사물함 목록</span>
