@@ -86,19 +86,17 @@
       </select>
     </section>
     <section id="lockerList">
-      <nav id="middleNav">
-        <ul>
-          <li id="A" onclick="selectSector(this.id)">A</li>
-          <li id="B" onclick="selectSector(this.id)">B</li>
-          <li id="C" onclick="selectSector(this.id)">C</li>
-          <li id="D" onclick="selectSector(this.id)">D</li>
-          <li id="E" onclick="selectSector(this.id)">E</li>
-          <li id="F" onclick="selectSector(this.id)">F</li>
-          <li id="G" onclick="selectSector(this.id)">G</li>
-          <li id="H" onclick="selectSector(this.id)">H</li>
-          <li id="I" onclick="selectSector(this.id)">I</li>
-        </ul>
-      </nav>
+      <select name="Sector" id="sector" onchange="selectSector(this.value);" style="cursor: pointer;">
+        <option id="A" selected>A</option>
+        <option id="B">B</option>
+        <option id="C">C</option>
+        <option id="D">D</option>
+        <option id="E">E</option>
+        <option id="F">F</option>
+        <option id="G">G</option>
+        <option id="H">H</option>
+        <option id="I">I</option>
+      </select>
       <p><span id="userDep1">{{ department.get_deptname_display }}</span>
         <span id="building-floor"></span>
         <span>사물함 목록</span>
@@ -173,7 +171,6 @@
         {%else%}
         {%endif%} {% endfor %}
       </section>
-    </section>
     </section>
 
 
