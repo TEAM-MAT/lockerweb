@@ -3,24 +3,6 @@
   margin-left: 15%;
   width: 70%;
   text-align: center;
-  select {
-    -webkit-appearance: button;
-    appearance: button;
-    width: 250px;
-    padding: 1%;
-    border: none;
-    outline: none;
-    box-shadow: 0 5px 25px $dblue;
-    font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
-      sans-serif;
-    background-color: $dblue;
-    color: $black;
-    option {
-      font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
-        "Malgun Gothic", sans-serif;
-      padding: 1%;
-    }
-  }
 }
 
 #lockerList {
@@ -55,7 +37,6 @@
   min-height: 500px;
   max-height: 500px;
   min-width: 90%;
-  min-id
   overflow-x: scroll;
   flex-wrap: wrap;
   border: 3px solid $dblue;
@@ -85,4 +66,23 @@
 }
 .floorDOWN {
   display: none;
+}
+
+select {
+  -webkit-appearance: button;
+  appearance: button;
+  width: 250px;
+  padding: 1%;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 25px $dblue;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
+    sans-serif;
+  background-color: $dblue;
+  color: $black;
+  option {
+    font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
+      sans-serif;
+    padding: 1%;
+  }
 }

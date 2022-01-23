@@ -50,3 +50,7 @@
 .sectorF {
   cursor: pointer;
 }
+
+li.selected {
+  background-color: $dblue !important;
+}

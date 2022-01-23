@@ -1,5 +1,5 @@
 const floors = [0, 1, 2, 3, 4, 5, 6];
-const sectors = ["A", "B", "C", "D", "E", "F"];
+const sectors = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
 
 for (i in floors) {
   if (floors[i] === 1) {
@@ -34,6 +34,7 @@ function selectBuilding(inp) {
 
   theSpan.innerText = `${_building} ${_floor}`;
   document.querySelector("span#userDep1").innerText = "";
+  //선택한 층만 표시
   for (i in floors) {
     if (floor == floors[i]) {
       const t = document.querySelectorAll(`button.floor${floors[i]}`);
@@ -47,6 +48,7 @@ function selectBuilding(inp) {
       });
     }
   }
+  //모든 구역 표시
   for (i in sectors) {
     const t = document.querySelectorAll(`button.sector${sectors[i]}`);
     t.forEach(function (t) {
@@ -56,6 +58,7 @@ function selectBuilding(inp) {
 }
 
 function selectSector(inp) {
+  //선택한 구역만 표시
   console.log(inp);
   for (i in sectors) {
     if (inp === sectors[i]) {

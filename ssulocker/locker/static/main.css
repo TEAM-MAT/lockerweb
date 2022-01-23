@@ -348,23 +348,6 @@ body {
   width: 70%;
   text-align: center;
 }
-#lockerlistDiv select {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-       appearance: button;
-  width: 250px;
-  padding: 1%;
-  border: none;
-  outline: none;
-  box-shadow: 0 5px 25px #d1e4ff;
-  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
-  background-color: #d1e4ff;
-  color: #17202a;
-}
-#lockerlistDiv select option {
-  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
-  padding: 1%;
-}
 
 #lockerList {
   display: flex;
@@ -434,6 +417,24 @@ body {
 
 .floorDOWN {
   display: none;
+}
+
+select {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+       appearance: button;
+  width: 250px;
+  padding: 1%;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 25px #d1e4ff;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  background-color: #d1e4ff;
+  color: #17202a;
+}
+select option {
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  padding: 1%;
 }
 
 #loginDiv {
@@ -590,6 +591,10 @@ body {
 .sectorE,
 .sectorF {
   cursor: pointer;
+}
+
+li.selected {
+  background-color: #d1e4ff !important;
 }
 
 #popup {
