@@ -12,3 +12,11 @@
 <li>사물함 닫힘 : https://i.imgur.com/7rW94bh.png</li>
 <li>font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;</li>
 </ol>
+<p>GM6 : https://i.imgur.com/b9kaNKw.png
+GM4 : https://i.imgur.com/gLjse84.png
+GM0 : https://i.imgur.com/Lrqw5Nl.png
+EIE3 : https://i.imgur.com/f8kjHfc.png
+EIE1 : https://i.imgur.com/mnesjq5.png
+AIC4 : https://i.imgur.com/zxOx1fD.png
+AIC0 : https://i.imgur.com/swXCbhD.png
+Basic : https://i.imgur.com/OppfBtD.png</p>
