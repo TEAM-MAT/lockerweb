@@ -457,6 +457,11 @@ select option {
   padding: 1%;
 }
 
+div#lockermap img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
 #loginDiv {
   display: flex;
   justify-content: center;

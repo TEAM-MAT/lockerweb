@@ -14,8 +14,35 @@
   <meta name="keywords" content="숭실대학교, IT대학, 사물함" />
   <meta property="og:image" content="https://i.imgur.com/v2UpZTg.png" />
   <link rel="stylesheet" href="{% static 'main.css' %}" />
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/selection.js' %}"></script>
+  <script>
+    window.onload = function () {
+      sessionStorage.removeItem("lockerData");
+      selectionUpdate();
+    }
 
+    function selectionUpdate() {
+      userSelected = document.querySelector('.userSelected');
 
+      if (sessionStorage.getItem("lockerData") == null) {
+        userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
+      }
+      else {
+        userSelected.innerHTML = "현재 선택한 사물함 : " + sessionStorage.getItem("lockerData");
+      }
+    }
+
+    function select(floor, sector, num, id) {
+      if (floor == 0) floor = "B1";
+      sessionStorage.setItem("lockerData", `${floor}층 ${sector}구역 ${num}번`);
+      selectionUpdate();
+      document.querySelectorAll("section#lockers button").forEach(t => {
+        t.classList.remove("selected");
+      });
+      document.getElementById(`${id}`).classList.add("selected");
+    } 
+  </script>
 </head>
 
 <body>
@@ -42,12 +69,13 @@
         <span>현재 예약된 사물함 : {{usercurrlocker}}</span>
         <span class="userSelected"></span>
       </div>
-      <div id="lockermap"><img src="{% static 'images/Basic.png' %}" alt="사물함 배치도"> </div>
+      <div id="lockermap"><img id="lockermapImage" src="{% static 'images/Basic.png' %}" alt="사물함 배치도"> </div>
     </section>
     {% if locker_list %}
+
     <!--사물함이 로딩되었을 시 출력-->
     <section id="lockerlistDiv">
-      <select name="Building" id="building" onchange="selectBuilding(this.value);" style="cursor: pointer;">
+      <select name="Building" id="building" onchange="selectBuilding(this.value)" style="cursor: pointer;">
         <option selected disabled>층을 선택하세요.</option>
         <script>
           // 학부에 따라 select option 필터링
@@ -84,7 +112,6 @@
         </script>
       </select>
     </section>
-
     <section id="lockerList">
       <select name="Sector" id="sector" onchange="selectSector(this.value);" style="cursor: pointer;">
         <option id="A" selected>A</option>
@@ -185,35 +212,7 @@
           Github</a></span></p>
   </footer>
 
-  <script src="{% static 'js/main.js' %}"></script>
-  <script src="{% static 'js/selection.js' %}"></script>
-  <script>
-    window.onload = function () {
-      sessionStorage.removeItem("lockerData");
-      selectionUpdate();
-    }
 
-    function selectionUpdate() {
-      userSelected = document.querySelector('.userSelected');
-
-      if (sessionStorage.getItem("lockerData") == null) {
-        userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
-      }
-      else {
-        userSelected.innerHTML = "현재 선택한 사물함 : " + sessionStorage.getItem("lockerData");
-      }
-    }
-
-    function select(floor, sector, num, id) {
-      if (floor == 0) floor = "B1";
-      sessionStorage.setItem("lockerData", `${floor}층 ${sector}구역 ${num}번`);
-      selectionUpdate();
-      document.querySelectorAll("section#lockers button").forEach(t => {
-        t.classList.remove("selected");
-      });
-      document.getElementById(`${id}`).classList.add("selected");
-    } 
-  </script>
 </body>
 
 </html>
