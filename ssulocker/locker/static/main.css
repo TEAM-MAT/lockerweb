@@ -142,12 +142,12 @@ table {
 
 @media (max-width: 650px) {
   * {
-    font-size: calc(min(3vh, 13px)) !important;
+    font-size: min(3vh, 13px) !important;
   }
 }
 
 h1 {
-  font-size: calc(max(2em, 20px));
+  font-size: max(2em, 20px);
 }
 
 body {
@@ -342,6 +342,24 @@ body {
   border-radius: 5px;
 }
 
+.warning {
+  font-weight: bold;
+  color: red;
+}
+
+.sectorDOWN {
+  display: none;
+}
+
+.floorDOWN {
+  display: none;
+}
+
+.selected {
+  background-image: url("https://i.imgur.com/j5j1GAZ.png") !important;
+  outline: 0;
+}
+
 #lockerlistDiv {
   margin-top: 1%;
   margin-left: 15%;
@@ -376,6 +394,9 @@ body {
   border: 3px solid #d1e4ff;
   background-color: #e5f0ff;
 }
+#lockerList p#lockerTitle {
+  margin: 1%;
+}
 
 #lockers {
   display: flex;
@@ -392,31 +413,30 @@ body {
   box-shadow: 2px 2px 5px #d1e4ff;
 }
 #lockers button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
   padding: 0;
-  margin: 0.05% 1%;
+  margin: 0.05% 0.5%;
   min-height: 95px;
   max-height: 95px;
   min-width: 70px;
   max-width: 70px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border: 3px solid #003d8e;
+  appearance: none;
+  border: 0;
   background-color: #ebf5fb;
-  background-image: url("https://i.imgur.com/PJrXSU8.png");
+  background-image: url("https://i.imgur.com/7rW94bh.png");
+  background-size: 70px;
+  background-repeat: no-repeat;
 }
-
-.warning {
-  font-weight: bold;
-  color: red;
+#lockers button span {
+  color: #e5f0ff;
+  font-size: 14px;
+  font-weight: 600;
 }
-
-.sectorDOWN {
-  display: none;
-}
-
-.floorDOWN {
-  display: none;
+#lockers button span p {
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
 }
 
 select {

@@ -1,3 +1,18 @@
+.warning {
+  font-weight: bold;
+  color: red;
+}
+.sectorDOWN {
+  display: none;
+}
+.floorDOWN {
+  display: none;
+}
+.selected {
+  background-image: url("https://i.imgur.com/j5j1GAZ.png") !important;
+  outline: 0;
+}
+
 #lockerlistDiv {
   margin-top: 1%;
   margin-left: 15%;
@@ -30,6 +45,10 @@
       }
     }
   }
+
+  p#lockerTitle {
+    margin: 1%;
+  }
 }
 
 #lockers {
@@ -43,29 +62,34 @@
   background-color: $slblue;
   box-shadow: 2px 2px 5px $dblue;
   button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+
     padding: 0;
-    margin: 0.05% 1%;
+    margin: 0.05% 0.5%;
     min-height: 95px;
     max-height: 95px;
     min-width: 70px;
     max-width: 70px;
 
     appearance: none;
-    border: 3px solid $bblue;
+    border: 0;
     background-color: $slblue;
-    background-image: url("https://i.imgur.com/PJrXSU8.png");
+    background-image: url("https://i.imgur.com/7rW94bh.png");
+    background-size: 70px;
+    background-repeat: no-repeat;
+    span {
+      color: $lblue;
+      font-size: 14px;
+      font-weight: 600;
+      p {
+        font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
+          "Malgun Gothic", sans-serif;
+      }
+    }
   }
-}
-
-.warning {
-  font-weight: bold;
-  color: red;
-}
-.sectorDOWN {
-  display: none;
-}
-.floorDOWN {
-  display: none;
 }
 
 select {

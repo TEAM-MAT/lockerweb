@@ -53,7 +53,6 @@
           // 학부에 따라 select option 필터링
           const theSelect = document.querySelector("select#building");
           const _userdepartment = "{{ department.get_deptname_display }}";
-          console.log(_userdepartment);
           if (_userdepartment == "전자정보공학부") {
             theSelect.innerHTML += `
               <optgroup label="형남공학관">
@@ -85,6 +84,7 @@
         </script>
       </select>
     </section>
+
     <section id="lockerList">
       <select name="Sector" id="sector" onchange="selectSector(this.value);" style="cursor: pointer;">
         <option id="A" selected>A</option>
@@ -97,15 +97,16 @@
         <option id="H">H</option>
         <option id="I">I</option>
       </select>
-      <p><span id="userDep1">{{ department.get_deptname_display }}</span>
+      <p id="lockerTitle">
+        <span id="userDep1">{{ department.get_deptname_display }}</span>
         <span id="building-floor"></span>
         <span>사물함 목록</span>
       </p>
       <section id="lockers">
         {% for l in locker_list %}
         {% if l.sector == 'A' %}
-        <button class="sectorA sectorUP floor{{l.floor}}"
-          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')">
+        <button class="sectorA sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)">
           <span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
@@ -113,57 +114,57 @@
           </span>
         </button>
         {% elif l.sector == 'B' %}
-        <button class="sectorB sectorDOWN floor{{l.floor}}"
-          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span>
+        <button class="sectorB sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'C' %}
-        <button class="sectorC sectorDOWN floor{{l.floor}}"
-          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span>
+        <button class="sectorC sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'D' %}
-        <button class="sectorD sectorDOWN floor{{l.floor}}"
-          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span>
+        <button class="sectorD sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'E' %}
-        <button class="sectorE sectorDOWN floor{{l.floor}}"
-          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span>
+        <button class="sectorE sectorDOWN floor{{l.floor}}" id="'{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'F' %}
-        <button class="sectorF sectorDOWN floor{{l.floor}}"
-          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span>
+        <button class="sectorF sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'G' %}
-        <button class="sectorG sectorDOWN floor{{l.floor}}"
-          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span>
+        <button class="sectorG sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'H' %}
-        <button class="sectorH sectorDOWN floor{{l.floor}}"
-          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span>
+        <button class="sectorH sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'I' %}
-        <button class="sectorI sectorDOWN floor{{l.floor}}"
-          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span>
+        <button class="sectorI sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
@@ -196,7 +197,6 @@
       userSelected = document.querySelector('.userSelected');
 
       if (sessionStorage.getItem("lockerData") == null) {
-        console.log(userSelected);
         userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
       }
       else {
@@ -204,11 +204,14 @@
       }
     }
 
-    function select(floor, sector, num) {
+    function select(floor, sector, num, id) {
       if (floor == 0) floor = "B1";
       sessionStorage.setItem("lockerData", `${floor}층 ${sector}구역 ${num}번`);
       selectionUpdate();
-      console.log(sessionStorage.getItem("lockerData"));
+      document.querySelectorAll("section#lockers button").forEach(t => {
+        t.classList.remove("selected");
+      });
+      document.getElementById(`${id}`).classList.add("selected");
     } 
   </script>
 </body>

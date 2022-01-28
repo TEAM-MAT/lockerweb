@@ -6,3 +6,9 @@
   요구사항: request body에 json으로  'lockernum' : 사물함번호(예 : H01001) 형식으로 전송.<br>
   결과확인은 redirect된 화면에서 확인 가능.<br>
 </ol>
+<h2>디자인</h2>
+<ol>
+<li>사물함 열림 : https://i.imgur.com/j5j1GAZ.png</li>
+<li>사물함 닫힘 : https://i.imgur.com/7rW94bh.png</li>
+<li>font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;</li>
+</ol>

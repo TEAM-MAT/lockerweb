@@ -59,7 +59,6 @@ function selectBuilding(inp) {
 
 function selectSector(inp) {
   //선택한 구역만 표시
-  console.log(inp);
   for (i in sectors) {
     if (inp === sectors[i]) {
       const t = document.querySelectorAll(`button.sector${sectors[i]}`);
