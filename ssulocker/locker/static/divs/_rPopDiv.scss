@@ -3,7 +3,7 @@
     font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
       sans-serif;
     text-align: center;
-    font-size: 1.0em;
+    font-size: 1em;
     list-style: none;
     border: 3px solid $dblue;
     border-radius: 5px;
@@ -11,5 +11,8 @@
   }
   button:hover {
     background-color: $dblue;
+  }
+  @media (max-width: 1200px) {
+    min-width: 50%;
   }
 }

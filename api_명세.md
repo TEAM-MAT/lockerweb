@@ -8,7 +8,7 @@
 </ol>
 <h2>디자인</h2>
 <ol>
-<li>사물함 열림 : https://i.imgur.com/j5j1GAZ.png</li>
+<li>사물함 열림 : https://i.imgur.com/E4pFw14.png</li>
 <li>사물함 닫힘 : https://i.imgur.com/7rW94bh.png</li>
 <li>font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;</li>
 </ol>

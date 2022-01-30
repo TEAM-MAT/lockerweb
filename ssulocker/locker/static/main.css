@@ -348,7 +348,7 @@ body {
 }
 
 .sectorDOWN {
-  display: none;
+  display: none !important;
 }
 
 .floorDOWN {
@@ -356,7 +356,7 @@ body {
 }
 
 .selected {
-  background-image: url("https://i.imgur.com/j5j1GAZ.png") !important;
+  background-image: url("https://i.imgur.com/E4pFw14.png") !important;
   outline: 0;
 }
 
@@ -405,7 +405,8 @@ body {
   align-items: center;
   min-height: 500px;
   max-height: 500px;
-  min-width: 90%;
+  min-width: 80%;
+  max-width: 80%;
   overflow-x: scroll;
   flex-wrap: wrap;
   border: 3px solid #d1e4ff;
@@ -456,10 +457,27 @@ select option {
   font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   padding: 1%;
 }
+@media (max-width: 1200px) {
+  select option {
+    font-size: 12px !important;
+    max-height: 1em;
+  }
+}
+@media (max-width: 1200px) {
+  select {
+    width: 200px;
+  }
+}
 
 div#lockermap img {
   max-width: 300px;
   max-height: 300px;
+}
+@media (max-width: 1200px) {
+  div#lockermap img {
+    max-width: 150px;
+    max-height: 150px;
+  }
 }
 
 #loginDiv {
@@ -564,6 +582,11 @@ div#lockermap img {
   width: 50%;
   margin: auto;
 }
+@media (max-width: 1200px) {
+  #topNav {
+    width: 80%;
+  }
+}
 #topNav ul {
   padding: 1%;
   display: flex;
@@ -582,31 +605,6 @@ div#lockermap img {
   border-radius: 5px;
   background-color: #fff;
   min-width: 10%;
-}
-
-#middleNav {
-  width: 50%;
-  margin: 0;
-}
-#middleNav ul {
-  padding: 1%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  align-items: center;
-}
-#middleNav ul :hover {
-  background-color: #d1e4ff;
-}
-#middleNav ul li {
-  text-align: center;
-  padding: 1% 3%;
-  font-size: 1.1em;
-  list-style: none;
-  border: 3px solid #d1e4ff;
-  border-radius: 5px;
-  background-color: #fff;
-  cursor: pointer;
 }
 
 .sectorA,
@@ -634,7 +632,7 @@ li.selected {
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  width: 20%;
   height: 100px;
   background-color: #e5f0ff;
   border: 3px solid #d1e4ff;
@@ -642,7 +640,6 @@ li.selected {
 }
 @media (max-width: 1200px) {
   #infoPopupDiv {
-    font-size: 90%;
     width: 50%;
   }
 }
@@ -680,6 +677,11 @@ li.selected {
 #registerPopupDiv button:hover {
   background-color: #d1e4ff;
 }
+@media (max-width: 1200px) {
+  #registerPopupDiv {
+    min-width: 50%;
+  }
+}
 
 #cancelPopupDiv button {
   font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
@@ -692,6 +694,11 @@ li.selected {
 }
 #cancelPopupDiv button:hover {
   background-color: #d1e4ff;
+}
+@media (max-width: 1200px) {
+  #cancelPopupDiv {
+    min-width: 50%;
+  }
 }
 
 body {

@@ -3,13 +3,13 @@
   color: red;
 }
 .sectorDOWN {
-  display: none;
+  display: none !important;
 }
 .floorDOWN {
   display: none;
 }
 .selected {
-  background-image: url("https://i.imgur.com/j5j1GAZ.png") !important;
+  background-image: url("https://i.imgur.com/E4pFw14.png") !important;
   outline: 0;
 }
 
@@ -55,7 +55,8 @@
   @include flex-default(flex, center, column, center);
   min-height: 500px;
   max-height: 500px;
-  min-width: 90%;
+  min-width: 80%;
+  max-width: 80%;
   overflow-x: scroll;
   flex-wrap: wrap;
   border: 3px solid $dblue;
@@ -108,10 +109,21 @@ select {
     font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
       sans-serif;
     padding: 1%;
+    @media (max-width: 1200px) {
+      font-size: 12px !important;
+      max-height: 1em;
+    }
+  }
+  @media (max-width: 1200px) {
+    width: 200px;
   }
 }
 
 div#lockermap img {
   max-width: 300px;
   max-height: 300px;
+  @media (max-width: 1200px) {
+    max-width: 150px;
+    max-height: 150px;
+  }
 }

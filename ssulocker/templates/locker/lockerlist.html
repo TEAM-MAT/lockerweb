@@ -14,7 +14,6 @@
   <meta name="keywords" content="숭실대학교, IT대학, 사물함" />
   <meta property="og:image" content="https://i.imgur.com/v2UpZTg.png" />
   <link rel="stylesheet" href="{% static 'main.css' %}" />
-  <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'js/selection.js' %}"></script>
   <script>
     window.onload = function () {
@@ -23,13 +22,13 @@
     }
 
     function selectionUpdate() {
-      userSelected = document.querySelector('.userSelected');
+      userSelected = document.querySelector('#userSelected');
 
       if (sessionStorage.getItem("lockerData") == null) {
         userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
       }
       else {
-        userSelected.innerHTML = "현재 선택한 사물함 : " + sessionStorage.getItem("lockerData");
+        userSelected.innerHTML = "현재 선택한 사물함<br>" + sessionStorage.getItem("lockerData");
       }
     }
 
@@ -52,7 +51,9 @@
 
   <nav id="topNav">
     <ul>
-      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:reservePop' %}'">예약 / 변경</span></li>
+      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:reservePop' %}'"><span
+            style="font-weight: bold;">예약 /
+            변경</span></span></li>
       <!--예약을 post로 해줘야함 수정 필요-->
       <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:cancelPop' %}'">취소</span></li>
       <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:logout' %}'">로그아웃</span></li>
@@ -64,10 +65,9 @@
   <main>
     <section id="popup">
       <div id="infoPopupDiv">
-        <span id="userDep2">{{department.get_deptname_display}}</span>
-        <span id="userName">{{username}}님</span>
-        <span>현재 예약된 사물함 : {{usercurrlocker}}</span>
-        <span class="userSelected"></span>
+        <p><span id="userDep2">{{department.get_deptname_display}}</span> <span id="userName">{{username}}님</span></p>
+        <span id="userRegistered">현재 예약된 사물함<br>{{usercurrlocker}}</span>
+        <span id="userSelected" style="font-weight: bold;"></span>
       </div>
       <div id="lockermap"><img id="lockermapImage" src="{% static 'images/Basic.png' %}" alt="사물함 배치도"> </div>
     </section>
@@ -90,11 +90,11 @@
           } else if (_userdepartment == "AI융합학부") {
             theSelect.innerHTML += `
             <optgroup label="형남공학관">
-                  <option value="HN1">> 1층</option>
+                  <option value="HN1" selected>> 1층</option>
                   <option value="HN3">> 3층</option>
             </optgroup>
             <optgroup label="문화관">
-                <option value="CB1">> 1층</option>
+                <option value="CB1" selected>> 1층</option>
                 <option value="CB2">> 2층</option>
                 <option value="CB3">> 3층</option>
             </optgroup>`;
@@ -114,15 +114,16 @@
     </section>
     <section id="lockerList">
       <select name="Sector" id="sector" onchange="selectSector(this.value);" style="cursor: pointer;">
-        <option id="A" selected>A</option>
-        <option id="B">B</option>
-        <option id="C">C</option>
-        <option id="D">D</option>
-        <option id="E">E</option>
-        <option id="F">F</option>
-        <option id="G">G</option>
-        <option id="H">H</option>
-        <option id="I">I</option>
+        <option id="null" selected disabled>구역을 선택하세요.</option>
+        <option id="A">>A</option>
+        <option id="B">>B</option>
+        <option id="C">>C</option>
+        <option id="D">>D</option>
+        <option id="E">>E</option>
+        <option id="F">>F</option>
+        <option id="G">>G</option>
+        <option id="H">>H</option>
+        <option id="I">>I</option>
       </select>
       <p id="lockerTitle">
         <span id="userDep1">{{ department.get_deptname_display }}</span>
@@ -141,56 +142,56 @@
           </span>
         </button>
         {% elif l.sector == 'B' %}
-        <button class="sectorB sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+        <button class="sectorB sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'C' %}
-        <button class="sectorC sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+        <button class="sectorC sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'D' %}
-        <button class="sectorD sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+        <button class="sectorD sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'E' %}
-        <button class="sectorE sectorDOWN floor{{l.floor}}" id="'{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+        <button class="sectorE sectorUP floor{{l.floor}}" id="'{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'F' %}
-        <button class="sectorF sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+        <button class="sectorF sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'G' %}
-        <button class="sectorG sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+        <button class="sectorG sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'H' %}
-        <button class="sectorH sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+        <button class="sectorH sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
             <p>{{l.written_lockernum}}번</p>
           </span></button>
         {% elif l.sector == 'I' %}
-        <button class="sectorI sectorDOWN floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+        <button class="sectorI sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
             <p><span class="floor">{{l.floor}}</span>층</p>
             <p>{{l.sector}}구역</p>
@@ -216,3 +217,4 @@
 </body>
 
 </html>
+<script src="{% static 'js/main.js' %}"></script>

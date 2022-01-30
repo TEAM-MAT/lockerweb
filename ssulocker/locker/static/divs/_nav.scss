@@ -1,6 +1,9 @@
 #topNav {
   width: 50%;
   margin: auto;
+  @media (max-width: 1200px) {
+    width: 80%;
+  }
   ul {
     padding: 1%;
     @include flex-default(flex, space-evenly, row, center);
@@ -15,29 +18,6 @@
       border-radius: 5px;
       background-color: $white;
       min-width: 10%;
-    }
-  }
-}
-
-#middleNav {
-  width: 50%;
-  margin: 0;
-  ul {
-    padding: 1%;
-    @include flex-default(flex, space-evenly, row, center);
-    :hover {
-      background-color: $dblue;
-    }
-    li {
-      text-align: center;
-      padding: 1% 3%;
-      font-size: 1.1em;
-      list-style: none;
-      border: 3px solid $dblue;
-      border-radius: 5px;
-      background-color: $white;
-
-      cursor: pointer;
     }
   }
 }

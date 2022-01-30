@@ -3,13 +3,12 @@
 }
 #infoPopupDiv {
   @include flex-default(flex, space-evenly, column, center);
-  width: 30%;
+  width: 20%;
   height: 100px;
   background-color: $lblue;
   border: 3px solid $dblue;
   border-radius: 5px;
   @media (max-width: 1200px) {
-    font-size: 90%;
     width: 50%;
   }
 }
