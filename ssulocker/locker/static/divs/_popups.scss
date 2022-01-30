@@ -3,6 +3,7 @@
 }
 #infoPopupDiv {
   @include flex-default(flex, space-evenly, column, center);
+  align-items: center;
   width: 20%;
   height: 100px;
   background-color: $lblue;
@@ -10,6 +11,9 @@
   border-radius: 5px;
   @media (max-width: 1200px) {
     width: 50%;
+  }
+  span {
+    text-align: center;
   }
 }
 
