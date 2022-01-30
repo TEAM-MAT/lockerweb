@@ -403,10 +403,10 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  min-height: 500px;
-  max-height: 500px;
-  min-width: 80%;
-  max-width: 80%;
+  min-height: 520px;
+  max-height: 520px;
+  min-width: 75%;
+  max-width: 75%;
   overflow-x: scroll;
   flex-wrap: wrap;
   border: 3px solid #d1e4ff;

@@ -84,30 +84,32 @@
           if (_userdepartment == "전자정보공학부") {
             theSelect.innerHTML += `
               <optgroup label="형남공학관">
-                  <option value="HN1">> 1층</option>
-                  <option value="HN3">> 3층</option>
+                <option value="HN0">> 지하 1층</option>
+                <option value="HN1">> 1층</option>
+                <option value="HN3">> 3층</option>
               </optgroup>`;
           } else if (_userdepartment == "AI융합학부") {
             theSelect.innerHTML += `
             <optgroup label="형남공학관">
-                  <option value="HN1" selected>> 1층</option>
-                  <option value="HN3">> 3층</option>
+                <option value="HN0">> 지하 1층</option>
+                <option value="HN1">> 1층</option>
+                <option value="HN3">> 3층</option>
             </optgroup>
             <optgroup label="문화관">
-                <option value="CB1" selected>> 1층</option>
-                <option value="CB2">> 2층</option>
-                <option value="CB3">> 3층</option>
+              <option value="CB1">> 1층</option>
+              <option value="CB2">> 2층</option>
+              <option value="CB3">> 3층</option>
             </optgroup>`;
           } else {
             theSelect.innerHTML += `
-                <optgroup label="정보과학관">
-                  <option value="IS0">> 지하 1층</option>
-                  <option value="IS1">> 1층</option>
-                  <option value="IS2">> 2층</option>
-                  <option value="IS3">> 3층</option>
-                  <option value="IS4">> 4층</option>
-                  <option value="IS5">> 5층</option>
-                </optgroup>`;
+            <optgroup label="정보과학관">
+              <option value="IS0">> 지하 1층</option>
+              <option value="IS1">> 1층</option>
+              <option value="IS2">> 2층</option>
+              <option value="IS3">> 3층</option>
+              <option value="IS4">> 4층</option>
+              <option value="IS5">> 5층</option>
+            </optgroup>`;
           }
         </script>
       </select>
@@ -132,6 +134,7 @@
       </p>
       <section id="lockers">
         {% for l in locker_list %}
+        <script>console.log('{{ l }}');</script>
         {% if l.sector == 'A' %}
         <button class="sectorA sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)">
