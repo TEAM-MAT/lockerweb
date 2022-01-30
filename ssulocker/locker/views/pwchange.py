@@ -26,6 +26,7 @@ def pwchange(request):
         form= PasswordChangeForm(request.user)
         return render(request,'locker/pwchange.html',{"form":form})
 def pwclogin(request):
+    error=0
     if request.method=="POST":
         username=request.POST["username"]
         password=request.POST["password"]
@@ -34,5 +35,7 @@ def pwclogin(request):
             auth.login(request,user)
             return redirect('locker:pwchange')
         else:
-            return redirect('locker:pwchangePop')
+            error=1
+            return render(request,'locker/pwchange_login.html',{"error":error})
+        
 #def cleaned_password()

@@ -1,4 +1,8 @@
 #registerPopupDiv {
+  .buttonWrap{
+    display: flex;
+    flex-direction: column;
+  }
   button {
     font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
       sans-serif;

@@ -5,5 +5,8 @@ dump
 .gitpod.yml
 ssulocker/locker/__pycache__/__init__.cpython-310.pyc
 ssulocker/locker/__pycache__/__init__.cpython-310.pyc
-*.pyc
+ssulocker/locker/__pychache__/
+ssulocker/ssulocker/__pycache__/
+ssulocker/__pycache__/
 py310.yml
+*.pyc
