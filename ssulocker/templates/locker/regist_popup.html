@@ -26,8 +26,12 @@
             {% else %}
             <span class="warning reserveCheck"></span>
             {% endif %}
-            <button type="submit" name="reservation" value="reserve" class="reserveBtn"
+            <div class="buttonWrap">
+                <button type="submit" name="reservation" value="reserve" class="reserveBtn"
                 style="cursor: pointer;">예약하기</button>
+                <button type="submit" name="back" value="back" class="backBtn"
+                style="cursor: pointer;" onclick="location.href='{%url 'locker:backHome' %}'">뒤로가기</button>
+            </div>
         </div>
     </div>
 
