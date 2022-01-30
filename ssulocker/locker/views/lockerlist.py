@@ -17,7 +17,16 @@ def lockerlist(request):
             locker_list=lockers.objects.filter(department=user.department,reserved=0).order_by("lockernum")   
             userlocker="예약된 사물함 없음"
             if user.lockernum is not None:
-                userlocker=user.lockernum.lockernum
+                # userlocker=user.lockernum.lockernum
+                _building = "";
+                if user.lockernum.building == "HN":
+                    _building = "형남공학관 "
+                elif user.lockernum.building == "IS":
+                    _building = "정보과학관 "
+                elif user.lockernum.building == "CB":
+                    _building = "문화관 "
+
+                userlocker= _building + str(user.lockernum.floor) +"층 " + str(user.lockernum.sector) +"구역 " + str(user.lockernum.written_lockernum) +"번 "
             context={"locker_list":locker_list,"department":user.department,"username":user.name,"usercurrlocker":userlocker}
             return render(request,'locker/lockerlist.html',context)
         else:
