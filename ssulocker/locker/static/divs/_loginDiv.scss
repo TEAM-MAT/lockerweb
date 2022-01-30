@@ -32,6 +32,25 @@
     color: black;
     cursor: pointer;
   }
+  button {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
+      sans-serif;
+    appearance: none;
+    min-width: 122px;
+    min-height: 48px;
+    border: none;
+    background-color: $slblue;
+    border-radius: 5px;
+    transition: all 0.5s;
+  }
+  #pwchangeBtn {
+    min-height: 24px;
+  }
+  button:hover {
+    background-color: $bblue;
+    color: white;
+  }
 }
 
 #loginForm {

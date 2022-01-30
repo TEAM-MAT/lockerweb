@@ -31,6 +31,7 @@ class lockers(models.Model):
     sector=models.CharField(max_length=2,help_text='층별 구역',default='A')
     building=models.CharField(max_length=6,choices=buildings,default='IS')
     department=ForeignKey(department,related_name="lockerdept",on_delete=SET_NULL,db_column="locker_department",null=True)
+
 class UserManager(BaseUserManager):
     def create_user(self,name,id,departmentname,password=None):
         if not name:

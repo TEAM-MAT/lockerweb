@@ -14,8 +14,34 @@
   <meta name="keywords" content="숭실대학교, IT대학, 사물함" />
   <meta property="og:image" content="https://i.imgur.com/v2UpZTg.png" />
   <link rel="stylesheet" href="{% static 'main.css' %}" />
+  <script src="{% static 'js/selection.js' %}"></script>
+  <script>
+    window.onload = function () {
+      sessionStorage.removeItem("lockerData");
+      selectionUpdate();
+    }
 
+    function selectionUpdate() {
+      userSelected = document.querySelector('#userSelected');
 
+      if (sessionStorage.getItem("lockerData") == null) {
+        userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
+      }
+      else {
+        userSelected.innerHTML = "현재 선택한 사물함<br>" + sessionStorage.getItem("lockerData");
+      }
+    }
+
+    function select(inp, floor, sector, num, id) {
+      if (floor == 0) floor = "B1";
+      sessionStorage.setItem("lockerData", inp);
+      selectionUpdate();
+      document.querySelectorAll("section#lockers button").forEach(t => {
+        t.classList.remove("selected");
+      });
+      document.getElementById(`${id}`).classList.add("selected");
+    } 
+  </script>
 </head>
 
 <body>
@@ -25,156 +51,160 @@
 
   <nav id="topNav">
     <ul>
-      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:reservePop' %}'">예약 / 변경</span></li>
+      <li style="cursor: pointer;" onclick="location.href='{%url 'locker:reservePop' %}'"><span><span
+            style="font-weight: bold;">예약 /
+            변경</span></span></li>
       <!--예약을 post로 해줘야함 수정 필요-->
-      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:cancelPop' %}'">취소</span></li>
-      <li style="cursor: pointer;"><span onclick="location.href='{%url 'locker:logout' %}'">로그아웃</span></li>
+      <li style="cursor: pointer;" onclick="location.href='{%url 'locker:cancelPop' %}'"><span>취소</span></li>
+      <li style="cursor: pointer;" onclick="location.href='{%url 'locker:logout' %}'"><span>로그아웃</span></li>
+      <li style="cursor: pointer;" onclick="location.href='{%url 'locker:pwchangePop' %}'"><span>비밀번호 변경</span></li>
+
     </ul>
   </nav>
 
   <main>
     <section id="popup">
       <div id="infoPopupDiv">
-        <span id="userDep2">{{department.get_deptname_display}}</span>
-        <span id="userName">{{username}}님</span>
-        <span>현재 예약된 사물함 : {{usercurrlocker}}</span>
-        <span class="userSelected"></span>
+        <p><span id="userDep2">{{department.get_deptname_display}}</span> <span id="userName">{{username}}님</span></p>
+        <span id="userRegistered">현재 예약된 사물함<br>{{usercurrlocker}}</span>
+        <span id="userSelected" style="font-weight: bold;"></span>
       </div>
-      <div id="lockermap"><img src="{% static 'images/Basic.png' %}" alt="사물함 배치도"> </div>
+      <div id="lockermap"><img id="lockermapImage" src="{% static 'images/Basic.png' %}" alt="사물함 배치도"> </div>
     </section>
     {% if locker_list %}
+
     <!--사물함이 로딩되었을 시 출력-->
     <section id="lockerlistDiv">
-      <select name="Building" id="building" onchange="selectBuilding(this.value);" style="cursor: pointer;">
+      <select name="Building" id="building" onchange="selectBuilding(this.value)" style="cursor: pointer;">
         <option selected disabled>층을 선택하세요.</option>
         <script>
           // 학부에 따라 select option 필터링
           const theSelect = document.querySelector("select#building");
           const _userdepartment = "{{ department.get_deptname_display }}";
-          console.log(_userdepartment);
           if (_userdepartment == "전자정보공학부") {
             theSelect.innerHTML += `
               <optgroup label="형남공학관">
-                  <option value="HN1">> 1층</option>
-                  <option value="HN3">> 3층</option>
+                <option value="HN0">> 지하 1층</option>
+                <option value="HN1">> 1층</option>
+                <option value="HN3">> 3층</option>
               </optgroup>`;
           } else if (_userdepartment == "AI융합학부") {
             theSelect.innerHTML += `
             <optgroup label="형남공학관">
-                  <option value="HN1">> 1층</option>
-                  <option value="HN3">> 3층</option>
+                <option value="HN0">> 지하 1층</option>
+                <option value="HN1">> 1층</option>
+                <option value="HN3">> 3층</option>
             </optgroup>
             <optgroup label="문화관">
-                <option value="CB1">> 1층</option>
-                <option value="CB2">> 2층</option>
-                <option value="CB3">> 3층</option>
+              <option value="CB1">> 1층</option>
+              <option value="CB2">> 2층</option>
+              <option value="CB3">> 3층</option>
             </optgroup>`;
           } else {
             theSelect.innerHTML += `
-                <optgroup label="정보과학관">
-                  <option value="IS0">> 지하 1층</option>
-                  <option value="IS1">> 1층</option>
-                  <option value="IS2">> 2층</option>
-                  <option value="IS3">> 3층</option>
-                  <option value="IS4">> 4층</option>
-                  <option value="IS5">> 5층</option>
-                </optgroup>`;
+            <optgroup label="정보과학관">
+              <option value="IS0">> 지하 1층</option>
+              <option value="IS1">> 1층</option>
+              <option value="IS2">> 2층</option>
+              <option value="IS3">> 3층</option>
+              <option value="IS4">> 4층</option>
+              <option value="IS5">> 5층</option>
+            </optgroup>`;
           }
         </script>
       </select>
     </section>
     <section id="lockerList">
-      <nav id="middleNav">
-        <ul>
-          <li id="A" onclick="selectSector(this.id)">A</li>
-          <li id="B" onclick="selectSector(this.id)">B</li>
-          <li id="C" onclick="selectSector(this.id)">C</li>
-          <li id="D" onclick="selectSector(this.id)">D</li>
-          <li id="E" onclick="selectSector(this.id)">E</li>
-          <li id="F" onclick="selectSector(this.id)">F</li>
-          <li id="G" onclick="selectSector(this.id)">G</li>
-          <li id="H" onclick="selectSector(this.id)">H</li>
-          <li id="I" onclick="selectSector(this.id)">I</li>
-        </ul>
-      </nav>
-      <script>
-        function select(inp) {
-          sessionStorage.setItem("lockerData", inp);
-          console.log(sessionStorage.getItem("lockerData"));
-        }
-      </script>
-      <table>
-        <thead>
-          <tr>
-            <th colspan="5">
-              <span id="userDep1">{{ department.get_deptname_display }}</span>
-              <span id="building-floor"></span>
-              <span>사물함 목록</span>
-              <table id="table">
-                {% for l in locker_list %}
-                {% if forloop.counter|divisibleby:5 != 0 %}
-                <!--  -->
-                {% if l.sector == 'A' %}
-                <td class="sectorA sectorUP floor{{l.floor}}"
-                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')">
-                  <span class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번
-                </td>
-                {% elif l.sector == 'B' %}
-                <td class="sectorB sectorDOWN floor{{l.floor}}"
-                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                    class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
-                {% elif l.sector == 'C' %}
-                <td class="sectorC sectorDOWN floor{{l.floor}}"
-                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                    class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
-                {% elif l.sector == 'D' %}
-                <td class="sectorD sectorDOWN floor{{l.floor}}"
-                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                    class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
-                {% elif l.sector == 'E' %}
-                <td class="sectorE sectorDOWN floor{{l.floor}}"
-                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                    class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
-                {% elif l.sector == 'F' %}
-                <td class="sectorF sectorDOWN floor{{l.floor}}"
-                  onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                    class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
-                {%else%}
-                {%endif%}
-                <!--  -->
-                <tr>
-                  {% else %}
-                  <!--  -->
-                  {% if l.sector == 'A' %}
-                  <td class="sectorA sectorUP floor{{l.floor}}"
-                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                      class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번 </td>
-                  {% elif l.sector == 'B' %}
-                  <td class="sectorB sectorDOWN floor{{l.floor}}"
-                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                      class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
-                  {% elif l.sector == 'C' %}
-                  <td class="sectorC sectorDOWN floor{{l.floor}}"
-                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                      class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
-                  {% elif l.sector == 'D' %}
-                  <td class="sectorD sectorDOWN floor{{l.floor}}"
-                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                      class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
-                  {% elif l.sector == 'E' %}
-                  <td class="sectorE sectorDOWN floor{{l.floor}}"
-                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                      class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
-                  {% elif l.sector == 'F' %}
-                  <td class="sectorF sectorDOWN floor{{l.floor}}"
-                    onClick="select('{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}')"><span
-                      class="floor">{{l.floor}}</span>층 {{l.sector}}구역 {{l.written_lockernum}}번</td>
-                  {%else%}
-                  {%endif%}
-                  <!--  -->
-                  {%endif%} {% endfor %}
-              </table>
+      <select name="Sector" id="sector" onchange="selectSector(this.value);" style="cursor: pointer;">
+        <option id="null" selected disabled>구역을 선택하세요.</option>
+        <option id="A">>A</option>
+        <option id="B">>B</option>
+        <option id="C">>C</option>
+        <option id="D">>D</option>
+        <option id="E">>E</option>
+        <option id="F">>F</option>
+        <option id="G">>G</option>
+        <option id="H">>H</option>
+        <option id="I">>I</option>
+      </select>
+      <p id="lockerTitle">
+        <span id="userDep1">{{ department.get_deptname_display }}</span>
+        <span id="building-floor"></span>
+        <span>사물함 목록</span>
+      </p>
+      <section id="lockers">
+        {% for l in locker_list %}
+        <script>console.log('{{ l }}');</script>
+        {% if l.sector == 'A' %}
+        <button class="sectorA sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.lockernum}}', '{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)">
+          <span>
+            <p><span class="floor">{{l.floor}}</span>층</p>
+            <p>{{l.sector}}구역</p>
+            <p>{{l.written_lockernum}}번</p>
+          </span>
+        </button>
+        {% elif l.sector == 'B' %}
+        <button class="sectorB sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.lockernum}}', '{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
+            <p><span class="floor">{{l.floor}}</span>층</p>
+            <p>{{l.sector}}구역</p>
+            <p>{{l.written_lockernum}}번</p>
+          </span></button>
+        {% elif l.sector == 'C' %}
+        <button class="sectorC sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.lockernum}}', '{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
+            <p><span class="floor">{{l.floor}}</span>층</p>
+            <p>{{l.sector}}구역</p>
+            <p>{{l.written_lockernum}}번</p>
+          </span></button>
+        {% elif l.sector == 'D' %}
+        <button class="sectorD sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.lockernum}}', '{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
+            <p><span class="floor">{{l.floor}}</span>층</p>
+            <p>{{l.sector}}구역</p>
+            <p>{{l.written_lockernum}}번</p>
+          </span></button>
+        {% elif l.sector == 'E' %}
+        <button class="sectorE sectorUP floor{{l.floor}}" id="'{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.lockernum}}', '{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
+            <p><span class="floor">{{l.floor}}</span>층</p>
+            <p>{{l.sector}}구역</p>
+            <p>{{l.written_lockernum}}번</p>
+          </span></button>
+        {% elif l.sector == 'F' %}
+        <button class="sectorF sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.lockernum}}', '{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
+            <p><span class="floor">{{l.floor}}</span>층</p>
+            <p>{{l.sector}}구역</p>
+            <p>{{l.written_lockernum}}번</p>
+          </span></button>
+        {% elif l.sector == 'G' %}
+        <button class="sectorG sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.lockernum}}', '{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
+            <p><span class="floor">{{l.floor}}</span>층</p>
+            <p>{{l.sector}}구역</p>
+            <p>{{l.written_lockernum}}번</p>
+          </span></button>
+        {% elif l.sector == 'H' %}
+        <button class="sectorH sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.lockernum}}', '{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
+            <p><span class="floor">{{l.floor}}</span>층</p>
+            <p>{{l.sector}}구역</p>
+            <p>{{l.written_lockernum}}번</p>
+          </span></button>
+        {% elif l.sector == 'I' %}
+        <button class="sectorI sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
+          onClick="select('{{l.lockernum}}', '{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)"><span>
+            <p><span class="floor">{{l.floor}}</span>층</p>
+            <p>{{l.sector}}구역</p>
+            <p>{{l.written_lockernum}}번</p>
+          </span></button>
+        {%else%}
+        {%endif%} {% endfor %}
+      </section>
     </section>
+
 
     {% else %}
     <p class="warning">오류로 인하여 사물함을 표시할 수 없습니다.</p>
@@ -186,33 +216,8 @@
           Github</a></span></p>
   </footer>
 
-  <script src="{% static 'js/main.js' %}"></script>
-  <script src="{% static 'js/selection.js' %}"></script>
-  <script>
-    window.onload = function () {
-      sessionStorage.removeItem("lockerData");
-      selectionUpdate();
-    }
 
-    function selectionUpdate() {
-      userSelected = document.querySelector('.userSelected');
-
-      if (sessionStorage.getItem("lockerData") == null) {
-        console.log(userSelected);
-        userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
-      }
-      else {
-        userSelected.innerHTML = "현재 선택한 사물함 : " + sessionStorage.getItem("lockerData");
-      }
-    }
-
-    function select(floor, sector, num) {
-      if (floor == 0) floor = "B1";
-      sessionStorage.setItem("lockerData", `${floor}층 ${sector}구역 ${num}번`);
-      selectionUpdate();
-      console.log(sessionStorage.getItem("lockerData"));
-    } 
-  </script>
 </body>
 
 </html>
+<script src="{% static 'js/main.js' %}"></script>

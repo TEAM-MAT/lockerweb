@@ -142,12 +142,12 @@ table {
 
 @media (max-width: 650px) {
   * {
-    font-size: calc(min(3vh, 13px)) !important;
+    font-size: min(3vh, 13px) !important;
   }
 }
 
 h1 {
-  font-size: calc(max(2em, 20px));
+  font-size: max(2em, 20px);
 }
 
 body {
@@ -342,28 +342,29 @@ body {
   border-radius: 5px;
 }
 
+.warning {
+  font-weight: bold;
+  color: red;
+}
+
+.sectorDOWN {
+  display: none !important;
+}
+
+.floorDOWN {
+  display: none;
+}
+
+.selected {
+  background-image: url("https://i.imgur.com/E4pFw14.png") !important;
+  outline: 0;
+}
+
 #lockerlistDiv {
   margin-top: 1%;
   margin-left: 15%;
   width: 70%;
   text-align: center;
-}
-#lockerlistDiv select {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-       appearance: button;
-  width: 250px;
-  padding: 1%;
-  border: none;
-  outline: none;
-  box-shadow: 0 5px 25px #d1e4ff;
-  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
-  background-color: #d1e4ff;
-  color: #17202a;
-}
-#lockerlistDiv select option {
-  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
-  padding: 1%;
 }
 
 #lockerList {
@@ -393,18 +394,90 @@ body {
   border: 3px solid #d1e4ff;
   background-color: #e5f0ff;
 }
-
-.warning {
-  font-weight: bold;
-  color: red;
+#lockerList p#lockerTitle {
+  margin: 1%;
 }
 
-.sectorDOWN {
-  display: none;
+#lockers {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 520px;
+  max-height: 520px;
+  min-width: 75%;
+  max-width: 75%;
+  overflow-x: scroll;
+  flex-wrap: wrap;
+  border: 3px solid #d1e4ff;
+  background-color: #ebf5fb;
+  box-shadow: 2px 2px 5px #d1e4ff;
+}
+#lockers button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  padding: 0;
+  margin: 0.05% 0.5%;
+  min-height: 95px;
+  max-height: 95px;
+  min-width: 70px;
+  max-width: 70px;
+  appearance: none;
+  border: 0;
+  background-color: #ebf5fb;
+  background-image: url("https://i.imgur.com/7rW94bh.png");
+  background-size: 70px;
+  background-repeat: no-repeat;
+}
+#lockers button span {
+  color: #e5f0ff;
+  font-size: 14px;
+  font-weight: 600;
+}
+#lockers button span p {
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
 }
 
-.floorDOWN {
-  display: none;
+select {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+       appearance: button;
+  width: 250px;
+  padding: 1%;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 25px #d1e4ff;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  background-color: #d1e4ff;
+  color: #17202a;
+}
+select option {
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  padding: 1%;
+}
+@media (max-width: 1200px) {
+  select option {
+    font-size: 12px !important;
+    max-height: 1em;
+  }
+}
+@media (max-width: 1200px) {
+  select {
+    width: 200px;
+  }
+}
+
+div#lockermap img {
+  max-width: 300px;
+  max-height: 300px;
+}
+@media (max-width: 1200px) {
+  div#lockermap img {
+    max-width: 150px;
+    max-height: 150px;
+  }
 }
 
 #loginDiv {
@@ -440,16 +513,33 @@ body {
     font-size: 12px !important;
   }
 }
-
 #loginDiv span#passwdChange {
   font-size: 0.8rem;
   color: gray;
 }
-
 #loginDiv span#passwdChange:hover {
   font-size: 0.8rem;
   color: black;
   cursor: pointer;
+}
+#loginDiv button {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  min-width: 122px;
+  min-height: 48px;
+  border: none;
+  background-color: #ebf5fb;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+#loginDiv #pwchangeBtn {
+  min-height: 24px;
+}
+#loginDiv button:hover {
+  background-color: #003d8e;
+  color: white;
 }
 
 #loginForm {
@@ -511,6 +601,11 @@ body {
   width: 50%;
   margin: auto;
 }
+@media (max-width: 1200px) {
+  #topNav {
+    width: 80%;
+  }
+}
 #topNav ul {
   padding: 1%;
   display: flex;
@@ -531,31 +626,6 @@ body {
   min-width: 10%;
 }
 
-#middleNav {
-  width: 50%;
-  margin: 0;
-}
-#middleNav ul {
-  padding: 1%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  align-items: center;
-}
-#middleNav ul :hover {
-  background-color: #d1e4ff;
-}
-#middleNav ul li {
-  text-align: center;
-  padding: 1% 3%;
-  font-size: 1.1em;
-  list-style: none;
-  border: 3px solid #d1e4ff;
-  border-radius: 5px;
-  background-color: #fff;
-  cursor: pointer;
-}
-
 .sectorA,
 .sectorB,
 .sectorC,
@@ -563,6 +633,10 @@ body {
 .sectorE,
 .sectorF {
   cursor: pointer;
+}
+
+li.selected {
+  background-color: #d1e4ff !important;
 }
 
 #popup {
@@ -577,7 +651,7 @@ body {
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  width: 20%;
   height: 100px;
   background-color: #e5f0ff;
   border: 3px solid #d1e4ff;
@@ -585,7 +659,6 @@ body {
 }
 @media (max-width: 1200px) {
   #infoPopupDiv {
-    font-size: 90%;
     width: 50%;
   }
 }
@@ -623,6 +696,11 @@ body {
 #registerPopupDiv button:hover {
   background-color: #d1e4ff;
 }
+@media (max-width: 1200px) {
+  #registerPopupDiv {
+    min-width: 50%;
+  }
+}
 
 #cancelPopupDiv button {
   font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
@@ -635,6 +713,11 @@ body {
 }
 #cancelPopupDiv button:hover {
   background-color: #d1e4ff;
+}
+@media (max-width: 1200px) {
+  #cancelPopupDiv {
+    min-width: 50%;
+  }
 }
 
 body {
