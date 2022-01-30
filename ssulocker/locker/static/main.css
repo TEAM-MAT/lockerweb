@@ -522,6 +522,25 @@ div#lockermap img {
   color: black;
   cursor: pointer;
 }
+#loginDiv button {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  min-width: 122px;
+  min-height: 48px;
+  border: none;
+  background-color: #ebf5fb;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+#loginDiv #pwchangeBtn {
+  min-height: 24px;
+}
+#loginDiv button:hover {
+  background-color: #003d8e;
+  color: white;
+}
 
 #loginForm {
   display: flex;
