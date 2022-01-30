@@ -18,6 +18,7 @@
   <script>
     window.onload = function () {
       sessionStorage.removeItem("lockerData");
+      sessionStorage.removeItem("lockernumShowing");
       selectionUpdate();
     }
 
@@ -28,13 +29,14 @@
         userSelected.innerHTML = "현재 선택된 사물함이 없습니다.";
       }
       else {
-        userSelected.innerHTML = "현재 선택한 사물함<br>" + sessionStorage.getItem("lockerData");
+        userSelected.innerHTML = "현재 선택한 사물함<br>" + sessionStorage.getItem("lockernumShowing");
       }
     }
 
     function select(inp, floor, sector, num, id) {
       if (floor == 0) floor = "B1";
       sessionStorage.setItem("lockerData", inp);
+      sessionStorage.setItem("lockernumShowing", `${floor}층 ${sector}구역 ${num}번`);
       selectionUpdate();
       document.querySelectorAll("section#lockers button").forEach(t => {
         t.classList.remove("selected");
