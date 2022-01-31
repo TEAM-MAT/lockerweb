@@ -12,7 +12,7 @@ buildings=[('HN','형남공학관'),('IS','정보과학관'),('CB','문화관')]
 class department(models.Model):
     deptname=models.CharField(max_length=6,choices=departments,primary_key=True)
     time=models.DateTimeField()#예약시작날짜 
-
+    contact=models.CharField(max_length=100)
     def getdepttime(self):
         return self.time
 
