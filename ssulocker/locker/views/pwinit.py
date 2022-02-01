@@ -1,9 +1,9 @@
 from locker.models import users
- from django.contrib.auth.decorators import login_required
- from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render,redirect
 
- @login_required
- def pw_init(request):
+@login_required
+def pw_init(request):
      number_process=0
      result_test=""
      initresult={"result":result_test,"num":number_process}
