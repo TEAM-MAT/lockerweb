@@ -31,7 +31,32 @@
 #cancelPopupDiv {
   @include flex-default(flex, space-evenly, column, center);
   width: 30%;
-  height: 100px;
+  height: 150px;
   background-color: $lblue;
   border: 3px solid $dblue;
+  @media (max-width: 1200px) {
+    width: 70%;
+  }
+  p {
+    @include flex-default(flex, space-evenly, row, center);
+    min-width: 100%;
+  }
+  button {
+    font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
+      sans-serif;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    list-style: none;
+    border: 3px solid $dblue;
+    border-radius: 5px;
+    background-color: $white;
+    margin: 1%;
+  }
+  button:hover {
+    background-color: $dblue;
+  }
+  @media (max-width: 1200px) {
+    min-width: 50%;
+  }
 }
