@@ -26,8 +26,12 @@
             {% else %}
             <span class="warning reserveCheck"></span>
             {% endif %}
-            <button type="submit" name="reservation" value="reserve" class="reserveBtn"
-                style="cursor: pointer;">예약하기</button>
+            <p>
+                <button type="submit" name="reservation" value="reserve" class="reserveBtn"
+                    style="cursor: pointer;">예약하기</button>
+                <button onclick="location.href='{%url 'locker:lockerlist' %}'" style="cursor: pointer;">뒤로가기</button>
+            </p>
+
         </div>
     </div>
 
@@ -53,6 +57,7 @@
         }
 
         if (currentSelected != null) {
+            console.log("not null");
             reserveCheck.innerHTML = "선택하신 사물함은 " + currentSelected + "입니다. </br></br>예약하시겠습니까?";
             reserveCheck.style.textAlign = "center";
 
