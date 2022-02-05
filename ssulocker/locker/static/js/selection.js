@@ -1,19 +1,19 @@
 //preload images
 let images = [];
 function preload() {
-  for (let i = 0; i < preload.arguments.lenght; i++) {
+  for (let i = 0; i < preload.arguments.length; i++) {
     images[i] = new Image();
     images[i].src = preload.arguments.src;
   }
 }
 preload(
+  "https://i.imgur.com/E4pFw14.png"
   "https://i.imgur.com/mnesjq5.png",
   "https://i.imgur.com/f8kjHfc.png",
   "https://i.imgur.com/b9kaNKw.png",
   "https://i.imgur.com/gLjse84.png",
   "https://i.imgur.com/Lrqw5Nl.png",
   "https://i.imgur.com/OppfBtD.png",
-  "https://i.imgur.com/E4pFw14.png"
 );
 
 const floors = [0, 1, 2, 3, 4, 5, 6];
