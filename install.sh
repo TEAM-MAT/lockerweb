@@ -13,7 +13,7 @@ cp ./db.py ./ssulocker/ssulocker/db.py
 pip3 install -r requirements.txt
 #기본 세팅 끝
 
-cd ./ssulocker
+cd ~/lockerweb/ssulocker
 python3 manage.py migrate
 
 #gunicorn file
