@@ -6,7 +6,6 @@ django-import-export==2.7.1
 et-xmlfile==1.1.0
 MarkupPy==1.14
 mysql-connector-python==8.0.27
-mysqlclient==2.0.3
 odfpy==1.4.1
 openpyxl==3.0.9
 protobuf==3.19.1
