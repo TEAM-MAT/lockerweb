@@ -1,13 +1,13 @@
 #!/bin/sh
 
 cd /home/ubuntu/
+sudo apt-get update -y
+sudo apt install python3 -y
 python3 -m venv ssulocker
 source ./venv/ssulocker/bin/activate
-sudo apt-get update
-sudo apt install python3
 cd ./lockerweb
-sudo apt-get install python3-pip
-sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+sudo apt-get install python3-pip -y
+sudo apt-get install python3-dev default-libmysqlclient-dev build-essential -y
 pip3 install mysqlclient
 cp ./db.py ./ssulocker/ssulocker/db.py
 pip3 install -r requirements.txt
