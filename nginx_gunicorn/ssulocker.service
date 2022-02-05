@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=ubuntu
 WorkingDirectory=/home/ubuntu/lockerweb/ssulocker
-EnvironmentFile=/home/ubuntu/venvs/ssulocker.env
-ExecStart=/home/ubuntu/venvs/ssulocker/bin/gunicorn \
+EnvironmentFile=/home/ubuntu/venv/ssulocker.env
+ExecStart=/home/ubuntu/venv/ssulocker/bin/gunicorn \
         --workers 5 \
         --bind unix:/tmp/gunicorn.sock \
         ssulocker.wsgi:application

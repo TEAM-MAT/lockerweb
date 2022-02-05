@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-WORKDIR /root/lockerweb
+WORKDIR /home/ubuntu/lockerweb
 COPY ./Design ./Design
 COPY ./dump ./dump
 COPY ./nginx_gunicorn ./nginx_gunicorn
