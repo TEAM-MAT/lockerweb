@@ -28,32 +28,32 @@
                     <span class="bold">전자정보공학부</span>
                     <span>{{eie_left}} / {{eie_lockers}}</span>
                     <span>{{eie_time.year}}.{{eie_time.month}}.{{eie_time.day}}({{days.eie_day}})</span>
-                    <span>{{eie_time.hour}}:{{eie_time.minute}} ~ 다음날 {{eie_time.hour - 2}}:{{eie_time.minute}} </span>
+                    <span>{{eie_time.hour}}:{{eie_time.minute}} ~ {{eie_fin.day}}일 {{eie_fin.hour}}시까지 </span>
                 </li>
                 <li>
                     <span class="bold">컴퓨터학부</span> {% if cs_left %}
                     <span>{{cs_left}} / {{cs_lockers}}</span> {% else %}
                     <span>no left</span> {% endif %}
                     <span>{{cs_time.year}}.{{cs_time.month}}.{{cs_time.day}}({{days.cs_day}})</span>
-                    <span>{{cs_time.hour}}:{{cs_time.minute}} ~ 00:00</span>
+                    <span>{{cs_time.hour}}:{{cs_time.minute}} ~ {{cs_fin.day}}일 {{cs_fin.hour}}시까지</span>
                 </li>
                 <li>
                     <span class="bold">글로벌미디어학부</span>
                     <span>{{gm_left}} / {{gm_lockers}}</span>
                     <span>{{gm_time.year}}.{{gm_time.month}}.{{gm_time.day}}({{days.gm_day}})</span>
-                    <span>{{gm_time.hour}}:{{gm_time.minute}} ~ 00:00</span>
+                    <span>{{gm_time.hour}}:{{gm_time.minute}} ~{{gm_fin.day}}일 {{gm_fin.hour}}시까지</span>
                 </li>
                 <li>
                     <span class="bold">소프트웨어학부</span>
                     <span>{{sw_left}} / {{sw_lockers}}</span>
                     <span>{{sw_time.year}}.{{sw_time.month}}.{{sw_time.day}}({{days.sw_day}})</span>
-                    <span>{{sw_time.hour}}:{{sw_time.minute}} ~ 00:00</span>
+                    <span>{{sw_time.hour}}:{{sw_time.minute}} ~ {{sw_fin.day}}일 {{sw_fin.hour}}시까지</span>
                 </li>
                 <li>
                     <span class="bold">AI융합학부</span>
                     <span>{{AI_left}} / {{AI_lockers}}</span>
                     <span>{{aic_time.year}}.{{aic_time.month}}.{{aic_time.day}}({{days.aic_day}})</span>
-                    <span>{{aic_time.hour}}:{{aic_time.minute}} ~ 00:00</span>
+                    <span>{{aic_time.hour}}:{{aic_time.minute}} ~ {{aic_fin.day}}일 {{aic_fin.hour}}시까지</span>
                 </li>
             </ul>
             <button onclick="popupClose('contactDiv')" id="popup-close">문의사항</button>
