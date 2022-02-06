@@ -158,6 +158,26 @@ body {
   font-weight: bold;
 }
 
+.eie {
+  color: #93242a;
+}
+
+.cs {
+  color: #0a80a4;
+}
+
+.gm {
+  color: #62cb9b;
+}
+
+.sw {
+  color: #99c7cd;
+}
+
+.aic {
+  color: #81c2be;
+}
+
 #contactDiv {
   position: absolute;
   z-index: 999;

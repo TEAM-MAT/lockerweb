@@ -27,33 +27,33 @@
                 <li>
                     <span class="bold">전자정보공학부</span>
                     <span>{{eie_left}} / {{eie_lockers}}</span>
-                    <span>{{eie_time.year}}.{{eie_time.month}}.{{eie_time.day}}({{days.eie_day}})</span>
-                    <span>{{eie_time.hour}}:{{eie_time.minute}} ~ {{eie_fin.day}}일 {{eie_fin.hour}}시까지 </span>
+                    <span>{{eie_time.year}}년 {{eie_time.month}}월 {{eie_time.day}}일({{days.eie_day}})</span>
+                    <span>{{eie_time.hour}}시 {{eie_time.minute}}분 ~ {{eie_fin.hour}}시 {{eie_fin.minute}}분</span>
                 </li>
                 <li>
                     <span class="bold">컴퓨터학부</span> {% if cs_left %}
                     <span>{{cs_left}} / {{cs_lockers}}</span> {% else %}
                     <span>no left</span> {% endif %}
-                    <span>{{cs_time.year}}.{{cs_time.month}}.{{cs_time.day}}({{days.cs_day}})</span>
-                    <span>{{cs_time.hour}}:{{cs_time.minute}} ~ {{cs_fin.day}}일 {{cs_fin.hour}}시까지</span>
+                    <span>{{cs_time.year}}년 {{cs_time.month}}월 {{cs_time.day}}일({{days.cs_day}})</span>
+                    <span>{{cs_time.hour}}시 {{cs_time.minute}}분 ~ {{cs_fin.hour}}시 {{cs_fin.minute}}분</span>
                 </li>
                 <li>
                     <span class="bold">글로벌미디어학부</span>
                     <span>{{gm_left}} / {{gm_lockers}}</span>
-                    <span>{{gm_time.year}}.{{gm_time.month}}.{{gm_time.day}}({{days.gm_day}})</span>
-                    <span>{{gm_time.hour}}:{{gm_time.minute}} ~{{gm_fin.day}}일 {{gm_fin.hour}}시까지</span>
+                    <span>{{gm_time.year}}년 {{gm_time.month}}월 {{gm_time.day}}일({{days.gm_day}})</span>
+                    <span>{{gm_time.hour}}시 {{gm_time.minute}}분 ~ {{gm_fin.hour}}시 {{gm_fin.minute}}분</span>
                 </li>
                 <li>
                     <span class="bold">소프트웨어학부</span>
                     <span>{{sw_left}} / {{sw_lockers}}</span>
-                    <span>{{sw_time.year}}.{{sw_time.month}}.{{sw_time.day}}({{days.sw_day}})</span>
-                    <span>{{sw_time.hour}}:{{sw_time.minute}} ~ {{sw_fin.day}}일 {{sw_fin.hour}}시까지</span>
+                    <span>{{sw_time.year}}년 {{sw_time.month}}월 {{sw_time.day}}일({{days.sw_day}})</span>
+                    <span>{{sw_time.hour}}시 {{sw_time.minute}}분 ~ {{sw_fin.hour}}시 {{sw_fin.minute}}분</span>
                 </li>
                 <li>
                     <span class="bold">AI융합학부</span>
                     <span>{{AI_left}} / {{AI_lockers}}</span>
-                    <span>{{aic_time.year}}.{{aic_time.month}}.{{aic_time.day}}({{days.aic_day}})</span>
-                    <span>{{aic_time.hour}}:{{aic_time.minute}} ~ {{aic_fin.day}}일 {{aic_fin.hour}}시까지</span>
+                    <span>{{aic_time.year}}년 {{aic_time.month}}월 {{aic_time.day}}일({{days.aic_day}})</span>
+                    <span>{{aic_time.hour}}시 {{aic_time.minute}}분 ~ {{aic_fin.hour}}시 {{aic_fin.minute}}분</span>
                 </li>
             </ul>
             <button onclick="popupClose('contactDiv')" id="popup-close">문의사항</button>
@@ -70,12 +70,14 @@
                 <!-- 학번 -->
                 <div class="inputDiv">
                     <label for="username">학번</label>
-                    <input type="text" id="username" class="form-control" name="username" value="{{ form.username.value|default_if_none:'' }}" />
+                    <input type="text" id="username" class="form-control" name="username"
+                        value="{{ form.username.value|default_if_none:'' }}" />
                 </div>
                 <!-- 비밀번호 -->
                 <div class="inputDiv">
                     <label for="password">비밀번호</label>
-                    <input type="password" class="form-control" name="password" id="password" value="{{form.password.value|default_if_none:''}}" />
+                    <input type="password" class="form-control" name="password" id="password"
+                        value="{{form.password.value|default_if_none:''}}" />
                 </div>
                 <!-- submit -->
                 <button type="submit" style="cursor: pointer;">로그인</button>
