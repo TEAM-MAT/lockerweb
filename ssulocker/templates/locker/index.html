@@ -28,7 +28,7 @@
                     <span class="bold">전자정보공학부</span>
                     <span>{{eie_left}} / {{eie_lockers}}</span>
                     <span>{{eie_time.year}}.{{eie_time.month}}.{{eie_time.day}}({{days.eie_day}})</span>
-                    <span>{{eie_time.hour}}:{{eie_time.minute}} ~ 00:00</span>
+                    <span>{{eie_time.hour}}:{{eie_time.minute}} ~ 다음날 {{eie_time.hour - 2}}:{{eie_time.minute}} </span>
                 </li>
                 <li>
                     <span class="bold">컴퓨터학부</span> {% if cs_left %}
@@ -62,7 +62,7 @@
             <span id="passwdRule">💡 비밀번호는 010을 제외한 휴대전화번호 8자리입니다.</span>
             <span id="passwdExample">예시) 010-1234-5678인 경우: 12345678</span>
             <span id="errormessage" style="color: red;">
-                {% if time_token == 0 %} {{"해당 학부(과)의 예약 시간 전입니다."}} {%endif%}
+                {% if time_token == 0 %} {{"해당 학부(과)의 예약 시간이 아닙니다."}} {%endif%}
                 {% if error %} {{"학번 또는 비밀번호가 잘못되었습니다"}} {%endif%}
             </span>
             <form id="loginForm" action="{% url 'locker:login' %}" class="bold post-form" method="post">
