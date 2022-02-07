@@ -24,6 +24,11 @@ def index(request):
     gm_time=department.objects.get(deptname="GM").time
     sw_time=department.objects.get(deptname="SW").time
     aic_time=department.objects.get(deptname="AIC").time
+    cs_fin=department.objects.get(deptname="CS").fintime
+    eie_fin=department.objects.get(deptname="EIE").fintime
+    sw_fin=department.objects.get(deptname="SW").fintime
+    gm_fin=department.objects.get(deptname="GM").fintime
+    aic_fin=department.objects.get(deptname="AIC").fintime
     cs_contact=department.objects.get(deptname="CS").contact
     eie_contact=department.objects.get(deptname="EIE").contact
     gm_contact=department.objects.get(deptname="GM").contact
@@ -40,7 +45,8 @@ def index(request):
     'gm_left':gm_left,'gm_lockers':gm_lockers,'sw_left':sw_left,'sw_lockers':sw_lockers,
     'AI_left':AIC_left,'AI_lockers':AIC_lockers,"cs_time":cs_time,"eie_time":eie_time,"gm_time":gm_time,
     "sw_time":sw_time,"aic_time":aic_time,"days":dept_weekdays,"time_token":1,"cs_contact":cs_contact,"eie_contact":eie_contact,"gm_contact":gm_contact,
-    "aic_contact":aic_contact,"sw_contact":sw_contact}
+    "aic_contact":aic_contact,"sw_contact":sw_contact,"eie_fin":eie_fin,"cs_fin":cs_fin,"gm_fin":gm_fin,"sw_fin":
+    sw_fin,"aic_fin":aic_fin}
     if request.method=="POST":
         username=request.POST["username"]
         password=request.POST["password"]

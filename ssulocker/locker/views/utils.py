@@ -14,7 +14,16 @@ def reservePop(request):
     user=users.objects.get(id=request.user.id)
     userlocker=None
     if user.lockernum is not None:
-        userlocker=user.lockernum.lockernum
+        # userlocker=user.lockernum.lockernum
+        _building = "";
+        if user.lockernum.building == "HN":
+            _building = "형남공학관 "
+        elif user.lockernum.building == "IS":
+            _building = "정보과학관 "
+        elif user.lockernum.building == "CB":
+            _building = "문화관 "
+
+        userlocker= _building + str(user.lockernum.floor) +"층 " + str(user.lockernum.sector) +"구역 " + str(user.lockernum.written_lockernum) +"번 "
     context={"usercurrlocker":userlocker}
     return render(request,'locker/regist_popup.html', context)
 
@@ -43,7 +52,16 @@ def cancelPop(request):
     user=users.objects.get(id=request.user.id)
     userlocker=None
     if user.lockernum is not None:
-        userlocker=user.lockernum.lockernum
+        # userlocker=user.lockernum.lockernum
+        _building = "";
+        if user.lockernum.building == "HN":
+            _building = "형남공학관 "
+        elif user.lockernum.building == "IS":
+            _building = "정보과학관 "
+        elif user.lockernum.building == "CB":
+            _building = "문화관 "
+
+        userlocker= _building + str(user.lockernum.floor) +"층 " + str(user.lockernum.sector) +"구역 " + str(user.lockernum.written_lockernum) +"번 "
     context={"usercurrlocker":userlocker}
     return render(request,'locker/cancel_popup.html', context)
 

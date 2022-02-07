@@ -21,19 +21,25 @@
         <div id="registerPopupDiv">
             <!-- <span>현재 선택한 사물함: "선택한 사물함"</span> -->
             {% if usercurrlocker %}
-            <span class="warning">선택한 사물함 {{usercurrlocker}} 이 취소됩니다.</span>
+            <span class="warning" id="cancelCheck"></span>
             <span class="warning reserveCheck"></span>
             {% else %}
             <span class="warning reserveCheck"></span>
             {% endif %}
-            <button type="submit" name="reservation" value="reserve" class="reserveBtn"
-                style="cursor: pointer;">예약하기</button>
+            <p>
+                <button type="submit" name="reservation" value="reserve" class="reserveBtn"
+                    style="cursor: pointer;">예약하기</button>
+                <button onclick="location.href='{%url 'locker:lockerlist' %}'" style="cursor: pointer;">뒤로가기</button>
+            </p>
+
         </div>
     </div>
 
     <script>
+        cancelCheck = document.querySelector('#cancelCheck');
         reserveCheck = document.querySelector('.reserveCheck');
         currentSelected = sessionStorage.getItem("lockerData");
+        currentSelectedShowing = sessionStorage.getItem("lockernumShowing");
         reserveBtn = document.querySelector('.reserveBtn');
 
         function getCookie(name) {
@@ -53,7 +59,8 @@
         }
 
         if (currentSelected != null) {
-            reserveCheck.innerHTML = "선택하신 사물함은 " + currentSelected + "입니다. </br></br>예약하시겠습니까?";
+            cancelCheck.innerHTML = "이미 예약한 사물함 ({{usercurrlocker}}) 이 취소됩니다.";
+            reserveCheck.innerHTML = "선택하신 사물함은 (" + currentSelectedShowing + " ) 입니다. </br></br>예약하시겠습니까?";
             reserveCheck.style.textAlign = "center";
 
             let csrftoken = getCookie('csrftoken');
@@ -73,7 +80,7 @@
                             console.log(res.status)
 
                             if (res.status == '200') {
-                                alert("예약이 완료되었습니다! 예약된 사물함 번호: " + currentSelected);
+                                alert("예약이 완료되었습니다! 예약된 사물함 번호: " + currentSelectedShowing);
                                 location.href = "{%url 'locker:lockerlist' %}";
                             }
                             else if (res.status == '404') {

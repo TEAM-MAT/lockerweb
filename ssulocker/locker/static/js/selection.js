@@ -7,13 +7,13 @@ function preload() {
   }
 }
 preload(
+  "https://i.imgur.com/E4pFw14.png"
   "https://i.imgur.com/mnesjq5.png",
   "https://i.imgur.com/f8kjHfc.png",
   "https://i.imgur.com/b9kaNKw.png",
   "https://i.imgur.com/gLjse84.png",
   "https://i.imgur.com/Lrqw5Nl.png",
   "https://i.imgur.com/OppfBtD.png",
-  "https://i.imgur.com/E4pFw14.png"
 );
 
 const floors = [0, 1, 2, 3, 4, 5, 6];

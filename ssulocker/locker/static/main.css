@@ -158,6 +158,26 @@ body {
   font-weight: bold;
 }
 
+.eie {
+  color: #93242a;
+}
+
+.cs {
+  color: #0a80a4;
+}
+
+.gm {
+  color: #62cb9b;
+}
+
+.sw {
+  color: #99c7cd;
+}
+
+.aic {
+  color: #81c2be;
+}
+
 #contactDiv {
   position: absolute;
   z-index: 999;
@@ -687,43 +707,43 @@ li.selected {
   flex-direction: column;
   align-items: center;
   width: 30%;
-  height: 100px;
+  height: 150px;
   background-color: #e5f0ff;
   border: 3px solid #d1e4ff;
 }
-
-#registerPopupDiv button {
-  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
-  text-align: center;
-  font-size: 1em;
-  list-style: none;
-  border: 3px solid #d1e4ff;
-  border-radius: 5px;
-  background-color: #fff;
-}
-#registerPopupDiv button:hover {
-  background-color: #d1e4ff;
-}
 @media (max-width: 1200px) {
-  #registerPopupDiv {
-    min-width: 50%;
+  #registerPopupDiv,
+#cancelPopupDiv {
+    width: 70%;
   }
 }
-
+#registerPopupDiv p,
+#cancelPopupDiv p {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  min-width: 100%;
+}
+#registerPopupDiv button,
 #cancelPopupDiv button {
   font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   text-align: center;
-  font-size: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
   list-style: none;
   border: 3px solid #d1e4ff;
   border-radius: 5px;
   background-color: #fff;
+  margin: 1%;
 }
+#registerPopupDiv button:hover,
 #cancelPopupDiv button:hover {
   background-color: #d1e4ff;
 }
 @media (max-width: 1200px) {
-  #cancelPopupDiv {
+  #registerPopupDiv,
+#cancelPopupDiv {
     min-width: 50%;
   }
 }
