@@ -31,7 +31,7 @@ sudo systemctl enable ssulocker.service
 
 #nginx
 cp /home/ubuntu/lockerweb/nginx_gunicorn/ssulocker /etc/nginx/sites-available/ssulocker
-sudo rm /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-available/default
 cd /etc/nginx/sites-enabled
 sudo ln -s /etc/nginx/sites-available/ssulocker
 sudo systemctl restart nginx
