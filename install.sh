@@ -23,8 +23,8 @@ cd ./ssulocker
 python3 manage.py migrate
 
 #gunicorn file
-cp /home/ubuntu/lockerweb/nginx_gunicorn/ssulocker.env /home/ubuntu/venv/ssulocker.env
-cp /home/ubuntu/lockerweb/nginx_gunicorn/ssulocker.service /etc/systemd/system/ssulocker.service
+sudo cp /home/ubuntu/lockerweb/nginx_gunicorn/ssulocker.env /home/ubuntu/venv/ssulocker.env
+sudo cp /home/ubuntu/lockerweb/nginx_gunicorn/ssulocker.service /etc/systemd/system/ssulocker.service
 sudo systemctl start ssulocker.service
 sudo systemctl status ssulocker.service
 sudo systemctl enable ssulocker.service
