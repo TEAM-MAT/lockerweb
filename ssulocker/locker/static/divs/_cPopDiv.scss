@@ -1,4 +1,11 @@
 #cancelPopupDiv {
+  #btnsWrap{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
   button {
     font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
       sans-serif;

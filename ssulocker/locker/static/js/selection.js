@@ -1,12 +1,12 @@
 //preload images
 let images = [];
-function preload() {
-  for (let i = 0; i < preload.arguments.length; i++) {
-    images[i] = new Image();
-    images[i].src = preload.arguments.src;
+function preload(arg) {
+  for (let i = 0; i < arg.length; i++) {
+    images[i] = arg[i];
+    images[i].src = arg[i].src;
   }
 }
-preload(
+preload([
   "https://i.imgur.com/mnesjq5.png",
   "https://i.imgur.com/f8kjHfc.png",
   "https://i.imgur.com/b9kaNKw.png",
@@ -14,7 +14,7 @@ preload(
   "https://i.imgur.com/Lrqw5Nl.png",
   "https://i.imgur.com/OppfBtD.png",
   "https://i.imgur.com/E4pFw14.png"
-);
+]);
 
 const floors = [0, 1, 2, 3, 4, 5, 6];
 const sectors = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
@@ -52,34 +52,34 @@ function selectBuilding(inp) {
       });
     }
   }
-  // //사물함 배치도 변경
-  // const theImage = document.getElementById("lockermapImage");
-  // switch (inp) {
-  //   case "HN1":
-  //     theImage.src = "https://i.imgur.com/mnesjq5.png";
-  //     console.log("HN1");
-  //     break;
-  //   case "HN3":
-  //     theImage.src = "https://i.imgur.com/f8kjHfc.png";
-  //     console.log("HN3");
-  //     break;
-  //   case "IS6":
-  //     theImage.src = "https://i.imgur.com/b9kaNKw.png";
-  //     console.log("IS6");
-  //     break;
-  //   case "IS4":
-  //     theImage.src = "https://i.imgur.com/gLjse84.png";
-  //     console.log("IS4");
-  //     break;
-  //   case "IS0":
-  //     theImage.src = "https://i.imgur.com/Lrqw5Nl.png";
-  //     console.log("IS0");
-  //     break;
-  //   default:
-  //     theImage.src = "https://i.imgur.com/OppfBtD.png";
-  //     console.log("basic");
-  //     break;
-  // }
+  //사물함 배치도 변경
+  const theImage = document.getElementById("lockermapImage");
+  switch (inp) {
+    case "HN1":
+      theImage.src = "https://i.imgur.com/mnesjq5.png";
+      console.log("HN1");
+      break;
+    case "HN3":
+      theImage.src = "https://i.imgur.com/f8kjHfc.png";
+      console.log("HN3");
+      break;
+    case "IS6":
+      theImage.src = "https://i.imgur.com/b9kaNKw.png";
+      console.log("IS6");
+      break;
+    case "IS4":
+      theImage.src = "https://i.imgur.com/gLjse84.png";
+      console.log("IS4");
+      break;
+    case "IS0":
+      theImage.src = "https://i.imgur.com/Lrqw5Nl.png";
+      console.log("IS0");
+      break;
+    default:
+      theImage.src = "https://i.imgur.com/OppfBtD.png";
+      console.log("basic");
+      break;
+  }
   //모든 구역 표시
   for (i in sectors) {
     const t = document.querySelectorAll(`button.sector${sectors[i]}`);
