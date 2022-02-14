@@ -20,15 +20,52 @@
     <div id="cancel">
         <div id="cancelPopupDiv">
             {% if usercurrlocker%}
-            <span class="warning">예약중이신 사물함 {{usercurrlocker}} 이 취소됩니다.</span>
+            <span class="warning cancelWarn"></span>
             {% else %}
             <span class="warning">예약하신 사물함이 없습니다.</span>
             {% endif %}
-            <button type="submit" name="cancelation" value="cancel" class="cancelBtn"
+            <div id="btnsWrap">
+                <button type="submit" name="back" value="back" onclick="location.href='{%url 'locker:lockerlist' %}'"
+                style="cursor: pointer;">뒤로가기</button>
+                <button type="submit" name="cancelation" value="cancel" class="cancelBtn"
                 style="cursor: pointer;">취소하기</button>
+            </div>
+            
         </div>
     </div>
     <script>
+        function codeFilter(currentSelected){
+            let showSelected = "";
+            // 건물 필터링
+            if (currentSelected[0] == "H"){
+                showSelected += "형남공학관 ";
+            }
+            else if (currentSelected[0] == "I"){
+                showSelected += "정보과학관 ";
+            }
+
+            // 층 필터링
+            if (currentSelected[1] == "0"){
+                showSelected += "지하 1층 ";
+            }
+            else {
+                showSelected += currentSelected[1] + "층 "
+            }
+            
+            // 구역 필터링
+            showSelected += currentSelected[2] + "구역 "
+
+            // 번호 필터링
+            if (currentSelected[3] == "0"){
+                showSelected += (currentSelected[4] + currentSelected[5] + "번")
+            }
+            else{
+                showSelected += (currentSelected[3] + currentSelected[4] + currentSelected[5] + "번")
+            }
+
+            return showSelected;
+        }
+
         function getCookie(name) {
             var cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -57,6 +94,8 @@
         if ('{{usercurrlocker}}' == 'None') {
             cancelBtn.style.display = "none";
         }
+
+        document.querySelector('.cancelWarn').innerHTML = "예약중이신 사물함 " + codeFilter('{{usercurrlocker}}') + "이 취소됩니다."
 
         cancelBtn.addEventListener('click', async () => {
             try {
