@@ -1,0 +1,27 @@
+//scss
+#registerPopupDiv {
+  #btnsWrap{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+  
+  button {
+    font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
+      sans-serif;
+    text-align: center;
+    font-size: 1em;
+    list-style: none;
+    border: 3px solid $dblue;
+    border-radius: 5px;
+    background-color: $white;
+  }
+  button:hover {
+    background-color: $dblue;
+  }
+  @media (max-width: 1200px) {
+    min-width: 50%;
+  }
+}
