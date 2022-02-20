@@ -67,7 +67,7 @@ class users(AbstractBaseUser):
     id=models.CharField(max_length=8,help_text="학번",primary_key=True,null=False,unique=True)
     lockernum=ForeignKey(lockers,related_name="lockerusing",on_delete=SET_NULL,db_column="lockernum",null=True)
     department=ForeignKey(department,related_name="studentdept",on_delete=SET_NULL,db_column="user_department",null=True)
-    is_active=models.BooleanField(default=False)
+    is_active=models.BooleanField(default=True)
     is_admin=models.BooleanField(default=False)
     objects=UserManager()
     phone=models.TextField(max_length=20,null=True)
