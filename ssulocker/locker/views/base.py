@@ -52,6 +52,7 @@ def index(request):
         password=request.POST["password"]
         user=auth.authenticate(request,username=username,password=password)
         if user is not None:
+            auth.logout(request)
             auth.login(request,user)
             token=timecheck(user.department)
             if token==1:
