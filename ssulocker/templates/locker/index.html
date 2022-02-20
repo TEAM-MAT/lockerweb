@@ -64,6 +64,7 @@
             <span id="errormessage" style="color: red;">
                 {% if time_token == 0 %} {{"해당 학부(과)의 예약 시간이 아닙니다."}} {%endif%}
                 {% if error %} {{"학번 또는 비밀번호가 잘못되었습니다"}} {%endif%}
+                {% if multiuser %} {{"동시접속은 혀용되지 않습니다 "}} {% endif %}
             </span>
             <form id="loginForm" action="{% url 'locker:login' %}" class="bold post-form" method="post">
                 {% csrf_token %} {% include "form_errors.html" %}

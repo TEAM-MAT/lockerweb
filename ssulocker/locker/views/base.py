@@ -46,8 +46,8 @@ def index(request):
     'AI_left':AIC_left,'AI_lockers':AIC_lockers,"cs_time":cs_time,"eie_time":eie_time,"gm_time":gm_time,
     "sw_time":sw_time,"aic_time":aic_time,"days":dept_weekdays,"time_token":1,"cs_contact":cs_contact,"eie_contact":eie_contact,"gm_contact":gm_contact,
     "aic_contact":aic_contact,"sw_contact":sw_contact,"eie_fin":eie_fin,"cs_fin":cs_fin,"gm_fin":gm_fin,"sw_fin":
-    sw_fin,"aic_fin":aic_fin}
-    if request.method=="POST":
+    sw_fin,"aic_fin":aic_fin,}
+    if request.method=="POST" and not request.user.is_authenticated:
         username=request.POST["username"]
         password=request.POST["password"]
         user=auth.authenticate(request,username=username,password=password)
@@ -63,6 +63,9 @@ def index(request):
         else:
             locker_context['error']=1
             return render(request,'locker/index.html',locker_context)
+    elif request.method=="POST" and request.user.is_authenticated:
+        locker_context['multiuser']=1
+        return render(request,'locker/index.html',locker_context)
     else:
         if request.user.is_authenticated:
             return redirect('/locker/lockerlist')
