@@ -51,22 +51,16 @@ def index(request):
         username=request.POST["username"]
         password=request.POST["password"]
         user=auth.authenticate(request,username=username,password=password)
-        if user is not None and not request.user.is_authenticated:
+        if user is not None:
+            auth.logout(request)
             auth.login(request,user)
             token=timecheck(user.department)
             if token==1:
-                user.is_active=True
-                user.save()
                 return redirect('/locker/lockerlist')
             else:
                 locker_context["time_token"]=0
-                user.is_active=False
-                user.save()
                 auth.logout(request)
                 return render(request,'locker/index.html',locker_context)
-        elif request.user.is_authenticated:
-            locker_context['error']=2
-            return render(request,'locker/index.html',locker_context)
         else:
             locker_context['error']=1
             return render(request,'locker/index.html',locker_context)
@@ -79,7 +73,5 @@ def index(request):
 @login_required(login_url='locker:login')
 def logout(request):
     if request.user.is_authenticated:
-        request.user.is_active=False
-        request.user.save()
         auth.logout(request)
     return redirect('/locker/login')
