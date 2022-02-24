@@ -11,16 +11,19 @@ departments=[('CS','컴퓨터학부'),
 buildings=[('HN','형남공학관'),('IS','정보과학관'),('CB','문화관')]
 class department(models.Model):
     deptname=models.CharField(max_length=6,choices=departments,primary_key=True)
-    time=models.DateTimeField()#예약시작날짜 
-
+    time=models.DateTimeField(help_text="예약시작날짜",default=datetime.datetime.now())#예약시작날짜 &시간
+    fintime=models.DateTimeField(help_text="예약 종료 날짜",default=datetime.datetime.now()+datetime.timedelta(hours=120))#예약 종료 날짜 & 시간
+    contact=models.CharField(max_length=100)
     def getdepttime(self):
         return self.time
+    def getdeptfintime(self):
+        return self.fintime
 
 class departmentset():
     @staticmethod
     def departmentset():
         for i in range(5):
-            temp=department(deptname=departments[i][0],time=datetime.datetime.now())
+            temp=department(deptname=departments[i][0],time=datetime.datetime.now(),fintime=datetime.datetime.now()+datetime.timedelta(days=20))
             temp.save()
 
 class lockers(models.Model):
