@@ -34,5 +34,6 @@ def pwclogin(request):
             auth.login(request,user)
             return redirect('locker:pwchange')
         else:
-            return redirect('locker:pwchangePop')
+            context={"error":1}
+            return render(request,"locker/pwchange_login.html",context)
 #def cleaned_password()
