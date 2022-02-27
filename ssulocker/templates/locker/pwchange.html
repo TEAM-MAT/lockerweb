@@ -22,6 +22,7 @@
   <header>
     <h1>IT대학 사물함 예약 웹사이트 3.0</h1>
   </header>
+  <button type="button" style="cursor: pointer;" onclick="location.href='{%url 'locker:login' %}'">메인화면으로 돌아가기</button>
   <div id="loginDiv">
     <form action="{% url 'locker:pwchange' %}" method="post" id="loginForm">
       {% csrf_token %}

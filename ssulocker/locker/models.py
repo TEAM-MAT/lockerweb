@@ -88,3 +88,8 @@ class users(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+class UserSession(models.Model):
+    user=models.ForeignKey(users,on_delete=models.CASCADE,editable=False)
+    session_key=models.CharField(max_length=100,editable=False)
+    created_at=models.DateTimeField(auto_now_add=True)
