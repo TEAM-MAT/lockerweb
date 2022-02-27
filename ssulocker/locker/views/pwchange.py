@@ -5,6 +5,7 @@ from django.contrib import auth
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from django.shortcuts import render,redirect
+from ..api import base_context
 #@login_required(login_url='locker:pwclogin')
 def pwchangePop(request):
     return render(request,'locker/pwchange_login.html')
@@ -16,10 +17,12 @@ def pwchange(request):
             user=form.save()
             update_session_auth_hash(request,user)
             messages.success(request,"비밀번호가 변경되었습니다.")
-            return redirect('locker:login')
+            auth.logout(request)
+            context=base_context.base_context_return()
+            return render(request,'locker/index.html',context)
         else:
-            #messages.error("에러 발생")
-            return redirect('locker:pwchangePop')
+            messages.error(request,"비밀번호 변경 실패")
+            return render(request,'locker/pwchange.html',{"form":PasswordChangeForm(request.user)})
 
     elif request.method=="GET":
         # form 전송
