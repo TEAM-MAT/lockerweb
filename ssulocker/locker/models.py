@@ -105,7 +105,10 @@ def kicked_my_other_sessions(sender, request, user, **kwargs):
     for user_session in UserSession.objects.filter(user=user):
         session_key = user_session.session_key
         session = SessionStore(session_key)
-        session.delete()
+        # session.delete()
+        session['kicked'] = True
+        session.save()
+        user_session.delete()
 
     session_key = request.session.session_key
     UserSession.objects.create(user=user, session_key=session_key)
