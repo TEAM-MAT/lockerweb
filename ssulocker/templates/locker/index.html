@@ -23,43 +23,39 @@
     </header>
     <main>
         <div id="infoDiv">
-            <table>
-                <tr>
-                    <td class="bold eie">전자정보공학부</td>
-                    <td>{{eie_left}} / {{eie_lockers}}</td>
-                    <td>{{eie_time.year}}년 {{eie_time.month}}월 {{eie_time.day}}일({{days.eie_day}})</td>
-                    <td>{{eie_time.hour}}시 {{eie_time.minute}}분 ~ {{eie_fin.hour}}시 {{eie_fin.minute}}분
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bold cs">컴퓨터학부</td>
-                    <td>{{cs_left}} / {{cs_lockers}}</td>
-                    <td>{{cs_time.year}}년 {{cs_time.month}}월 {{cs_time.day}}일({{days.cs_day}})</td>
-                    <td>{{cs_time.hour}}시 {{cs_time.minute}}분 ~ {{cs_fin.hour}}시 {{cs_fin.minute}}분
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bold gm">글로벌미디어학부</td>
-                    <td>{{gm_left}} / {{gm_lockers}}</td>
-                    <td>{{gm_time.year}}년 {{gm_time.month}}월 {{gm_time.day}}일({{days.gm_day}})</td>
-                    <td>{{gm_time.hour}}시 {{gm_time.minute}}분 ~ {{gm_fin.hour}}시 {{gm_fin.minute}}분
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bold sw">소프트웨어학부</td>
-                    <td>{{sw_left}} / {{sw_lockers}}</td>
-                    <td>{{sw_time.year}}년 {{sw_time.month}}월 {{sw_time.day}}일({{days.sw_day}})</td>
-                    <td>{{sw_time.hour}}시 {{sw_time.minute}}분 ~ {{sw_fin.hour}}시 {{sw_fin.minute}}분
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bold aic">Ai융합학부</td>
-                    <td>{{AI_left}} / {{AI_lockers}}</td>
-                    <td>{{aic_time.year}}년 {{aic_time.month}}월 {{aic_time.day}}일({{days.aic_day}})</td>
-                    <td>{{aic_time.hour}}시 {{aic_time.minute}}분 ~ {{aic_fin.hour}}시 {{aic_fin.minute}}분
-                    </td>
-                </tr>
-            </table>
+            <ul>
+                <li>
+                    <span class="bold eie">전자정보공학부</span>
+                    <span>{{eie_left}} / {{eie_lockers}}</span>
+                    <span>{{eie_time.year}}년 {{eie_time.month}}월 {{eie_time.day}}일({{days.eie_day}})</span>
+                    <span>{{eie_time.hour}}시 {{eie_time.minute}}분 ~ {{eie_fin.hour}}시 {{eie_fin.minute}}분</span>
+                </li>
+                <li>
+                    <span class="bold cs">컴퓨터학부</span> {% if cs_left %}
+                    <span>{{cs_left}} / {{cs_lockers}}</span> {% else %}
+                    <span>no left</span> {% endif %}
+                    <span>{{cs_time.year}}년 {{cs_time.month}}월 {{cs_time.day}}일({{days.cs_day}})</span>
+                    <span>{{cs_time.hour}}시 {{cs_time.minute}}분 ~ {{cs_fin.hour}}시 {{cs_fin.minute}}분</span>
+                </li>
+                <li>
+                    <span class="bold gm">글로벌미디어학부</span>
+                    <span>{{gm_left}} / {{gm_lockers}}</span>
+                    <span>{{gm_time.year}}년 {{gm_time.month}}월 {{gm_time.day}}일({{days.gm_day}})</span>
+                    <span>{{gm_time.hour}}시 {{gm_time.minute}}분 ~ {{gm_fin.hour}}시 {{gm_fin.minute}}분</span>
+                </li>
+                <li>
+                    <span class="bold sw">소프트웨어학부</span>
+                    <span>{{sw_left}} / {{sw_lockers}}</span>
+                    <span>{{sw_time.year}}년 {{sw_time.month}}월 {{sw_time.day}}일({{days.sw_day}})</span>
+                    <span>{{sw_time.hour}}시 {{sw_time.minute}}분 ~ {{sw_fin.hour}}시 {{sw_fin.minute}}분</span>
+                </li>
+                <li>
+                    <span class="bold aic">AI융합학부</span>
+                    <span>{{AI_left}} / {{AI_lockers}}</span>
+                    <span>{{aic_time.year}}년 {{aic_time.month}}월 {{aic_time.day}}일({{days.aic_day}})</span>
+                    <span>{{aic_time.hour}}시 {{aic_time.minute}}분 ~ {{aic_fin.hour}}시 {{aic_fin.minute}}분</span>
+                </li>
+            </ul>
             <button onclick="popupClose('contactDiv')" id="popup-close">문의사항</button>
         </div>
         <div id="loginDiv">
