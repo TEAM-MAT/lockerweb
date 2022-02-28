@@ -16,53 +16,13 @@
   span {
     text-align: center;
     font-size: 1rem;
-    word-break: keep-all;
   }
   span#passwdRule {
     font-weight: 500;
-  }
-  form#loginForm {
-    @include flex-default();
-    .inputDiv {
-      @include flex-default(flex, center, column, center);
-      width: 100%;
-      @media (max-width: 650px) {
-        @include flex-default(flex, space-between, row, center);
-      }
-    }
-    input {
-      border: 3px solid $lblue;
-      width: 80%;
-      @media (max-width: 650px) {
-        width: 60%;
-      }
-      height: 2rem;
-      border-radius: 5px;
-      box-shadow: 3px 3px 3px $dblue;
-      transition: box-shadow 0.5s cubic-bezier(0, 0.55, 0.45, 1);
-    }
-    :focus {
-      outline: none;
-      box-shadow: 3px 3px 3px $darkgray;
-    }
-    button {
-      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-        Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
-        sans-serif;
-      appearance: none;
-      min-width: 122px;
-      min-height: 48px;
-      border: none;
-      background-color: $slblue;
-      border-radius: 5px;
-      transition: all 0.5s;
-    }
-    button:hover {
-      background-color: $bblue;
-      color: white;
+    @media (max-width: 650px) {
+      font-size: 12px !important;
     }
   }
-
   span#passwdChange {
     font-size: 0.8rem;
     color: gray;
@@ -86,6 +46,48 @@
   }
   #pwchangeBtn {
     min-height: 24px;
+  }
+  button:hover {
+    background-color: $bblue;
+    color: white;
+  }
+}
+
+#loginForm {
+  @include flex-default();
+  .inputDiv {
+    @include flex-default(flex, center, column, center);
+    width: 100%;
+    @media (max-width: 650px) {
+      @include flex-default(flex, space-between, row, center);
+    }
+  }
+  input {
+    border: 3px solid $lblue;
+    width: 80%;
+    @media (max-width: 650px) {
+      width: 60%;
+    }
+    height: 2rem;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px $dblue;
+    transition: box-shadow 0.5s cubic-bezier(0, 0.55, 0.45, 1);
+  }
+  :focus {
+    outline: none;
+    box-shadow: 3px 3px 3px $darkgray;
+  }
+  button {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
+      sans-serif;
+    appearance: none;
+    min-width: 122px;
+    min-height: 48px;
+    border: none;
+    background-color: $slblue;
+    border-radius: 5px;
+    transition: all 0.5s;
   }
   button:hover {
     background-color: $bblue;
