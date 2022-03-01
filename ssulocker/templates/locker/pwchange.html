@@ -27,9 +27,20 @@
     <form action="{% url 'locker:pwchange' %}" method="post" id="loginForm">
       {% csrf_token %}
       {{form}}
-      <button type="submit" style="cursor: pointer;">비밀번호 변경하기</button>
+      <button type="submit" style="cursor: pointer;" onclick=alertMessage()>비밀번호 변경하기</button>
     </form>
   </div>
+
+  <script>
+    function alertMessage(){
+      {% if messages %}
+        {% for message in messages %}
+          alert('{{ message.message }}')
+        {% endfor %}
+      {% endif %}
+    }
+    
+  </script>
 
 
 </body>
