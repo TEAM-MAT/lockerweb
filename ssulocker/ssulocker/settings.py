@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'locker.middleware.KickedMiddleware',
 ]
 
 ROOT_URLCONF = 'ssulocker.urls'
@@ -135,5 +137,5 @@ STATICFILES_DIRS=[]
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#login
+LOGIN_URL='/locker/login'
 LOGIN_REDIRECT_URL='/locker/lockerlist'
