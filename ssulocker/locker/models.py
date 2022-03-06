@@ -12,7 +12,7 @@ from django.contrib.auth.models import (BaseUserManager,AbstractBaseUser)
 departments=[('CS','컴퓨터학부'),
     ('GM','글로벌미디어학부'),('EIE','전자정보공학부'),('SW','소프트웨어학부'),
     ('AIC','AI융합학부')]
-buildings=[('HN','형남공학관'),('IS','정보과학관'),('CB','문화관')]
+buildings=[('05','형남공학관'),('21','정보과학관')]
 class department(models.Model):
     deptname=models.CharField(max_length=6,choices=departments,primary_key=True)
     time=models.DateTimeField(help_text="예약시작날짜",default=datetime.datetime.now())#예약시작날짜 &시간
