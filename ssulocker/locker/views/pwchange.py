@@ -27,7 +27,7 @@ def pwchange(request):
         else:
             messages.error(request,"비밀번호 변경 실패 잘못 입력했는지 다시 확인해주세요.")
             resp_body = '<script>alert("비밀번호 변경 실패 잘못 입력했는지 다시 확인해주세요.");\
-                location.href="pwchangePop"</script>' 
+                location.href="pwchange"</script>' 
             return HttpResponse(resp_body);
 
     elif request.method=="GET":
