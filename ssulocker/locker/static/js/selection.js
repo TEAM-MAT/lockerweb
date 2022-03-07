@@ -7,17 +7,29 @@ function preload(arg) {
   }
 }
 preload([
-  "https://i.imgur.com/mnesjq5.png",
-  "https://i.imgur.com/f8kjHfc.png",
-  "https://i.imgur.com/b9kaNKw.png",
-  "https://i.imgur.com/gLjse84.png",
-  "https://i.imgur.com/Lrqw5Nl.png",
-  "https://i.imgur.com/OppfBtD.png",
-  "https://i.imgur.com/E4pFw14.png"
+  "https://imgur.com/m8wrwPD.png", //정보관 1층
+  "https://imgur.com/zgxqJAM.png", //정보관 2층
+  "https://imgur.com/U5Bv3Yo.png", //정보관 3층
+  "https://imgur.com/LL7utOx.png", //정보관 4층
+  "https://imgur.com/T646du8.png", //정보관 5층
+  "https://imgur.com/c1Qciw8.png", //정보관 6층
+  "https://imgur.com/iCwla87.png", //정보관 B1층
+  "https://imgur.com/hQDxK0h.png", //형남공학관 3층
+  "https://imgur.com/GhHIly3.png" //형남공학관 4층
 ]);
 
+// "https://imgur.com/m8wrwPD" //정보관 1층
+// "https://imgur.com/zgxqJAM" //정보관 2층
+// "https://imgur.com/U5Bv3Yo" //정보관 3층
+// "https://imgur.com/LL7utOx" //정보관 4층
+// "https://imgur.com/T646du8" //정보관 5층
+// "https://imgur.com/c1Qciw8" //정보관 6층
+// "https://imgur.com/iCwla87" //정보관 B1층
+// "https://imgur.com/hQDxK0h" //형남공학관 3층
+// "https://imgur.com/GhHIly3" //형남공학관 4층
+
 const floors = [0, 1, 2, 3, 4, 5, 6];
-const sectors = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+const sectors = ["A.png", "B", "C", "D", "E", "F", "G", "H", "I"];
 //초기 세팅
 for (i in floors) {
   if (floors[i] === 1) {
@@ -55,24 +67,40 @@ function selectBuilding(inp) {
   //사물함 배치도 변경
   const theImage = document.getElementById("lockermapImage");
   switch (inp) {
-    case "HN1":
-      theImage.src = "https://i.imgur.com/mnesjq5.png";
-      console.log("HN1");
-      break;
     case "HN3":
-      theImage.src = "https://i.imgur.com/f8kjHfc.png";
+      theImage.src = "https://imgur.com/hQDxK0h.png";
       console.log("HN3");
       break;
+    case "HN4":
+      theImage.src = "https://imgur.com/m8wrwPD.png";
+      console.log("HN1");
+      break;
     case "IS6":
-      theImage.src = "https://i.imgur.com/b9kaNKw.png";
+      theImage.src = "https://imgur.com/c1Qciw8.png";
+      console.log("IS6");
+      break;
+    case "IS5":
+      theImage.src = "https://imgur.com/T646du8.png";
       console.log("IS6");
       break;
     case "IS4":
-      theImage.src = "https://i.imgur.com/gLjse84.png";
+      theImage.src = "https://imgur.com/LL7utOx.png";
       console.log("IS4");
       break;
+    case "IS3":
+      theImage.src = "https://imgur.com/U5Bv3Yo.png";
+      console.log("IS6");
+      break;
+    case "IS2":
+      theImage.src = "https://imgur.com/zgxqJAM.png";
+      console.log("IS4");
+      break;
+    case "IS1":
+      theImage.src = "https://imgur.com/m8wrwPD.png";
+      console.log("IS6");
+      break;
     case "IS0":
-      theImage.src = "https://i.imgur.com/Lrqw5Nl.png";
+      theImage.src = "https://imgur.com/iCwla87.png";
       console.log("IS0");
       break;
     default:
