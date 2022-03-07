@@ -27,15 +27,40 @@
     <form action="{% url 'locker:pwchange' %}" method="post" id="loginForm">
       {% csrf_token %}
       {{form}}
-      <button type="submit" style="cursor: pointer;" onclick=alertMessage()>비밀번호 변경하기</button>
+      <button class='submitBtn' type="submit" style="cursor: pointer;" onclick=alertMessage()>비밀번호 변경하기</button>
     </form>
   </div>
 
   <script>
+
+    document.getElementsByClassName('.submitBtn').
     function alertMessage(){
+      alert(HttpResponse)
+      {% if HttpResponse.content == '비밀번호가 변경되었습니다.' %}
+          alert('wkrehd');
+          if (window.confirm('{{ message.message }}'))
+          {
+            location.href='{%url 'locker:login' %}'
+          }
+          else
+          {
+              location.href='{%url 'locker:pwchange_login' %}'
+          }
+      {% else %}
+        if (window.confirm('{{ message.message }}'))
+            {
+              location.href='{%url 'locker:login' %}'
+            }
+            else
+            {
+              location.href='{%url 'locker:pwchange_login' %}'
+            }
+      {% endif %}
+
       {% if messages %}
         {% for message in messages %}
-          alert('{{ message.message }}')
+
+          
         {% endfor %}
       {% endif %}
     }

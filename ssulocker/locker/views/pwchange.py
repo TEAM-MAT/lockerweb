@@ -20,10 +20,15 @@ def pwchange(request):
             messages.success(request,"비밀번호가 변경되었습니다.")
             auth.logout(request)
             context=base_context.base_context_return()
-            return HttpResponse("비밀번호 변경되었습니다.")
+
+            resp_body = '<script>alert("비밀번호가 변경되었습니다.");\
+                location.href="login"</script>' 
+            return HttpResponse(resp_body);
         else:
             messages.error(request,"비밀번호 변경 실패 잘못 입력했는지 다시 확인해주세요.")
-            return HttpResponseBadRequest("비밀번호 변경 실패. 잘못 입력했는지 다시 확인해주세요.")
+            resp_body = '<script>alert("비밀번호 변경 실패 잘못 입력했는지 다시 확인해주세요.");\
+                location.href="pwchangePop"</script>' 
+            return HttpResponse(resp_body);
 
     elif request.method=="GET":
         # form 전송
