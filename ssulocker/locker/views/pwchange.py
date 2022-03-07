@@ -20,7 +20,7 @@ def pwchange(request):
             messages.success(request,"비밀번호가 변경되었습니다.")
             auth.logout(request)
             context=base_context.base_context_return()
-            return HttpResponse("비밀번호 변경되었습니다.")
+            return HttpResponse("비밀번호 변경되었습니다.")#리디렉션(메인페이지로s)
         else:
             messages.error(request,"비밀번호 변경 실패 잘못 입력했는지 다시 확인해주세요.")
             return HttpResponseBadRequest("비밀번호 변경 실패. 잘못 입력했는지 다시 확인해주세요.")
