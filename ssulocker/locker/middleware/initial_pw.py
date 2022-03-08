@@ -1,6 +1,7 @@
-def init_pw(users):
+def init_pw(user_all):
     initresult={"result":"","num":0}
-    for u in users:
+    number_process=0
+    for u in user_all:
         if u.is_admin!=True:
             pn=u.phone#전화번호는 010떼고 입력받아야함.
             u.set_password(pn)

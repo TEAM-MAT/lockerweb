@@ -7,7 +7,7 @@ def pw_init(request):
      if request.user.is_authenticated:
         if request.user.is_admin==True:
             user_all=users.objects.all()
-            initiation=pw_init(user_all)
+            initiation=init_pw(user_all)
             return render(request,'locker/pwresult.html',initiation)      
         else:
              return redirect('/locker/login')
