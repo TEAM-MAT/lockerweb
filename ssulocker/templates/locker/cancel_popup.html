@@ -36,33 +36,15 @@
     <script>
         function codeFilter(currentSelected){
             let showSelected = "";
-            // 건물 필터링
-            if (currentSelected[0] == "H"){
-                showSelected += "형남공학관 ";
-            }
-            else if (currentSelected[0] == "I"){
-                showSelected += "정보과학관 ";
-            }
-
             // 층 필터링
-            if (currentSelected[1] == "0"){
+            showSelected+=currentSelected.substring(0,5)+" "
+            if (currentSelected[6] == "0"){
                 showSelected += "지하 1층 ";
             }
             else {
                 showSelected += currentSelected[1] + "층 "
             }
-            
-            // 구역 필터링
-            showSelected += currentSelected[2] + "구역 "
-
-            // 번호 필터링
-            if (currentSelected[3] == "0"){
-                showSelected += (currentSelected[4] + currentSelected[5] + "번")
-            }
-            else{
-                showSelected += (currentSelected[3] + currentSelected[4] + currentSelected[5] + "번")
-            }
-
+            showSelected+=currentSelected.substr(8)
             return showSelected;
         }
 
