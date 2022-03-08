@@ -1,4 +1,5 @@
-def init_pw(users,initresult):
+def init_pw(users):
+    initresult={"result":"","num":0}
     for u in users:
         if u.is_admin!=True:
             pn=u.phone#전화번호는 010떼고 입력받아야함.
@@ -10,3 +11,4 @@ def init_pw(users,initresult):
     else:
         initresult["result"]="실패 혹은 초기화할 유저가 없습니다."
         initresult["num"]=number_process
+    return initresult
