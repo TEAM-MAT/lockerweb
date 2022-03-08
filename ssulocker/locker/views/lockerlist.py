@@ -5,9 +5,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
 from ..models import lockers,users
-from .time_login import timecheck
-import logging
-import json
+from ..middleware.time_login import timecheck
 from django.db import connection
 @login_required(login_url='locker:login')
 def lockerlist(request):

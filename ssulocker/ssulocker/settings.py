@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'locker.middleware.KickedMiddleware',
+    'locker.middleware.middleware.KickedMiddleware',
 ]
 
 ROOT_URLCONF = 'ssulocker.urls'
