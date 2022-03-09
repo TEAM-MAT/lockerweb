@@ -26,26 +26,27 @@
             {% endif %}
             <div id="btnsWrap">
                 <button type="submit" name="back" value="back" onclick="location.href='{%url 'locker:lockerlist' %}'"
-                style="cursor: pointer;">뒤로가기</button>
+                    style="cursor: pointer;">뒤로가기</button>
                 <button type="submit" name="cancelation" value="cancel" class="cancelBtn"
-                style="cursor: pointer;">취소하기</button>
+                    style="cursor: pointer;">취소하기</button>
             </div>
-            
+
         </div>
     </div>
     <script>
-        function codeFilter(currentSelected){
+        function codeFilter(currentSelected) {
+            console.log(currentSelected);
             let showSelected = "";
             // 층 필터링
-            showSelected+=currentSelected.substring(0,5)+" "
-            if (currentSelected[6] == "0"){
+            showSelected += currentSelected.substring(0, 5) + " "
+            if (currentSelected[6] == "0") {
                 showSelected += "지하 1층 ";
             }
             else {
                 showSelected += currentSelected[1] + "층 "
             }
-            showSelected+=currentSelected.substr(8)
-            return showSelected;
+            showSelected += currentSelected.substr(8)
+            return currentSelected;
         }
 
         function getCookie(name) {
@@ -77,7 +78,7 @@
             cancelBtn.style.display = "none";
         }
 
-        document.querySelector('.cancelWarn').innerHTML = "예약중이신 사물함 " + codeFilter('{{usercurrlocker}}') + "이 취소됩니다."
+        document.querySelector('.cancelWarn').innerHTML = "예약중이신 사물함 (" + codeFilter('{{usercurrlocker}}') + ")이 취소됩니다."
 
         cancelBtn.addEventListener('click', async () => {
             try {

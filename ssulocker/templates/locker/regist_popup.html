@@ -42,6 +42,7 @@
         const autoCancel = document.querySelector('.autoCancel');
 
         function codeFilter(currentSelected){
+            console.log
             let showSelected = "";
             // 건물 필터링
             if (currentSelected[0] == "H"){
@@ -93,10 +94,10 @@
         if (currentSelected != null) {
             {% if usercurrlocker %}
             console.log('{{usercurrlocker}}');
-            autoCancel.innerHTML ="선택한 사물함 " + '{{usercurrlocker}}' + "이 취소됩니다."
+            autoCancel.innerHTML ="선택한 사물함 (" + '{{usercurrlocker}}' + ")이 취소됩니다."
             {% endif %}
             
-            reserveCheck.innerHTML = "선택하신 사물함은 " + codeFilter(currentSelected) + "입니다. </br></br>예약하시겠습니까?";
+            reserveCheck.innerHTML = "선택하신 사물함은 (" + codeFilter(currentSelected) + ")입니다. </br></br>예약하시겠습니까?";
             reserveCheck.style.textAlign = "center";
 
             let csrftoken = getCookie('csrftoken');
