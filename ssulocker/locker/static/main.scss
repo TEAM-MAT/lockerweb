@@ -12,69 +12,69 @@
 @import "divs/popups";
 
 @mixin flex-default(
-  $arg_display: flex,
-  $arg_justifycontent: center,
-  $arg_flexdirection: column,
-  $arg_alignitems: center
+ $arg_display: flex,
+ $arg_justifycontent: center,
+ $arg_flexdirection: column,
+ $arg_alignitems: center
 ) {
-  display: $arg_display;
-  justify-content: $arg_justifycontent;
-  flex-direction: $arg_flexdirection;
-  align-items: $arg_alignitems;
+ display: $arg_display;
+ justify-content: $arg_justifycontent;
+ flex-direction: $arg_flexdirection;
+ align-items: $arg_alignitems;
 }
 body {
-  max-width: 100vw;
-  min-height: 100vh;
+ max-width: 100vw;
+ min-height: 100vh;
+ width: 100%;
+ background: #7f7fd5; /* fallback for old browsers */
+ background: -webkit-linear-gradient(
+  to top,
+  #91eae4,
+  #86a8e7,
+  #7f7fd5
+ ); /* Chrome 10-25, Safari 5.1-6 */
+ background: linear-gradient(
+  to top,
+  #91eae4,
+  #86a8e7,
+  #7f7fd5
+ ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ background-color: #6a93cb;
+ background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+ background-repeat: no-repeat;
+
+ header {
   width: 100%;
-  background: #7f7fd5; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #91eae4,
-    #86a8e7,
-    #7f7fd5
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #91eae4,
-    #86a8e7,
-    #7f7fd5
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-color: #6a93cb;
-  background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
-  background-repeat: no-repeat;
-
-  header {
-    width: 100%;
-    h1 {
-      text-align: center;
-      margin: 1%;
-      margin-top: 3%;
-      font-weight: bold;
-      color: $lblue;
-      font-size: 2.5em;
-    }
-    @media (max-width: 650px) {
-      font-size: 1.5em;
-    }
+  h1 {
+   text-align: center;
+   margin: 1%;
+   margin-top: 3%;
+   font-weight: bold;
+   color: $lblue;
+   font-size: 2.5em;
   }
-
-  footer {
-    position: fixed;
-    left: 1%;
-    bottom: 1%;
-    margin: auto;
-    margin-top: 3%;
-    text-align: center;
-    @media (max-width: 1200px) {
-      position: relative;
-    }
-    a,
-    a:visited {
-      text-decoration: none;
-      color: $black;
-    }
-    a:hover {
-      color: $dblue;
-    }
+  @media (max-width: 650px) {
+   font-size: 1.5em;
   }
+ }
+
+ footer {
+  position: fixed;
+  left: 1%;
+  bottom: 1%;
+  margin: auto;
+  margin-top: 3%;
+  text-align: center;
+  @media (max-width: 1200px) {
+   position: relative;
+  }
+  a,
+  a:visited {
+   text-decoration: none;
+   color: $black;
+  }
+  a:hover {
+   color: $dblue;
+  }
+ }
 }

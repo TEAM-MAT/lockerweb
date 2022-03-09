@@ -613,6 +613,35 @@ li.selected {
   background-color: #d1e4ff !important;
 }
 
+#registerPopupDiv #btnsWrap,
+#cancelPopupDiv #btnsWrap {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+#registerPopupDiv #btnsWrap button,
+#cancelPopupDiv #btnsWrap button {
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  text-align: center;
+  font-size: 1.2em;
+  list-style: none;
+  border: 3px solid #d1e4ff;
+  border-radius: 5px;
+  background-color: #fff;
+}
+#registerPopupDiv #btnsWrap button:hover,
+#cancelPopupDiv #btnsWrap button:hover {
+  background-color: #d1e4ff;
+}
+@media (max-width: 1200px) {
+  #registerPopupDiv #btnsWrap,
+#cancelPopupDiv #btnsWrap {
+    min-width: 50%;
+  }
+}
+
 #popup {
   display: flex;
   justify-content: space-evenly;
