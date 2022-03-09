@@ -448,15 +448,18 @@ select option {
   }
 }
 
-div#lockermap img {
-  max-width: 300px;
-  max-height: 300px;
+div#lockermap {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
-@media (max-width: 1200px) {
-  div#lockermap img {
-    max-width: 150px;
-    max-height: 150px;
-  }
+div#lockermap img {
+  width: 25vw;
+}
+div#lockermap :active {
+  width: 50vw;
 }
 
 #loginDiv {
@@ -645,7 +648,7 @@ li.selected {
 #popup {
   display: flex;
   justify-content: space-evenly;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 }
 

@@ -1,6 +1,6 @@
 @import "./regCanPop";
 #popup {
- @include flex-default(flex, space-evenly, row, center);
+ @include flex-default(flex, space-evenly, column, center);
 }
 #infoPopupDiv {
  @include flex-default(flex, space-evenly, column, center);

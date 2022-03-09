@@ -104,5 +104,7 @@ function selectedImage(inp) {
   case "HN4":
    theImage.src = "https://i.ibb.co/7pf4YMc/HN4.png";
    break;
+  default:
+   theImage.src = "https://i.imgur.com/mhlFPRx.png";
  }
 }

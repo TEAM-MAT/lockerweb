@@ -119,11 +119,13 @@ select {
  }
 }
 
-div#lockermap img {
- max-width: 300px;
- max-height: 300px;
- @media (max-width: 1200px) {
-  max-width: 150px;
-  max-height: 150px;
+div#lockermap {
+ width: 100vw;
+ @include flex-default;
+ img {
+  width: 25vw;
+ }
+ :active {
+  width: 50vw;
  }
 }
