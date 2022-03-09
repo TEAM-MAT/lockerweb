@@ -6,7 +6,7 @@ import django.contrib.auth as auth
 from django.contrib.auth.decorators import login_required
 from ..models import lockers,users,department
 from django.db import connection
-from .time_login import timecheck
+from ..middleware.time_login import timecheck
 from ..api import base_context
 def index(request):
     locker_context=base_context.base_context_return()
