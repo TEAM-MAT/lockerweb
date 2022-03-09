@@ -83,31 +83,63 @@
     <section id="lockerlistDiv">
       <select name="Building" id="building" onchange="selectBuilding(this.value)" style="cursor: pointer;">
         <option selected disabled>층을 선택하세요.</option>
-
+        <script>
+          // 학부에 따라 select option 필터링
+          const theSelect = document.querySelector("select#building");
+          const _userdepartment = "{{ department.get_deptname_display }}";
+          if (_userdepartment == "전자정보공학부") {
+            theSelect.innerHTML += `
+      < optgroup label = "형남공학관" >
+                <option value="HN0">> 지하 1층</option>
+                <option value="HN1">> 1층</option>
+                <option value="HN3">> 3층</option>
+              </optgroup > `;
+          } else if (_userdepartment == "AI융합학부") {
+            theSelect.innerHTML += `
+        < optgroup label = "형남공학관" >
+                <option value="HN0">> 지하 1층</option>
+                <option value="HN1">> 1층</option>
+                <option value="HN3">> 3층</option>
+            </optgroup >
+        <optgroup label="문화관">
+          <option value="CB1">> 1층</option>
+          <option value="CB2">> 2층</option>
+          <option value="CB3">> 3층</option>
+        </optgroup>`;
+          } else {
+            theSelect.innerHTML += `
+      < optgroup label = "정보과학관" >
+              <option value="IS0">> 지하 1층</option>
+              <option value="IS1">> 1층</option>
+              <option value="IS2">> 2층</option>
+              <option value="IS3">> 3층</option>
+              <option value="IS4">> 4층</option>
+              <option value="IS5">> 5층</option>
+            </optgroup >`;
+          }
+        </script>
       </select>
     </section>
     <section id="lockerList">
+      <select name="Sector" id="sector" onchange="selectSector(this.value);" style="cursor: pointer;">
+        <option id="null" selected disabled>구역을 선택하세요.</option>
+        <option id="A">>A</option>
+        <option id="B">>B</option>
+        <option id="C">>C</option>
+        <option id="D">>D</option>
+        <option id="E">>E</option>
+        <option id="F">>F</option>
+        <option id="G">>G</option>
+        <option id="H">>H</option>
+        <option id="I">>I</option>
+      </select>
       <p id="lockerTitle">
         <span id="userDep1">{{ department.get_deptname_display }}</span>
         <span id="building-floor"></span>
         <span>사물함 목록</span>
-        <span id="number_of_lockers"></span>
       </p>
-      <script>
-        let lockers = [];
-        let lockerFiltered = [];
-      </script>
       <section id="lockers">
         {% for l in locker_list %}
-        <script>
-          _l = new Object();
-          _l.location = "{{l.building}}{{l.floor}}{{l.sector}}";
-          _l.lockernum = "{{l.written_lockernum}}";
-          lockers.push(_l);
-          if (!lockerFiltered.includes(_l.location)) {
-            lockerFiltered.push(_l.location)
-          }
-        </script>
         {% if l.sector == 'A' %}
         <button class="sectorA sectorUP floor{{l.floor}}" id="{{l.floor}}{{l.sector}}{{l.written_lockernum}}"
           onClick="select('{{l.lockernum}}', '{{l.building}}','{{l.floor}}', '{{l.sector}}', '{{l.written_lockernum}}', this.id)">
@@ -177,45 +209,8 @@
         {%endif%} {% endfor %}
       </section>
     </section>
-    <script>
-      // 학부에 따라 select option 필터링
-      const theSelect = document.querySelector("select#building");
-      const _userdepartment = "{{ department.get_deptname_display }}";
-      let selection = ``;
-      console.log(lockerFiltered);
-      if (_userdepartment == "전자정보공학부") {
-        selection += `< optgroup label = "형남공학관" ><option disabled>층과 구역을 선택하세요.</option>`
-        for (loc of lockerFiltered) {
-          const _building = loc.slice(0, 2);
-          const _floor = (loc[2] == 0) ? "B1" : loc[2];
-          const _sector = loc[3];
-          selection += `<option value=${_building}${_floor}${_sector}>> ${_floor}층 ${_sector}구역</option>`
-        }
-        selection += `</optgroup > `;
-      } else if (_userdepartment == "AI융합학부") {
-        selection += `< optgroup label = "형남공학관" ><option disabled>층과 구역을 선택하세요.</option>`;
-        selection += `
-            <option value="HN0">> 지하 1층</option>
-            <option value="HN4">> 4층</option>`;
-        selection += `</optgroup >`;
-        selection += `<optgroup label="문화관">`;
-        selection += `<option value="CB1">> 1층</option>
-          <option value="CB2">> 2층</option>
-          <option value="CB3">> 3층</option>`;
-        selection += `</optgroup>`;
-      } else {
-        selection += `< optgroup label = "정보과학관" ><option disabled selected>층과 구역을 선택하세요.</option>`;
-        for (loc of lockerFiltered) {
-          const _building = loc.slice(0, 2);
-          let _floor = loc[2]
-          let _floorShow = (loc[2] == 0) ? "B1" : loc[2];
-          const _sector = loc[3];
-          selection += `<option value=${_building}${_floor}${_sector}>> ${_floorShow}층 ${_sector}구역</option>`
-        }
-        selection += `</optgroup >`;
-      }
-      theSelect.innerHTML = selection;
-    </script>
+
+
     {% else %}
     <p class="warning">오류로 인하여 사물함을 표시할 수 없습니다.</p>
     {% endif %}

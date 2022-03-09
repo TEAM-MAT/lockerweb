@@ -22,11 +22,11 @@
         <h1>IT대학 사물함 예약 웹사이트 3.0</h1>
     </header>
     <main>
+        <button type="button" style="cursor: pointer; margin-left:47%; size:20;" onclick="location.href='{%url 'locker:login' %}'">메인화면으로 돌아가기</button>
         <div id="loginDiv">
             <span id="passwdRule">💡 비밀번호는 010을 제외한 휴대전화번호 8자리입니다.</span>
             <span id="passwdExample">예시) 010-1234-5678인 경우: 12345678</span>
             <span id="errormessage" style="color: red;">
-                {% if time_token == 0 %} {{"해당 학부(과)의 예약 시간 전입니다."}} {%endif%}
                 {% if error %} {{"학번 또는 비밀번호가 잘못되었습니다"}} {%endif%}
             </span>
             <form id="loginForm" action="{% url 'locker:pwchange_login' %}" class="bold post-form" method="post">
