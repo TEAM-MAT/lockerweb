@@ -13,8 +13,8 @@ def lockerlist(request):
     if request.user.is_authenticated:
         if timecheck(request.user.department)==1:
             user=users.objects.get(id=request.user.id)
-            locker_list=lockers.objects.filter(department=user.department,reserved=0).order_by("lockernum")   
-            reservation_before=locker_info(user)
+            locker_list=lockers.objects.filter(department=user.department,reserved=0).order_by("lockernum")  #예약가능 사물함.
+            reservation_before=locker_info(user) #예약된 사물함
             if reservation_before["usercurrlocker"] is None:
                 userlocker="예약된 사물함 없음"
             else:
