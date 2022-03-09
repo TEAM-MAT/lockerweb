@@ -89,13 +89,10 @@
             return cookieValue;
         }
 
-        
+        {% if usercurrlocker %}
+        autoCancel.innerHTML ="선택한 사물함 " + codeFilter('{{usercurrlocker}}') + "이 취소됩니다."
+        {% endif %}
         if (currentSelected != null) {
-            {% if usercurrlocker %}
-            console.log('{{usercurrlocker}}');
-            autoCancel.innerHTML ="선택한 사물함 " + '{{usercurrlocker}}' + "이 취소됩니다."
-            {% endif %}
-            
             reserveCheck.innerHTML = "선택하신 사물함은 " + codeFilter(currentSelected) + "입니다. </br></br>예약하시겠습니까?";
             reserveCheck.style.textAlign = "center";
 
@@ -129,7 +126,7 @@
                 }
             });
         }
-        else if (currentSelected === null){
+        else {
             reserveCheck.innerHTML = "선택하신 사물함이 없습니다. </br></br> 사물함을 선택해주세요.";
             reserveCheck.style.textAlign = "center";
             reserveBtn.style.display = "none";

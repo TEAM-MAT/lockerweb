@@ -21,7 +21,7 @@ class userAdmin(ImportExportMixin,BaseUserAdmin):
             'fields':('id','name','password1','password2','department','is_admin','phone'),
         }),
     )
-    search_fields=('id','name','department',)
+    search_fields=('id','name','department')
     ordering=('id',)
     filter_horizontal=()
 class lockerAdmin(admin.ModelAdmin):
@@ -37,7 +37,7 @@ class lockerAdmin(admin.ModelAdmin):
             'fields':('building','written_lockernum','floor','sector','department','reserved')
         }),
     )
-    search_fields=('lockernum','building','sector','reserved',)
+    search_fields=('lockernum','building','sector','reserved')
     ordering=('lockernum',)
     filter_horizontal=()
 admin.site.register(users,userAdmin)
