@@ -12,11 +12,14 @@
 <li>사물함 닫힘 : https://i.imgur.com/7rW94bh.png</li>
 <li>font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;</li>
 </ol>
-<p>GM6 : https://i.imgur.com/b9kaNKw.png
-GM4 : https://i.imgur.com/gLjse84.png
-GM0 : https://i.imgur.com/Lrqw5Nl.png
-EIE3 : https://i.imgur.com/f8kjHfc.png
-EIE1 : https://i.imgur.com/mnesjq5.png
-AIC4 : https://i.imgur.com/zxOx1fD.png
-AIC0 : https://i.imgur.com/swXCbhD.png
-Basic : https://i.imgur.com/OppfBtD.png</p>
+<p>IS0 : https://i.ibb.co/dQbFNN2/IS0.jpg
+IS1 : https://i.ibb.co/THrqxCc/IS1.jpg
+IS2 : https://i.ibb.co/4Z43DGZ/IS2.jpg
+IS3 : https://i.ibb.co/9VG8xKZ/IS3.png
+IS4 : https://i.ibb.co/x745qfD/IS4.jpg
+IS5 : https://i.ibb.co/Kh6fP6n/IS5.jpg
+IS6 : https://i.ibb.co/QFPpr48/IS6.png
+HN0 : https://i.ibb.co/C0xg5Sx/HN0.png
+HN1 : https://i.ibb.co/Zmxy3gD/HN1.png
+HN3 : https://i.ibb.co/hfFHgg4/HN3.png
+HN4 : https://i.ibb.co/7pf4YMc/HN4.png</p>
