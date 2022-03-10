@@ -1,17 +1,43 @@
 @import "./regCanPop";
 #popup {
- @include flex-default(flex, space-evenly, column, center);
+ @include flex-default(flex, space-evenly, row, center);
+ height: 15vw;
+ @media (max-width: 1200px) {
+  @include flex-default(flex, space-evenly, column, center);
+  height: auto;
+ }
+ button {
+  display: none;
+  @media (max-width: 1200px) {
+   display: initial;
+  }
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic",
+   sans-serif;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  list-style: none;
+  border: 3px solid $dblue;
+  border-radius: 5px;
+  background-color: $white;
+  margin: 1%;
+ }
+ button:hover {
+  background-color: $dblue;
+ }
 }
+
 #infoPopupDiv {
  @include flex-default(flex, space-evenly, column, center);
  align-items: center;
  width: 25%;
- height: 100px;
+ height: 200px;
  background-color: $lblue;
  border: 3px solid $dblue;
  border-radius: 5px;
  @media (max-width: 1200px) {
   width: 50%;
+  height: auto;
  }
  span {
   text-align: center;
@@ -19,6 +45,38 @@
  #userRegistered,
  #userSelected {
   margin: 1%;
+ }
+}
+
+#lockermap {
+ @include flex-default;
+ border: 3px solid $dblue;
+ border-radius: 5px;
+ background-color: $dblue;
+ @media (max-width: 1200px) {
+  width: 50%;
+ }
+ img {
+  height: 10vw;
+  max-width: 500px;
+  transition: height 1s;
+  @media (max-width: 1200px) {
+   width: 100%;
+   height: auto;
+  }
+ }
+ img:active {
+  height: 15vw;
+  transition: height 1s;
+  @media (max-width: 1200px) {
+   width: 100%;
+   height: auto;
+  }
+ }
+ #lockermapCaution {
+  @media (max-width: 1200px) {
+   display: none;
+  }
  }
 }
 

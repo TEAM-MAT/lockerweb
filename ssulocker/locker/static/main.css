@@ -448,20 +448,6 @@ select option {
   }
 }
 
-div#lockermap {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-div#lockermap img {
-  width: 25vw;
-}
-div#lockermap :active {
-  width: 50vw;
-}
-
 #loginDiv {
   display: flex;
   justify-content: center;
@@ -648,8 +634,38 @@ li.selected {
 #popup {
   display: flex;
   justify-content: space-evenly;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  height: 15vw;
+}
+@media (max-width: 1200px) {
+  #popup {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+}
+#popup button {
+  display: none;
+  font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  list-style: none;
+  border: 3px solid #d1e4ff;
+  border-radius: 5px;
+  background-color: #fff;
+  margin: 1%;
+}
+@media (max-width: 1200px) {
+  #popup button {
+    display: initial;
+  }
+}
+#popup button:hover {
+  background-color: #d1e4ff;
 }
 
 #infoPopupDiv {
@@ -659,7 +675,7 @@ li.selected {
   align-items: center;
   align-items: center;
   width: 25%;
-  height: 100px;
+  height: 200px;
   background-color: #e5f0ff;
   border: 3px solid #d1e4ff;
   border-radius: 5px;
@@ -667,6 +683,7 @@ li.selected {
 @media (max-width: 1200px) {
   #infoPopupDiv {
     width: 50%;
+    height: auto;
   }
 }
 #infoPopupDiv span {
@@ -675,6 +692,47 @@ li.selected {
 #infoPopupDiv #userRegistered,
 #infoPopupDiv #userSelected {
   margin: 1%;
+}
+
+#lockermap {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #d1e4ff;
+  border-radius: 5px;
+  background-color: #d1e4ff;
+}
+@media (max-width: 1200px) {
+  #lockermap {
+    width: 50%;
+  }
+}
+#lockermap img {
+  height: 10vw;
+  max-width: 500px;
+  transition: height 1s;
+}
+@media (max-width: 1200px) {
+  #lockermap img {
+    width: 100%;
+    height: auto;
+  }
+}
+#lockermap img:active {
+  height: 15vw;
+  transition: height 1s;
+}
+@media (max-width: 1200px) {
+  #lockermap img:active {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 1200px) {
+  #lockermap #lockermapCaution {
+    display: none;
+  }
 }
 
 #regist,

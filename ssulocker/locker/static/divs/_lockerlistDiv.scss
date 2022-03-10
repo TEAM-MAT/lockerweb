@@ -118,14 +118,3 @@ select {
   width: 200px;
  }
 }
-
-div#lockermap {
- width: 100vw;
- @include flex-default;
- img {
-  width: 25vw;
- }
- :active {
-  width: 50vw;
- }
-}
