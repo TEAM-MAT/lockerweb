@@ -14,7 +14,10 @@ preload([
   "https://imgur.com/T646du8.png", //정보관 5층
   "https://imgur.com/c1Qciw8.png", //정보관 6층
   "https://imgur.com/iCwla87.png", //정보관 B1층
-  "https://imgur.com/hQDxK0h.png", //형남공학관 3층
+  "https://imgur.com/TtZCIF9.png", // 형남공학관 B1층
+  "https://imgur.com/dCFGBnk.png", // 형남공학관 1층
+  "https://imgur.com/cVgQkBE.png", // 형남공학관 4층
+  "https://imgur.com/kGPqB8j.png", //형남공학관 3층
   "https://imgur.com/GhHIly3.png" //형남공학관 4층
 ]);
 
@@ -67,6 +70,14 @@ function selectBuilding(inp) {
   //사물함 배치도 변경
   const theImage = document.getElementById("lockermapImage");
   switch (inp) {
+    case "HN0":
+      theImage.src = "https://imgur.com/TtZCIF9.png";
+      console.log("HN3");
+      break;
+    case "HN1":
+      theImage.src = "https://imgur.com/dCFGBnk.png";
+      console.log("HN1");
+      break;
     case "HN3":
       theImage.src = "https://imgur.com/hQDxK0h.png";
       console.log("HN3");
