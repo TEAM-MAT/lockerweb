@@ -3,6 +3,7 @@
 #nginx 이전에 설치해줘야할듯...아시아 -> 도쿄 시간대 -> 서울 
 cd /home/ubuntu/
 sudo apt-get update -y
+sudo apt install nginx -y #시간대 설정 메뉴가 나올 때도 있음.
 sudo apt install python3 -y
 sudo apt install python3.8-venv -y
 sudo apt-get install python3-pip -y
