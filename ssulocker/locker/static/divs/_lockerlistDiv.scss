@@ -118,12 +118,3 @@ select {
   width: 200px;
  }
 }
-
-div#lockermap img {
- max-width: 300px;
- max-height: 300px;
- @media (max-width: 1200px) {
-  max-width: 150px;
-  max-height: 150px;
- }
-}

@@ -21,3 +21,17 @@ floorSpan.forEach(function (t) {
   t.innerText = "B1";
  }
 });
+
+function lockermapImageBigger(buttonId, status) {
+ const theMap = document.getElementById("lockermapImage");
+ const theButton = document.getElementById(buttonId);
+ if (status == "big") {
+  theMap.style.width = "100vw";
+  theButton.innerText = "축소";
+  theButton.value = "small";
+ } else {
+  theMap.style.width = "100%";
+  theButton.innerText = "확대";
+  theButton.value = "big";
+ }
+}
