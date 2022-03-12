@@ -1,20 +1,25 @@
 //preload images
-let images = [];
 function preload(arg) {
+ let images = [];
  for (let i = 0; i < arg.length; i++) {
   images[i] = arg[i];
   images[i].src = arg[i].src;
  }
+ console.log("completed!");
 }
 preload([
- "https://i.imgur.com/b9kaNKw.png",
- "https://i.imgur.com/gLjse84.png",
- "https://i.imgur.com/Lrqw5Nl.png",
- "https://i.imgur.com/f8kjHfc.png",
- "https://i.imgur.com/mnesjq5.png",
- "https://i.imgur.com/zxOx1fD.png",
- "https://i.imgur.com/swXCbhD.png",
- "https://i.imgur.com/OppfBtD.png",
+ "https://i.ibb.co/dQbFNN2/IS0.jpg",
+ "https://i.ibb.co/THrqxCc/IS1.jpg",
+ "https://i.ibb.co/4Z43DGZ/IS2.jpg",
+ "https://i.ibb.co/9VG8xKZ/IS3.png",
+ "https://i.ibb.co/x745qfD/IS4.jpg",
+ "https://i.ibb.co/Kh6fP6n/IS5.jpg",
+ "https://i.ibb.co/QFPpr48/IS6.png",
+ "https://i.ibb.co/C0xg5Sx/HN0.png",
+ "https://i.ibb.co/Zmxy3gD/HN1.png",
+ "https://i.ibb.co/hfFHgg4/HN3.png",
+ "https://i.ibb.co/7pf4YMc/HN4.png",
+ "https://i.imgur.com/mhlFPRx.png",
 ]);
 
 const floors = [0, 1, 2, 3, 4, 5, 6];
@@ -104,5 +109,7 @@ function selectedImage(inp) {
   case "HN4":
    theImage.src = "https://i.ibb.co/7pf4YMc/HN4.png";
    break;
+  default:
+   theImage.src = "https://i.imgur.com/mhlFPRx.png";
  }
 }
