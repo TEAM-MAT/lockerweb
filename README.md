@@ -3,7 +3,7 @@
 > 숭실대학교 IT대학 사물함 예약 프로그램(구)이 소실되어 이를 대체할 웹 예약 사이트 개발프로젝트  
 
 
-개발 기간: 2021. 11. 07~  2022.03.13
+개발 기간: 2021. 11. 07~  2022.03.13 <br>
 link for test (non-official): <a href="http://ssuitlocker.kro.kr/locker/login">http://ssuitlocker.kro.kr/locker/login</a><br>
 official link : <a href="http://ssuitlocker.com/locker/login">http://ssuitlocker.com/locker/login</a>
 
