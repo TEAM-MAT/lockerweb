@@ -5,6 +5,7 @@
 
 개발 기간: 2021. 11. 07~  
 link for test (non-official): <a href="http://ssuitlocker.kro.kr/locker/login">http://ssuitlocker.kro.kr/locker/login</a>
+official link : <a href="http://ssuitlocker.com/locker/login">http://ssuitlocker.com/locker/login</a>
 
 사용 framework: [Django 4.0](https://github.com/django/django)  
 DB: Mysql 8.0.26 , AWS RDS  
