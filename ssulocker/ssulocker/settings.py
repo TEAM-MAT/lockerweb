@@ -23,7 +23,7 @@ SECRET_KEY = 'django-insecure-epj&8w#0i6_f-y*vtw77=q5vsl@5@(wx9qm2y2qbi)i(t)g+me
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["ec2-13-209-167-172.ap-northeast-2.compute.amazonaws.com","localhost","13.209.167.172","ssuitlocker.kro.kr"]
+ALLOWED_HOSTS = ["ssuitlocker.kro.kr","localhost"]
 #cookie(login) duration
 SESSION_COOKIE_AGE=600
 SESSION_SAVE_EVERY_REQUEST=True
@@ -139,3 +139,58 @@ STATICFILES_DIRS=[]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL='/locker/login'
 LOGIN_REDIRECT_URL='/locker/lockerlist'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'formatters': {
+        'django.server': {
+            '()': 'django.utils.log.ServerFormatter',
+            'format': '[{server_time}] {message}',
+            'style': '{',
+        },
+        'standard':{
+            'format': '%(asctime)s [%(levelname)s] %(name)s : %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        },
+        'django.server': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'django.server',
+        },
+        'file':{
+            'level': 'INFO',
+            'filters': ['require_debug_false'],
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'logs/ssulocker.log',
+            'maxBytes': 1024*1024*50,
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console','file'],
+            'level': 'INFO',
+        },
+        'django.server': {
+            'handlers': ['django.server'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    }
+}

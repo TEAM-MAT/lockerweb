@@ -10,3 +10,4 @@ py310.yml
 ssulocker/ssulocker/__pycache__/
 ssulocker/locker/__pycache__/
 ssulocker/locker/views/__pycache__/
+logs
