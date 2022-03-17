@@ -1,4 +1,7 @@
+import code
+from telnetlib import STATUS
 from django.http.response import HttpResponse
+from django.http.response import HttpResponseNotFound
 import json
 from locker.models import lockers
 def reservation(user,locker):
@@ -12,9 +15,9 @@ def reservation(user,locker):
         user.lockernum.reserved=1
         user.save()
         locker.save()
-        return HttpResponse(json.dumps({'code':200}))
+        return HttpResponse("success")
     else:
-        return HttpResponse(json.dumps({'code':404}))
+        return HttpResponseNotFound("can't reserve")
 
 def locker_info(user):
     userlocker=None
