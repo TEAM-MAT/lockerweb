@@ -614,11 +614,12 @@ li.selected {
 #cancelPopupDiv #btnsWrap button {
   font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.0em;
   list-style: none;
   border: 3px solid #d1e4ff;
   border-radius: 5px;
   background-color: #fff;
+  color: black;
 }
 #registerPopupDiv #btnsWrap button:hover,
 #cancelPopupDiv #btnsWrap button:hover {
@@ -658,6 +659,7 @@ li.selected {
   border-radius: 5px;
   background-color: #fff;
   margin: 1%;
+  color: black;
 }
 @media (max-width: 1200px) {
   #popup button {
@@ -769,7 +771,7 @@ li.selected {
   align-items: center;
   min-width: 100%;
 }
-#registerPopupDiv button,
+/* #registerPopupDiv button,
 #cancelPopupDiv button {
   font-family: Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   text-align: center;
@@ -784,7 +786,7 @@ li.selected {
 #registerPopupDiv button:hover,
 #cancelPopupDiv button:hover {
   background-color: #d1e4ff;
-}
+} */
 @media (max-width: 1200px) {
   #registerPopupDiv,
 #cancelPopupDiv {
