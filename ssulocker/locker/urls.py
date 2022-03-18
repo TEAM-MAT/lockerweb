@@ -17,5 +17,4 @@ urlpatterns = [
     path('pwchangePop',views.pwchangePop,name='pwchangePop'),
     path('pwchange',views.pwchange,name='pwchange'),
     path('pwchange_login',views.pwclogin,name="pwchange_login"),
-    path('pwinit',views.pw_init,name="pwinit"),
 ]

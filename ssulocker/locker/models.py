@@ -101,6 +101,7 @@ class UserSession(models.Model):
 SessionStore = import_module(settings.SESSION_ENGINE).SessionStore
 
 
+
 def kicked_my_other_sessions(sender, request, user, **kwargs):
     for user_session in UserSession.objects.filter(user=user):
         session_key = user_session.session_key
@@ -114,3 +115,23 @@ def kicked_my_other_sessions(sender, request, user, **kwargs):
     UserSession.objects.create(user=user, session_key=session_key)
 
 user_logged_in.connect(kicked_my_other_sessions, dispatch_uid='user_logged_in')
+
+#user pw initial setting
+class usersetting():
+    @staticmethod
+    def init_pw():
+        initresult={"result":"","num":0}
+        number_process=0
+        user_all=users.objects.all()
+        for u in user_all:
+            if u.is_admin!=True:
+                pn=u.phone#전화번호는 010떼고 입력받아야함.
+                u.set_password(pn)
+                u.save()
+                number_process+=1
+        if number_process>0:
+            initresult["result"]="성공"
+            initresult["num"]=number_process
+        else:
+            initresult["result"]="실패 혹은 초기화할 유저가 없습니다."
+        print(initresult)
