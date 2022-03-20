@@ -200,14 +200,14 @@
         selection += `</optgroup > `;
       } else if (_userdepartment == "AI융합학부") {
         selection += `< optgroup label = "형남공학관" ><option disabled selected>층과 구역을 선택하세요.</option>`;
-        selection += `
-       <option value="HN0A">> 지하 1층</option>
-       <option value="HN4A">> 4층</option>`;
+        for (loc of lockerFiltered) {
+          const _building = loc.slice(0, 2);
+          let _floor = loc[2];
+          let _floorShow = loc[2] == 0 ? "B1" : loc[2];
+          const _sector = loc[3];
+          selection += `<option value=${_building}${_floor}${_sector}>> ${_floorShow}층 ${_sector}구역</option>`;
+        }
         selection += `</optgroup >`;
-        selection += `<optgroup label="문화관">`;
-        selection += `<option value="CB1">> 1층</option>
-     <option value="CB2">> 2층</option>
-     <option value="CB3">> 3층</option>`;
         selection += `</optgroup>`;
       } else {
         selection += `< optgroup label = "정보과학관" ><option disabled selected>층과 구역을 선택하세요.</option>`;
