@@ -42,6 +42,7 @@
       sessionStorage.setItem("lockerData", inp);
       sessionStorage.setItem("lockernumShowing", `${building} ${floor}층 ${sector}구역 ${num}번`);
       selectionUpdate();
+      console.log(sessionStorage);
       document.querySelectorAll("section#lockers button").forEach(t => {
         t.classList.remove("selected");
       });
@@ -200,8 +201,8 @@
       } else if (_userdepartment == "AI융합학부") {
         selection += `< optgroup label = "형남공학관" ><option disabled selected>층과 구역을 선택하세요.</option>`;
         selection += `
-       <option value="HN0">> 지하 1층</option>
-       <option value="HN4">> 4층</option>`;
+       <option value="HN0A">> 지하 1층</option>
+       <option value="HN4A">> 4층</option>`;
         selection += `</optgroup >`;
         selection += `<optgroup label="문화관">`;
         selection += `<option value="CB1">> 1층</option>
