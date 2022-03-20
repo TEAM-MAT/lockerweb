@@ -73,7 +73,7 @@
     <section id="popup">
       <div id="infoPopupDiv">
         <p><span id="userDep2">{{department.get_deptname_display}}</span> <span id="userName">{{username}}님</span></p>
-        <span id="userRegistered">현재 예약된 사물함<br>{{usercurrlocker}}</span>
+        <span id="userRegistered"></span>
         <span id="userSelected" style="font-weight: bold;"></span>
       </div>
       <div id="lockermap">
@@ -82,6 +82,28 @@
       </div>
       <button id="mapButton" value="big" onclick="lockermapImageBigger(this.id, this.value)">확대</button>
     </section>
+    <script>
+      const userRegistered = document.querySelector('#userRegistered');
+      console.log(userRegistered)
+
+      function codeFilter(currentSelected) {
+            console.log(currentSelected);
+            let showSelected = "";
+            // 층 필터링
+            showSelected += currentSelected.substring(0, 5) + " "
+            if (currentSelected[6] == "0") {
+                showSelected += "지하 1층 ";
+            }
+            else {
+                showSelected += currentSelected[1] + "층 "
+            }
+            showSelected += currentSelected.substr(8)
+            return showSelected;
+        }
+
+      userRegistered.innerHTML = '현재 예약된 사물함 <br>' + codeFilter('{{usercurrlocker}}');
+
+    </script>
     {% if locker_list %}
 
     <!--사물함이 로딩되었을 시 출력-->
