@@ -185,6 +185,8 @@
       // 학부에 따라 select option 필터링
       const theSelect = document.querySelector("select#building");
       const _userdepartment = "{{ department.get_deptname_display }}";
+      console.log(_userdepartment);
+
       let selection = ``;
       if (_userdepartment == "전자정보공학부") {
         selection += `< optgroup label = "형남공학관" ><option disabled selected>층과 구역을 선택하세요.</option>`;
