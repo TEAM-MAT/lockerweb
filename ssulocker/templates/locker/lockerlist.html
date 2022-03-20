@@ -42,6 +42,7 @@
       sessionStorage.setItem("lockerData", inp);
       sessionStorage.setItem("lockernumShowing", `${building} ${floor}층 ${sector}구역 ${num}번`);
       selectionUpdate();
+      console.log(sessionStorage);
       document.querySelectorAll("section#lockers button").forEach(t => {
         t.classList.remove("selected");
       });
@@ -72,7 +73,7 @@
     <section id="popup">
       <div id="infoPopupDiv">
         <p><span id="userDep2">{{department.get_deptname_display}}</span> <span id="userName">{{username}}님</span></p>
-        <span id="userRegistered">현재 예약된 사물함<br>{{usercurrlocker}}</span>
+        <span id="userRegistered"></span>
         <span id="userSelected" style="font-weight: bold;"></span>
       </div>
       <div id="lockermap">
@@ -81,6 +82,28 @@
       </div>
       <button id="mapButton" value="big" onclick="lockermapImageBigger(this.id, this.value)">확대</button>
     </section>
+    <script>
+      const userRegistered = document.querySelector('#userRegistered');
+      console.log(userRegistered)
+
+      function codeFilter(currentSelected) {
+            console.log(currentSelected);
+            let showSelected = "";
+            // 층 필터링
+            showSelected += currentSelected.substring(0, 5) + " "
+            if (currentSelected[6] == "0") {
+                showSelected += "지하 1층 ";
+            }
+            else {
+                showSelected += currentSelected[1] + "층 "
+            }
+            showSelected += currentSelected.substr(8)
+            return showSelected;
+        }
+
+      userRegistered.innerHTML = '현재 예약된 사물함 <br>' + codeFilter('{{usercurrlocker}}');
+
+    </script>
     {% if locker_list %}
 
     <!--사물함이 로딩되었을 시 출력-->
@@ -185,6 +208,8 @@
       // 학부에 따라 select option 필터링
       const theSelect = document.querySelector("select#building");
       const _userdepartment = "{{ department.get_deptname_display }}";
+      console.log(_userdepartment);
+
       let selection = ``;
       if (_userdepartment == "전자정보공학부") {
         selection += `< optgroup label = "형남공학관" ><option disabled selected>층과 구역을 선택하세요.</option>`;
@@ -197,14 +222,14 @@
         selection += `</optgroup > `;
       } else if (_userdepartment == "AI융합학부") {
         selection += `< optgroup label = "형남공학관" ><option disabled selected>층과 구역을 선택하세요.</option>`;
-        selection += `
-       <option value="HN0">> 지하 1층</option>
-       <option value="HN4">> 4층</option>`;
+        for (loc of lockerFiltered) {
+          const _building = loc.slice(0, 2);
+          let _floor = loc[2];
+          let _floorShow = loc[2] == 0 ? "B1" : loc[2];
+          const _sector = loc[3];
+          selection += `<option value=${_building}${_floor}${_sector}>> ${_floorShow}층 ${_sector}구역</option>`;
+        }
         selection += `</optgroup >`;
-        selection += `<optgroup label="문화관">`;
-        selection += `<option value="CB1">> 1층</option>
-     <option value="CB2">> 2층</option>
-     <option value="CB3">> 3층</option>`;
         selection += `</optgroup>`;
       } else {
         selection += `< optgroup label = "정보과학관" ><option disabled selected>층과 구역을 선택하세요.</option>`;
