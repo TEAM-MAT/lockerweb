@@ -7,6 +7,7 @@ from django.conf import settings
 from django.contrib.auth.signals import user_logged_in
 from django.db import models
 from importlib import import_module
+from threading import Thread
 import datetime
 from django.contrib.auth.models import (BaseUserManager,AbstractBaseUser)
 departments=[('CS','컴퓨터학부'),
@@ -119,19 +120,38 @@ user_logged_in.connect(kicked_my_other_sessions, dispatch_uid='user_logged_in')
 #user pw initial setting
 class usersetting():
     @staticmethod
-    def init_pw():
+    def pwthread(dept,result):
         initresult={"result":"","num":0}
         number_process=0
-        user_all=users.objects.all()
+        user_all=users.objects.filter(department=dept)
         for u in user_all:
             if u.is_admin!=True:
                 pn=u.phone#전화번호는 010떼고 입력받아야함.
                 u.set_password(pn)
                 u.save()
                 number_process+=1
+        result.append(number_process)
+        return
+    def __init__(self):
+        result=list()
+        th1=Thread(target=self.pwthread,args=("EIE",result))
+        th2=Thread(target=self.pwthread,args=("CS",result))
+        th3=Thread(target=self.pwthread,args=("GM",result))
+        th4=Thread(target=self.pwthread,args=("SW",result))
+        th5=Thread(target=self.pwthread,args=("AIC",result))
+
+        th1.start()
+        th2.start()
+        th3.start()
+        th4.start()
+        th5.start()
+        th1.join()
+        th2.join()
+        th3.join()
+        th4.join()
+        th5.join()
+        number_process=sum(result)
         if number_process>0:
-            initresult["result"]="성공"
-            initresult["num"]=number_process
+            print("성공"+number_process+"명")
         else:
-            initresult["result"]="실패 혹은 초기화할 유저가 없습니다."
-        print(initresult)
+            print("실패 혹은 초기화할 유저 없음")
