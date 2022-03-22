@@ -152,6 +152,6 @@ class usersetting():
         th5.join()
         number_process=sum(result)
         if number_process>0:
-            print("성공"+number_process+"명")
+            print("성공"+str(number_process)+"명")
         else:
             print("실패 혹은 초기화할 유저 없음")
