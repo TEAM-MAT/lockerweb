@@ -13,7 +13,7 @@ Extension : [Dart Sass 1.45.1](https://github.com/sass/dart-sass)
 [기획,개발일지 in Notion](https://amuguna1mandeum.notion.site/IT-28e22b4b568543d7ade823bcc97bcead)  
 
 
-기획, PM, 프론트:[한수호](https://github.com/unbroken2650)  
+기획, PM, 프론트:[한수호](https://github.com/suho-han)  
 프론트 : [이수민](https://github.com/intersoom)  
 기획 및 백엔드 개발 : [심원준](https://github.com/makemyway-kr)
 
